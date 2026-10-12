@@ -1,0 +1,42 @@
+import type { ReactElement } from 'react';
+import { RiBriefcaseLine, RiMailLine } from 'react-icons/ri';
+import { SocialNetworks } from '@/components/common/social-networks';
+import { portfolio } from '@/data/portfolio';
+
+export const ContactProfile = (): ReactElement => (
+  <div>
+    <div className="mb-8">
+      <div className="mb-6 flex items-center gap-4">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-full">
+          <img
+            src={portfolio.image}
+            alt={`${portfolio.name.first} ${portfolio.name.last}`}
+            className="absolute inset-0 size-full object-cover object-top"
+          />
+        </div>
+        <div className="flex w-fit flex-col items-start">
+          <h3 className="-translate-y-1.25 text-[2rem] font-bold text-[#191919] dark:text-white">
+            {portfolio.name.first}
+          </h3>
+          <p className="-mt-1 inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+            <RiBriefcaseLine className="size-4 shrink-0" aria-hidden="true" />
+            {portfolio.role}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="mb-3">
+      <h4 className="mb-4 text-lg font-semibold text-[#191919] dark:text-white">
+        Useful links:
+      </h4>
+      <SocialNetworks variant="pill" />
+    </div>
+    <a
+      href={`mailto:${portfolio.contact.email}`}
+      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+    >
+      <RiMailLine className="size-4" aria-hidden="true" />
+      <span>{portfolio.contact.email}</span>
+    </a>
+  </div>
+);
