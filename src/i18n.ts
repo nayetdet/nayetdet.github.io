@@ -17,8 +17,14 @@ const resources = {
       },
       language: {
         label: 'Language',
+        select: 'Select language',
         portuguese: 'Português',
         english: 'English',
+      },
+      social: {
+        linkedin: 'LinkedIn profile',
+        github: 'GitHub profile',
+        gitlab: 'GitLab profile',
       },
       theme: { toggle: 'Toggle between light and dark theme' },
       hero: { greeting: "Hi, I'm", scrollToAbout: 'Scroll to about' },
@@ -61,8 +67,14 @@ const resources = {
       },
       language: {
         label: 'Idioma',
+        select: 'Selecionar idioma',
         portuguese: 'Português',
         english: 'English',
+      },
+      social: {
+        linkedin: 'Perfil do LinkedIn',
+        github: 'Perfil do GitHub',
+        gitlab: 'Perfil do GitLab',
       },
       theme: { toggle: 'Alternar entre tema claro e escuro' },
       hero: { greeting: 'Olá, eu sou', scrollToAbout: 'Ir para a seção Sobre' },

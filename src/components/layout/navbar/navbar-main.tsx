@@ -37,7 +37,7 @@ export const NavbarMain = (): ReactElement => {
       >
         <div className="rounded-full border border-[#191919]/20! bg-white/20 px-8 shadow-lg backdrop-blur-sm sm:px-12 dark:border-white/25! dark:bg-black/20">
           <div className="flex h-14 items-center justify-center">
-            <div className="hidden md:flex md:items-center">
+            <div className="hidden items-center gap-6 md:flex">
               <NavigationItems
                 items={navigationSections}
                 activeSectionId={activeSectionId}
@@ -45,12 +45,10 @@ export const NavbarMain = (): ReactElement => {
                 variant="desktop"
               />
               <span
-                className="mr-4 ml-1 self-center text-lg leading-none font-light text-gray-400/80 dark:text-gray-500"
+                className="h-4 w-px shrink-0 self-center bg-gray-400/80 dark:bg-gray-500"
                 aria-hidden="true"
-              >
-                |
-              </span>
-              <div className="flex items-center">
+              />
+              <div className="flex items-center gap-6">
                 <LanguageToggle />
                 <ThemeToggle />
               </div>

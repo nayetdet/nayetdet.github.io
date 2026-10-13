@@ -1,6 +1,6 @@
 import type { ReactElement, SubmitEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { ArrowRight } from 'lucide-react';
 
 export const ContactForm = (): ReactElement => {
   const { t } = useTranslation();
@@ -48,7 +48,7 @@ export const ContactForm = (): ReactElement => {
           className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-[#191919] px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90 dark:bg-white dark:text-[#191919]"
         >
           <span className="-translate-y-px">{t('contact.send')}</span>
-          <RiArrowRightLine className="size-5" aria-hidden="true" />
+          <ArrowRight className="size-5" aria-hidden="true" />
         </button>
       </form>
     </div>

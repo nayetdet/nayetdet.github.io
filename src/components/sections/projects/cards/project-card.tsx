@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiExternalLinkLine } from 'react-icons/ri';
+import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { ProjectCardGallery } from '@/components/sections/projects/cards/project-card-gallery';
 import { ProjectCardInfo } from '@/components/sections/projects/cards/project-card-info';
@@ -38,7 +38,7 @@ export const ProjectCard = ({
             <div className="text-center text-white">
               <span className="flex items-center gap-2 text-xl font-bold">
                 {t('projects.viewWebsite')}
-                <RiExternalLinkLine className="size-6 " aria-hidden="true" />
+                <ExternalLink className="size-6 " aria-hidden="true" />
               </span>
             </div>
           </div>

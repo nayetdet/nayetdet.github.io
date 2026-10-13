@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiBriefcaseLine, RiMailLine } from 'react-icons/ri';
+import { BriefcaseBusiness } from 'lucide-react';
+import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Portfolio } from '@/types/portfolio';
@@ -24,7 +25,10 @@ export const ContactProfile = (): ReactElement => {
               {portfolio.name.first}
             </h3>
             <p className="-mt-1 inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-              <RiBriefcaseLine className="size-4 shrink-0" aria-hidden="true" />
+              <BriefcaseBusiness
+                className="size-4 shrink-0"
+                aria-hidden="true"
+              />
               {portfolio.role}
             </p>
           </div>

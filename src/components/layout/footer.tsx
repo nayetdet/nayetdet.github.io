@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiMailLine, RiMapPinLine } from 'react-icons/ri';
+import { MapPin } from 'lucide-react';
+import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
 import { navigationSections } from '@/constants/sections';
@@ -58,7 +59,7 @@ export const Footer = (): ReactElement => {
             </div>
             <div className="mb-3 sm:mb-4">
               <div className="flex items-center gap-2 text-sm text-[#404040] sm:text-base dark:text-[#d4d4d4]">
-                <RiMapPinLine className="size-4 " aria-hidden="true" />
+                <MapPin className="size-4 " aria-hidden="true" />
                 {portfolio.location}
               </div>
             </div>

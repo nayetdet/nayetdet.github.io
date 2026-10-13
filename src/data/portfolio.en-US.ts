@@ -1,9 +1,4 @@
-import {
-  RiLayoutLine,
-  RiServerLine,
-  RiSettings3Line,
-  RiStackLine,
-} from 'react-icons/ri';
+import { Layers3, PanelsTopLeft, Server, Settings2 } from 'lucide-react';
 import type { Portfolio } from '@/types/portfolio';
 
 const portfolioEnUS: Portfolio = {
@@ -12,10 +7,10 @@ const portfolioEnUS: Portfolio = {
   image: '/images/profile/joao-pedro-moreira.jpg',
   location: 'Fortaleza, Ceará, Brazil',
   specialties: [
-    { name: 'Full Stack', icon: RiStackLine },
-    { name: 'Backend', icon: RiServerLine },
-    { name: 'Frontend', icon: RiLayoutLine },
-    { name: 'DevOps', icon: RiSettings3Line },
+    { name: 'Full Stack', icon: Layers3 },
+    { name: 'Backend', icon: Server },
+    { name: 'Frontend', icon: PanelsTopLeft },
+    { name: 'DevOps', icon: Settings2 },
   ],
   tagline:
     'I build reliable backend platforms, web products, and data-driven solutions with thoughtful architecture and intuitive interfaces.',

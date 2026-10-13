@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiExternalLinkLine } from 'react-icons/ri';
+import { ExternalLink } from 'lucide-react';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Portfolio } from '@/types/portfolio';
 
@@ -17,7 +17,7 @@ export const CvButton = (): ReactElement => {
         className="inline-flex items-center gap-2 rounded-lg bg-[#191919] px-6 py-3 text-base font-semibold text-white transition-opacity duration-300 hover:opacity-80 dark:bg-white dark:text-[#191919]"
       >
         {t('about.viewCv')}
-        <RiExternalLinkLine className="size-6" aria-hidden="true" />
+        <ExternalLink className="size-6" aria-hidden="true" />
       </a>
     </div>
   );

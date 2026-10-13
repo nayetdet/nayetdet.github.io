@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RiGithubFill, RiGitlabFill, RiLinkedinFill } from 'react-icons/ri';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import { cn } from '@/lib/utils';
@@ -9,31 +10,34 @@ type SocialNetworksVariant = 'icon' | 'pill';
 interface SocialNetworksProps {
   variant?: SocialNetworksVariant;
   className?: string;
+  iconClassName?: string;
 }
 
 export const SocialNetworks = ({
   variant = 'icon',
   className,
+  iconClassName,
 }: SocialNetworksProps): ReactElement => {
+  const { t } = useTranslation();
   const isPillVariant: boolean = variant === 'pill';
   const portfolio: Portfolio = usePortfolio();
   const contact: Portfolio['contact'] = portfolio.contact;
   const socialNetworks = [
     {
-      label: 'LinkedIn',
+      label: t('social.linkedin'),
       href: contact.linkedin,
       icon: RiLinkedinFill,
       pillClassName: 'bg-[#0a66c2] hover:opacity-90',
     },
     {
-      label: 'GitHub',
+      label: t('social.github'),
       href: contact.github,
       icon: RiGithubFill,
       pillClassName:
         'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
     },
     {
-      label: 'GitLab',
+      label: t('social.gitlab'),
       href: contact.gitlab,
       icon: RiGitlabFill,
       pillClassName: 'bg-[#fc6d26] hover:opacity-90',
@@ -62,7 +66,7 @@ export const SocialNetworks = ({
             )}
           >
             <Icon
-              className={isPillVariant ? 'size-4' : 'size-5'}
+              className={cn(isPillVariant ? 'size-4' : 'size-5', iconClassName)}
               aria-hidden="true"
             />
             {isPillVariant && <span>{label}</span>}

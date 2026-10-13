@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiArrowDownSLine } from 'react-icons/ri';
+import { ArrowDown } from 'lucide-react';
 import { sections } from '@/constants/sections';
 import { useScrollTo, type UseScrollToReturn } from '@/hooks/use-scroll-to';
 
@@ -15,8 +15,8 @@ export const HeroScrollIndicator = (): ReactElement => {
       className="group pointer-events-auto absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
       aria-label={t('hero.scrollToAbout')}
     >
-      <RiArrowDownSLine
-        className="size-6 text-[#191919] opacity-60 transition-all duration-300 ease-out group-hover:translate-y-1 group-hover:opacity-100 dark:text-white"
+      <ArrowDown
+        className="size-7 text-[#191919] opacity-60 transition-all duration-300 ease-out group-hover:translate-y-1 group-hover:opacity-100 dark:text-white"
         aria-hidden="true"
       />
     </button>
