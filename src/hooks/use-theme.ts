@@ -8,6 +8,8 @@ export interface UseThemeReturn {
   toggleTheme: ThemeStore['toggleTheme'];
 }
 
-export function useTheme(): UseThemeReturn {
+export const useTheme = (): UseThemeReturn => {
   return useThemeStore();
-}
+};
+
+export default useTheme;

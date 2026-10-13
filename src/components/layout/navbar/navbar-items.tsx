@@ -2,20 +2,20 @@ import { memo, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Section } from '@/constants/sections';
 
-interface NavigationItemsProps {
+interface NavbarItemsProps {
   items: readonly Section[];
   activeSectionId: Section['id'];
   onNavigate: (sectionId: Section['id']) => void;
   variant: 'desktop' | 'mobile';
 }
 
-export const NavigationItems = memo(
+export const NavbarItems = memo(
   ({
     items,
     activeSectionId,
     onNavigate,
     variant,
-  }: NavigationItemsProps): ReactElement => {
+  }: NavbarItemsProps): ReactElement => {
     const { t } = useTranslation();
     const isMobile: boolean = variant === 'mobile';
 

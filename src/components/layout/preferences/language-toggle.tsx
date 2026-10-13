@@ -45,7 +45,11 @@ export const LanguageToggle = (): ReactElement => {
             </Button>
           </DropdownMenuTrigger>
         </TooltipTrigger>
-        <TooltipContent side="bottom" sideOffset={8}>
+        <TooltipContent
+          className="hidden md:block"
+          side="bottom"
+          sideOffset={8}
+        >
           {t('language.select')}
         </TooltipContent>
       </Tooltip>

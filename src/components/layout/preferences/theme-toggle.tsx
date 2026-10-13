@@ -32,7 +32,7 @@ export const ThemeToggle = (): ReactElement => {
           />
         </Button>
       </TooltipTrigger>
-      <TooltipContent side="bottom" sideOffset={8}>
+      <TooltipContent className="hidden md:block" side="bottom" sideOffset={8}>
         {t('theme.toggle')}
       </TooltipContent>
     </Tooltip>

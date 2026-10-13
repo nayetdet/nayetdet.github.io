@@ -5,6 +5,7 @@ const resources = {
   'en-US': {
     translation: {
       page: { title: 'Portfolio' },
+      brand: { goHome: 'Go to home page' },
       navigation: {
         home: 'Home',
         about: 'About',
@@ -55,6 +56,7 @@ const resources = {
   'pt-BR': {
     translation: {
       page: { title: 'Portfólio' },
+      brand: { goHome: 'Ir para a página inicial' },
       navigation: {
         home: 'Início',
         about: 'Sobre',

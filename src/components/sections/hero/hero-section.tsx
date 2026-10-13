@@ -2,7 +2,7 @@ import { type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
-import NavbarMain from '@/components/layout/navbar/navbar-main';
+import Navbar from '@/components/layout/navbar/navbar';
 import {
   Tooltip,
   TooltipContent,
@@ -27,7 +27,7 @@ export const HeroSection = (): ReactElement => {
       className="relative h-dvh overflow-hidden bg-white dark:bg-black"
     >
       <HeroBackground isDarkTheme={isDarkTheme} />
-      <NavbarMain />
+      <Navbar />
       <div className="absolute bottom-8 left-8 z-10 flex flex-col gap-3">
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
         <Tooltip>

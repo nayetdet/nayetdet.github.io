@@ -2,11 +2,10 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowDown } from 'lucide-react';
 import { sections } from '@/constants/sections';
-import { useScrollTo, type UseScrollToReturn } from '@/hooks/use-scroll-to';
+import { scrollTo } from '@/utils/scroll';
 
 export const HeroScrollIndicator = (): ReactElement => {
   const { t } = useTranslation();
-  const { scrollTo }: UseScrollToReturn = useScrollTo();
 
   return (
     <button

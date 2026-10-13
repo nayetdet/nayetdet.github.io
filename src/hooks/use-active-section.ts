@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Section, SectionId } from '@/constants/sections';
 
-export function useActiveSection(sections: readonly Section[]): SectionId {
+export const useActiveSection = (sections: readonly Section[]): SectionId => {
   const [activeSectionId, setActiveSectionId] = useState<SectionId>(
     sections[0]?.id ?? 'home',
   );
@@ -31,4 +31,6 @@ export function useActiveSection(sections: readonly Section[]): SectionId {
   }, [sections]);
 
   return activeSectionId;
-}
+};
+
+export default useActiveSection;

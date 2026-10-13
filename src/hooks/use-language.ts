@@ -5,6 +5,8 @@ export interface UseLanguageReturn {
   setLanguage: LanguageStore['setLanguage'];
 }
 
-export function useLanguage(): UseLanguageReturn {
+export const useLanguage = (): UseLanguageReturn => {
   return useLanguageStore();
-}
+};
+
+export default useLanguage;

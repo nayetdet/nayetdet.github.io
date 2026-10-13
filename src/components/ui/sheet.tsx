@@ -32,7 +32,10 @@ function SheetOverlay({
   return (
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
-      className={cn('fixed inset-0 z-40 bg-black/50', className)}
+      className={cn(
+        'fixed inset-0 z-40 bg-black/50 transition-[opacity,visibility] transition-discrete duration-250 data-[state=closed]:invisible data-[state=closed]:opacity-0',
+        className,
+      )}
       {...props}
     />
   );
@@ -43,16 +46,19 @@ function SheetContent({
   children,
   side = 'right',
   showCloseButton = true,
+  forceMount = false,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Content> & {
+}: Omit<React.ComponentProps<typeof SheetPrimitive.Content>, 'forceMount'> & {
   side?: 'top' | 'right' | 'bottom' | 'left';
   showCloseButton?: boolean;
+  forceMount?: boolean;
 }) {
   return (
-    <SheetPortal>
-      <SheetOverlay />
+    <SheetPortal {...(forceMount ? { forceMount: true } : {})}>
+      <SheetOverlay {...(forceMount ? { forceMount: true } : {})} />
       <SheetPrimitive.Content
         data-slot="sheet-content"
+        {...(forceMount ? { forceMount: true } : {})}
         className={cn(
           'fixed z-40 flex flex-col gap-4 bg-background shadow-lg',
           side === 'right' &&
