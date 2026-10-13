@@ -26,19 +26,19 @@ export const SocialNetworks = ({
   const { t } = useTranslation();
   const isPillVariant: boolean = variant === 'pill';
   const portfolio: Portfolio = usePortfolio();
-  const contact: Portfolio['contact'] = portfolio.contact;
+
   const socialNetworks = [
     {
       name: 'LinkedIn',
       label: t('social.linkedin'),
-      href: contact.linkedin,
+      href: portfolio.contact.linkedin,
       icon: RiLinkedinFill,
       pillClassName: 'bg-[#0a66c2] hover:opacity-90',
     },
     {
       name: 'GitHub',
       label: t('social.github'),
-      href: contact.github,
+      href: portfolio.contact.github,
       icon: RiGithubFill,
       pillClassName:
         'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
@@ -46,7 +46,7 @@ export const SocialNetworks = ({
     {
       name: 'GitLab',
       label: t('social.gitlab'),
-      href: contact.gitlab,
+      href: portfolio.contact.gitlab,
       icon: RiGitlabFill,
       pillClassName: 'bg-[#fc6d26] hover:opacity-90',
     },
@@ -71,7 +71,7 @@ export const SocialNetworks = ({
                 className={cn(
                   isPillVariant
                     ? `inline-flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-opacity ${pillClassName}`
-                    : 'flex size-6 items-center justify-center text-[#191919] transition-opacity duration-300 hover:opacity-60 dark:text-white',
+                    : 'flex size-6 items-center justify-center text-[#191919] dark:text-white',
                 )}
               >
                 <Icon

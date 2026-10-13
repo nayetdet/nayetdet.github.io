@@ -1,5 +1,7 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
+import { sections } from '@/constants/sections';
+import { scrollTo } from '@/utils/scroll';
 
 export const Logo = (): ReactElement => {
   const { t } = useTranslation();
@@ -7,6 +9,10 @@ export const Logo = (): ReactElement => {
   return (
     <a
       href="#home"
+      onClick={(event): void => {
+        event.preventDefault();
+        scrollTo(sections.home.id);
+      }}
       aria-label={t('brand.goHome')}
       className="shrink-0 text-lg leading-none font-bold tracking-tight text-[#191919] transition-opacity hover:opacity-70 dark:text-white"
     >

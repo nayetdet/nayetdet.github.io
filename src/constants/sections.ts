@@ -1,5 +1,5 @@
 import {
-  Code2,
+  BriefcaseBusiness,
   FolderGit2,
   House,
   Mail,
@@ -9,7 +9,7 @@ import {
 import { portfolios } from '@/data/portfolios';
 
 export type SectionId =
-  'home' | 'about' | 'tech-stack' | 'projects' | 'contact';
+  'home' | 'about' | 'experience' | 'projects' | 'contact';
 
 export interface Section {
   id: SectionId;
@@ -20,7 +20,11 @@ export interface Section {
 export const sections = {
   home: { id: 'home', href: '#home', icon: House },
   about: { id: 'about', href: '#about', icon: UserRound },
-  techStack: { id: 'tech-stack', href: '#tech-stack', icon: Code2 },
+  experience: {
+    id: 'experience',
+    href: '#experience',
+    icon: BriefcaseBusiness,
+  },
   projects: { id: 'projects', href: '#projects', icon: FolderGit2 },
   contact: { id: 'contact', href: '#contact', icon: Mail },
 } as const satisfies Record<string, Section>;

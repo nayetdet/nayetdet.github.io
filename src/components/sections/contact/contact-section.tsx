@@ -7,6 +7,7 @@ import { ContactProfile } from '@/components/sections/contact/profile/contact-pr
 
 export const ContactSection = (): ReactElement => {
   const { t } = useTranslation();
+
   return (
     <section
       id={sections.contact.id}

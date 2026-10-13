@@ -9,7 +9,7 @@ const resources = {
       navigation: {
         home: 'Home',
         about: 'About',
-        'tech-stack': 'Tech Stack',
+        experience: 'Experience',
         projects: 'Projects',
         contact: 'Contact',
         title: 'Main navigation',
@@ -30,7 +30,33 @@ const resources = {
       },
       theme: { toggle: 'Toggle between light and dark theme' },
       hero: { greeting: "Hi, I'm", scrollToAbout: 'Scroll to about' },
-      about: { title: 'About', education: 'Education', viewCv: 'View my CV' },
+      about: { title: 'About', viewCv: 'View CV' },
+      experience: {
+        title: 'Experience',
+        description:
+          'I build web applications end to end, connecting interfaces, APIs, data, and infrastructure to deliver complete products.',
+        highlights: {
+          platforms: {
+            title: 'Web interfaces',
+            description:
+              'I build functional, responsive experiences around product needs.',
+          },
+          systems: {
+            title: 'Backend and integrations',
+            description:
+              'I develop APIs and services that connect business rules, data, and applications.',
+          },
+          data: {
+            title: 'Infrastructure and deployment',
+            description:
+              'I structure environments and automate delivery to bring products to production.',
+          },
+        },
+        trajectory: 'Career journey',
+        trajectoryDescription:
+          'Across teams, I have worked on institutional systems, backend applications, and data platforms, connecting architecture, integrations, and software delivery.',
+        present: 'Present',
+      },
       projects: {
         title: 'Projects',
         viewWebsite: 'View website',
@@ -39,7 +65,7 @@ const resources = {
       techStack: {
         title: 'Tech Stack',
         description:
-          'Tools and technologies I use to build reliable backend platforms, web applications, and infrastructure.',
+          'Tools I have worked with across different projects, grouped by area.',
         backend: 'Backend',
         frontend: 'Frontend',
         databases: 'Databases',
@@ -70,11 +96,11 @@ const resources = {
       navigation: {
         home: 'Início',
         about: 'Sobre',
-        'tech-stack': 'Tecnologias',
+        experience: 'Experiência',
         projects: 'Projetos',
         contact: 'Contato',
         title: 'Navegação principal',
-        mobileMenu: 'Menu móvel',
+        mobileMenu: 'Menu de navegação',
         openMenu: 'Abrir menu',
         closeMenu: 'Fechar menu',
       },
@@ -89,12 +115,34 @@ const resources = {
         github: 'Perfil do GitHub',
         gitlab: 'Perfil do GitLab',
       },
-      theme: { toggle: 'Alternar entre tema claro e escuro' },
+      theme: { toggle: 'Alternar entre os temas claro e escuro' },
       hero: { greeting: 'Olá, eu sou', scrollToAbout: 'Ir para a seção Sobre' },
-      about: {
-        title: 'Sobre',
-        education: 'Formação',
-        viewCv: 'Ver meu currículo',
+      about: { title: 'Sobre', viewCv: 'Ver currículo' },
+      experience: {
+        title: 'Experiência',
+        description:
+          'Desenvolvo aplicações web de ponta a ponta, conectando interfaces, APIs, dados e infraestrutura para entregar produtos completos.',
+        highlights: {
+          platforms: {
+            title: 'Interfaces web',
+            description:
+              'Construo experiências funcionais e responsivas, conectadas às necessidades do produto.',
+          },
+          systems: {
+            title: 'Backend e integrações',
+            description:
+              'Desenvolvo APIs e serviços que conectam regras de negócio, dados e aplicações.',
+          },
+          data: {
+            title: 'Infraestrutura e deploy',
+            description:
+              'Estruturo ambientes e automatizo entregas para levar os produtos à produção.',
+          },
+        },
+        trajectory: 'Trajetória',
+        trajectoryDescription:
+          'Ao longo de diferentes equipes, trabalhei em sistemas institucionais, aplicações backend e plataformas de dados, conectando arquitetura, integrações e entrega de software.',
+        present: 'Atual',
       },
       projects: {
         title: 'Projetos',
@@ -104,7 +152,7 @@ const resources = {
       techStack: {
         title: 'Tecnologias',
         description:
-          'Ferramentas e tecnologias que uso para criar plataformas backend, aplicações web e infraestrutura confiáveis.',
+          'Ferramentas que já fizeram parte dos projetos em que trabalhei, separadas por área.',
         backend: 'Backend',
         frontend: 'Frontend',
         databases: 'Bancos de dados',
@@ -122,8 +170,8 @@ const resources = {
       },
       footer: {
         navigation: 'Navegação',
-        contactNetworks: 'Contato e redes',
-        followMe: 'Acompanhe-me:',
+        contactNetworks: 'Contato',
+        followMe: 'Redes sociais:',
         rights: 'Todos os direitos reservados.',
       },
     },

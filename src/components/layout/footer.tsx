@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MapPin } from 'lucide-react';
+import { Globe, MapPin } from 'lucide-react';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
@@ -37,7 +37,7 @@ export const Footer = (): ReactElement => {
                   <li key={id}>
                     <a
                       href={href}
-                      className="inline-flex items-center gap-2 text-sm text-[#404040] transition-colors hover:text-black sm:text-base dark:text-[#d4d4d4] dark:hover:text-white"
+                      className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors duration-300 hover:text-[#191919] sm:text-base dark:text-gray-400 dark:hover:text-white"
                     >
                       <Icon className="size-4" aria-hidden="true" />
                       {t(`navigation.${id}`)}
@@ -53,25 +53,38 @@ export const Footer = (): ReactElement => {
               {t('footer.contactNetworks')}
             </h3>
             <div className="mb-3 sm:mb-4">
-              <a
-                href={`mailto:${portfolio.contact.email}`}
-                className="flex cursor-pointer items-center gap-2 text-sm text-[#404040] transition-colors hover:text-black sm:text-base dark:text-[#d4d4d4] dark:hover:text-white"
-              >
-                <RiMailLine className="size-4 " aria-hidden="true" />
-                {portfolio.contact.email}
-              </a>
-            </div>
-            <div className="mb-3 sm:mb-4">
               <div className="flex items-center gap-2 text-sm text-[#404040] sm:text-base dark:text-[#d4d4d4]">
-                <MapPin className="size-4 " aria-hidden="true" />
-                {portfolio.location}
+                <RiMailLine
+                  className="size-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                />
+                <span>{t('contact.email')}:</span>
+                <a
+                  href={`mailto:${portfolio.contact.email}`}
+                  className="text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white"
+                >
+                  {portfolio.contact.email}
+                </a>
               </div>
             </div>
-            <div>
-              <p className="mb-3 text-sm text-[#404040] dark:text-[#d4d4d4]">
+            <div className="mb-3 flex items-center gap-3 sm:mb-4">
+              <Globe
+                className="size-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+              />
+              <p className="text-sm text-[#404040] sm:text-base dark:text-[#d4d4d4]">
                 {t('footer.followMe')}
               </p>
-              <SocialNetworks />
+              <SocialNetworks iconClassName="text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 text-sm text-[#404040] sm:text-base dark:text-[#d4d4d4]">
+                <MapPin
+                  className="size-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                />
+                {portfolio.location}
+              </div>
             </div>
           </div>
         </div>

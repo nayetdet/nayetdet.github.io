@@ -11,13 +11,14 @@ import type { Portfolio } from '@/types/portfolio';
 export const ContactProfile = (): ReactElement => {
   const { t } = useTranslation();
   const portfolio: Portfolio = usePortfolio();
+
   return (
     <div>
       <div className="mb-8">
         <div className="mb-6 flex items-center gap-4">
           <div className="relative size-24 shrink-0 overflow-hidden rounded-full">
             <img
-              src={portfolio.image}
+              src={portfolio.aboutImage}
               alt={`${portfolio.name.first} ${portfolio.name.last}`}
               className="absolute inset-0 size-full object-cover object-top"
             />

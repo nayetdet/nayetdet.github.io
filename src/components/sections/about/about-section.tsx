@@ -4,7 +4,6 @@ import { SectionTitle } from '@/components/common/section-title';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import { sections } from '@/constants/sections';
 import { CvButton } from '@/components/sections/about/actions/cv-button';
-import { EducationTimeline } from '@/components/sections/about/education/education-timeline';
 import { AboutProfile } from '@/components/sections/about/profile/about-profile';
 import { AboutProfileSpecialties } from '@/components/sections/about/profile/about-profile-specialties';
 import type { Portfolio } from '@/types/portfolio';
@@ -12,6 +11,7 @@ import type { Portfolio } from '@/types/portfolio';
 export const AboutSection = (): ReactElement => {
   const { t } = useTranslation();
   const portfolio: Portfolio = usePortfolio();
+
   return (
     <section
       id={sections.about.id}
@@ -19,7 +19,7 @@ export const AboutSection = (): ReactElement => {
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
-        <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+        <div className="flex flex-col items-start gap-8 md:flex-row md:items-stretch md:gap-12">
           <AboutProfile />
           <div className="flex-1">
             <div className="mb-6">
@@ -31,10 +31,9 @@ export const AboutSection = (): ReactElement => {
               </h4>
             </div>
             <AboutProfileSpecialties />
-            <p className="mb-12 max-w-3xl text-base/relaxed  text-[#404040] sm:text-lg dark:text-gray-300">
+            <p className="mb-8 max-w-3xl text-base/relaxed  text-[#404040] sm:text-lg dark:text-gray-300">
               {portfolio.biography}
             </p>
-            <EducationTimeline />
             <CvButton />
           </div>
         </div>

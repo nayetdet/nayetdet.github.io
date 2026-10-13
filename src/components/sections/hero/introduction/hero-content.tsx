@@ -19,7 +19,7 @@ export const HeroContent = (): ReactElement => {
         <br />
         {portfolio.name.first}!
       </h1>
-      <p className="mt-3 max-w-xl text-base/relaxed text-[#404040] sm:text-lg dark:text-gray-300">
+      <p className="mt-6 max-w-xl text-base/relaxed text-[#404040] sm:text-lg dark:text-gray-300">
         {portfolio.tagline}
       </p>
     </div>
