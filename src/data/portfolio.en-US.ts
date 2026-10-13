@@ -12,6 +12,117 @@ const portfolioEnUS: Portfolio = {
   biography:
     'I am a Full Stack Developer building web applications for different contexts. I develop interfaces, APIs, and integrations, and also work with infrastructure and deployment automation. My experience includes web products, institutional systems, and analytics platforms, using Java/Spring Boot, Python/FastAPI, Node.js, and React.',
   cv: '/documents/cv-en-US.pdf',
+  projects: [
+    {
+      name: 'GameKube',
+      description:
+        'A Kubernetes-native cloud gaming platform that manages Dockerized games and launches sessions on demand, with all processing taking place on the server side.',
+      images: ['https://opengraph.githubassets.com/1/nayetdet/gamekube'],
+      techStack: [
+        techStacks.java,
+        techStacks.springBoot,
+        techStacks.typescript,
+        techStacks.react,
+        techStacks.nextJs,
+        techStacks.keycloak,
+        techStacks.postgresql,
+        techStacks.redis,
+        techStacks.docker,
+        techStacks.kubernetes,
+        techStacks.helm,
+        techStacks.argocd,
+      ],
+      website: 'https://github.com/nayetdet/gamekube',
+    },
+    {
+      name: 'HTTP Load Balancer',
+      description:
+        'A Kubernetes-native load balancer built from scratch, with a reverse proxy, instance discovery, and custom algorithms for routing requests across servers.',
+      images: [
+        'https://opengraph.githubassets.com/1/nayetdet/http-load-balancer',
+      ],
+      techStack: [
+        techStacks.python,
+        techStacks.flask,
+        techStacks.docker,
+        techStacks.kubernetes,
+      ],
+      website: 'https://github.com/nayetdet/http-load-balancer',
+    },
+    {
+      name: 'OBS RVC',
+      description:
+        'An OBS audio filter powered by Retrieval-based Voice Conversion (RVC), an AI algorithm that transforms voice in real time with pretrained models to reproduce other people’s voices during streams or recordings.',
+      images: ['https://opengraph.githubassets.com/1/nayetdet/obs-rvc'],
+      techStack: [techStacks.python, techStacks.cplusplus],
+      website: 'https://github.com/nayetdet/obs-rvc',
+    },
+    {
+      name: 'Gatekeeper',
+      description:
+        'A scraper that automatically claims free Epic Games Store titles and adds them to your library, so you do not have to check the store every week.',
+      images: ['https://opengraph.githubassets.com/1/nayetdet/gatekeeper'],
+      techStack: [
+        techStacks.python,
+        techStacks.sqlite,
+        techStacks.docker,
+        techStacks.kubernetes,
+        techStacks.helm,
+        techStacks.argocd,
+      ],
+      website: 'https://github.com/nayetdet/gatekeeper',
+    },
+    {
+      name: 'SoftWorker',
+      description:
+        'Generates ATS-friendly PDF resumes from JSON files, ready to share with recruiters.',
+      images: ['https://opengraph.githubassets.com/1/nayetdet/softworker'],
+      techStack: [
+        techStacks.python,
+        techStacks.typescript,
+        techStacks.react,
+        techStacks.nextJs,
+        techStacks.docker,
+      ],
+      website: 'https://github.com/nayetdet/softworker',
+    },
+    {
+      name: 'CarekoBooks',
+      description:
+        'A platform for readers that brings a digital bookshelf and community together: organize your books, track your reading progress, and see what others are reading.',
+      images: [
+        'https://opengraph.githubassets.com/1/carekocorps/carekobooks-backend',
+      ],
+      techStack: [
+        techStacks.java,
+        techStacks.springBoot,
+        techStacks.python,
+        techStacks.typescript,
+        techStacks.react,
+        techStacks.nextJs,
+        techStacks.keycloak,
+        techStacks.postgresql,
+        techStacks.redis,
+        techStacks.docker,
+      ],
+      website: 'https://github.com/carekocorps/carekobooks-backend',
+    },
+    {
+      name: 'Homelab',
+      description:
+        'Declarative infrastructure for configuring and maintaining a Kubernetes-based homelab.',
+      images: ['https://opengraph.githubassets.com/1/nayetdet/homelab'],
+      techStack: [
+        techStacks.docker,
+        techStacks.kubernetes,
+        techStacks.helm,
+        techStacks.argocd,
+        techStacks.terraform,
+        techStacks.ansible,
+      ],
+      website: 'https://github.com/nayetdet/homelab',
+    },
+  ],
   education: [
     {
       institution:
@@ -49,6 +160,7 @@ const portfolioEnUS: Portfolio = {
         techStacks.python,
         techStacks.fastApi,
         techStacks.mongodb,
+        techStacks.kafka,
         techStacks.docker,
       ],
     },

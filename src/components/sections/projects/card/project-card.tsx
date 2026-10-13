@@ -4,13 +4,14 @@ import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { ProjectCardGallery } from '@/components/sections/projects/card/project-card-gallery';
 import { ProjectCardInfo } from '@/components/sections/projects/card/project-card-info';
+import type { TechStackItem } from '@/types/tech-stack';
 
 interface ProjectCardProps {
   images: string[];
   title: string;
   description: string;
-  date: string;
-  tags: string[];
+  date?: string | undefined;
+  tags: TechStackItem[];
   siteUrl?: string;
 }
 
@@ -29,9 +30,9 @@ export const ProjectCard = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('projects.viewProjectWebsite', { title })}
-      className="group block cursor-pointer"
+      className="group block h-full cursor-pointer"
     >
-      <Card className="overflow-hidden rounded-2xl border-0 bg-white shadow-sm transition-all duration-300 hover:bg-gray-50 hover:shadow-md dark:bg-[#1a1a1a] dark:hover:bg-[#222222]">
+      <Card className="flex h-full flex-col overflow-hidden rounded-2xl border-0 bg-white shadow-sm transition-all duration-300 hover:bg-gray-50 hover:shadow-md dark:bg-[#1a1a1a] dark:hover:bg-[#222222]">
         <div className="relative">
           <ProjectCardGallery images={images} title={title} />
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">

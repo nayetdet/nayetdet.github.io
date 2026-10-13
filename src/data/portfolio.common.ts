@@ -65,6 +65,7 @@ export const portfolioCommon = {
       items: [
         techStacks.docker,
         techStacks.kubernetes,
+        techStacks.helm,
         techStacks.argocd,
         techStacks.nginx,
         techStacks.aws,
