@@ -20,13 +20,13 @@ export const ExperienceSection = (): ReactElement | null => {
   return (
     <section
       id={sections.experience.id}
-      className="bg-gray-50 pt-32 pb-24 dark:bg-[#121212]"
+      className="bg-gray-50 py-24 sm:py-32 dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('experience.title')}</SectionTitle>
-        <div className="-mt-8 mb-16 flex flex-col gap-8 md:flex-row md:items-stretch md:gap-12">
+        <div className="mb-16 flex flex-col gap-10 md:flex-row md:items-stretch lg:gap-14">
           <div className="flex w-full flex-col gap-6 md:flex-1">
-            <p className="w-full max-w-2xl text-left text-base/relaxed text-[#404040] sm:text-lg dark:text-gray-300">
+            <p className="w-full max-w-2xl text-left text-base/7 text-[#404040] sm:text-lg/8 dark:text-gray-300">
               {t('experience.description')}
             </p>
             <ExperienceHighlights />

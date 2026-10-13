@@ -11,10 +11,10 @@ export const ExperienceTechStack = (): ReactElement => {
 
   return (
     <div>
-      <h3 className="text-2xl font-bold text-[#191919] sm:text-3xl dark:text-white">
+      <h3 className="text-3xl leading-none font-bold tracking-tight text-[#191919] sm:text-4xl dark:text-white">
         {t('techStack.title')}
       </h3>
-      <p className="mt-3 mb-8 max-w-2xl text-base/relaxed text-[#404040] sm:text-lg dark:text-gray-300">
+      <p className="mt-4 mb-10 max-w-2xl text-base/7 text-[#404040] sm:text-lg/8 dark:text-gray-300">
         {t('techStack.description')}
       </p>
       <div className="grid gap-6 md:grid-cols-2">

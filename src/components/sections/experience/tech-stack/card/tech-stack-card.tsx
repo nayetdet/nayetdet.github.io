@@ -18,7 +18,7 @@ export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {
         <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-[#191919] dark:bg-[#2a2a2a] dark:text-white">
           <CategoryIcon className="size-5" aria-hidden="true" />
         </div>
-        <h3 className="text-xl font-semibold text-[#191919] dark:text-white">
+        <h3 className="text-xl font-semibold tracking-tight text-[#191919] dark:text-white">
           {t(`techStack.${category}`)}
         </h3>
       </div>

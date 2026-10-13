@@ -33,7 +33,7 @@ export const ExperienceHighlights = (): ReactElement => {
             <Icon aria-hidden="true" className="size-5" />
           </span>
           <div className="min-w-0">
-            <h3 className="text-base font-semibold tracking-tight text-[#191919] dark:text-white">
+            <h3 className="text-lg/6 font-semibold tracking-tight text-[#191919] dark:text-white">
               {title}
             </h3>
             <p className="mt-1 text-sm/6 text-[#525252] dark:text-gray-300">

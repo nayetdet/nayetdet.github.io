@@ -24,10 +24,10 @@ export const ContactProfile = (): ReactElement => {
             />
           </div>
           <div className="flex w-fit flex-col items-start">
-            <h3 className="-translate-y-1.25 text-[2rem] font-bold text-[#191919] dark:text-white">
+            <h3 className="text-2xl leading-none font-semibold tracking-tight text-[#191919] dark:text-white">
               {portfolio.name.first}
             </h3>
-            <p className="-mt-1 inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+            <p className="mt-1 inline-flex items-center gap-2 text-sm/6 font-medium text-gray-600 dark:text-gray-300">
               <BriefcaseBusiness
                 className="size-4 shrink-0"
                 aria-hidden="true"
@@ -38,7 +38,7 @@ export const ContactProfile = (): ReactElement => {
         </div>
       </div>
       <div className="mb-3">
-        <h4 className="mb-4 text-lg font-semibold text-[#191919] dark:text-white">
+        <h4 className="mb-4 text-lg font-semibold tracking-tight text-[#191919] dark:text-white">
           {t('contact.usefulLinks')}
         </h4>
         <SocialNetworks variant="pill" />

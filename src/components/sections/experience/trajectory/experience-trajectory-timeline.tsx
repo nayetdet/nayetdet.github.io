@@ -15,7 +15,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
 
   return (
     <Timeline
-      className="md:col-start-2"
+      className="md:col-start-1"
       extendLastLine
       itemClassName="pb-6"
       connectionClassName="-bottom-8"

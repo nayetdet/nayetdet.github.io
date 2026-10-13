@@ -17,7 +17,7 @@ export const ProjectsSection = (): ReactElement | null => {
   return (
     <section
       id={sections.projects.id}
-      className="bg-gray-50 pt-32 pb-8 dark:bg-[#121212]"
+      className="bg-gray-50 py-24 sm:py-32 dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('projects.title')}</SectionTitle>

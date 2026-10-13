@@ -16,23 +16,23 @@ export const AboutSection = (): ReactElement => {
   return (
     <section
       id={sections.about.id}
-      className="bg-gray-50 pt-32 pb-8 dark:bg-[#121212]"
+      className="bg-gray-50 py-24 sm:py-32 dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
-        <div className="flex flex-col items-start gap-8 md:flex-row md:items-stretch md:gap-12">
+        <div className="flex flex-col items-start gap-10 md:flex-row md:items-stretch lg:gap-14">
           <AboutProfile />
           <div className="flex-1">
             <div className="mb-6">
-              <h3 className="text-3xl font-medium text-[#191919] sm:text-4xl dark:text-white">
+              <h3 className="text-3xl leading-none font-medium tracking-tight text-[#191919] sm:text-4xl dark:text-white">
                 {portfolio.name.first}
               </h3>
-              <h4 className="text-5xl font-bold text-[#191919] sm:text-6xl dark:text-white">
+              <h4 className="text-5xl leading-none font-bold tracking-tight text-[#191919] sm:text-6xl dark:text-white">
                 {portfolio.name.last}
               </h4>
             </div>
             <AboutProfileSpecialties />
-            <p className="mb-8 max-w-3xl text-base/relaxed  text-[#404040] sm:text-lg dark:text-gray-300">
+            <p className="mb-8 max-w-3xl text-base/7 text-[#404040] sm:text-lg/8 dark:text-gray-300">
               {portfolio.biography}
             </p>
             {portfolio.education.length > 0 && <EducationTimeline />}

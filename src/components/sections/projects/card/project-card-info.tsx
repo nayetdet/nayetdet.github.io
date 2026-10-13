@@ -15,10 +15,10 @@ export const ProjectCardInfo = ({
   tags,
 }: ProjectCardInfoProps): ReactElement => (
   <div className="p-6">
-    <h3 className="mb-2 -translate-y-px text-2xl font-bold text-[#191919] dark:text-white">
+    <h3 className="mb-2 text-2xl font-bold tracking-tight text-[#191919] dark:text-white">
       {title}
     </h3>
-    <p className="mb-4 text-sm/relaxed text-[#404040] dark:text-gray-300">
+    <p className="mb-4 text-sm/6 text-[#404040] dark:text-gray-300">
       {description}
     </p>
     <div className="flex flex-wrap items-center justify-between gap-3">
