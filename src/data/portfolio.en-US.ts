@@ -12,6 +12,16 @@ const portfolioEnUS: Portfolio = {
   biography:
     'I am a Full Stack Developer building web applications for different contexts. I develop interfaces, APIs, and integrations, and also work with infrastructure and deployment automation. My experience includes web products, institutional systems, and analytics platforms, using Java/Spring Boot, Python/FastAPI, Node.js, and React.',
   cv: '/documents/cv-en-US.pdf',
+  education: [
+    {
+      institution:
+        'Federal Institute of Education, Science and Technology of Ceará',
+      degree: "Bachelor's Degree in Computer Science",
+      startDate: 2024,
+      endDate: 2027,
+      isOngoing: true,
+    },
+  ],
   trajectory: [
     {
       name: 'Laboratory of Telematics, Accessibility and Educational Projects (LTAP)',

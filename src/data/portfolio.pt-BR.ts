@@ -12,6 +12,16 @@ const portfolioPtBR: Portfolio = {
   biography:
     'Sou desenvolvedor Full Stack e construo aplicações web para diferentes contextos. Desenvolvo interfaces, APIs e integrações, além de trabalhar com infraestrutura e automação de deploy. Minha experiência inclui produtos web, sistemas institucionais e plataformas analíticas, com Java/Spring Boot, Python/FastAPI, Node.js e React.',
   cv: '/documents/cv-pt-BR.pdf',
+  education: [
+    {
+      institution:
+        'Instituto Federal de Educação, Ciência e Tecnologia do Ceará',
+      degree: 'Bacharelado em Ciência da Computação',
+      startDate: 2024,
+      endDate: 2027,
+      isOngoing: true,
+    },
+  ],
   trajectory: [
     {
       name: 'Laboratório de Telemática, Acessibilidade e Projetos Educacionais (LTAP)',

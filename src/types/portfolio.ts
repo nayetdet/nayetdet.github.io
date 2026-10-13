@@ -1,4 +1,5 @@
 import type { Contact } from '@/types/contact';
+import type { Education } from '@/types/education';
 import type { Project } from '@/types/project';
 import type { Specialty } from '@/types/specialty';
 import type { TechStack } from '@/types/tech-stack';
@@ -15,6 +16,7 @@ export interface Portfolio {
   tagline: string;
   summary: string;
   biography: string;
+  education: Education[];
   trajectory: Trajectory[];
   cv: string;
   contact: Contact;
