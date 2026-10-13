@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
-import type { Section } from '@/constants/sections';
+import type { Section, SectionId } from '@/constants/sections';
 
-export function useActiveSection(sections: readonly Section[]): string {
-  const [activeSectionId, setActiveSectionId] = useState<string>(
-    sections[0]?.id ?? '',
+export function useActiveSection(sections: readonly Section[]): SectionId {
+  const [activeSectionId, setActiveSectionId] = useState<SectionId>(
+    sections[0]?.id ?? 'home',
   );
 
   useEffect((): (() => void) => {
     const updateActiveSection = (): void => {
-      const activationLine: number = window.innerHeight * 0.35;
-      const activeId: string = sections.reduce(
-        (currentId: string, { id }: Section): string =>
-          (document.getElementById(id)?.getBoundingClientRect().top ??
-            Infinity) <= activationLine
-            ? id
-            : currentId,
-        sections[0]?.id ?? '',
+      setActiveSectionId(
+        sections.findLast(
+          ({ id }: Section): boolean =>
+            (document.getElementById(id)?.getBoundingClientRect().top ??
+              Infinity) <=
+            window.innerHeight * 0.35,
+        )?.id ??
+          sections[0]?.id ??
+          'home',
       );
-
-      setActiveSectionId(activeId);
     };
 
     updateActiveSection();

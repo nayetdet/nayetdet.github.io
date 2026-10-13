@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react';
 import { RiGithubFill, RiGitlabFill, RiLinkedinFill } from 'react-icons/ri';
-import { portfolio } from '@/data/portfolio';
+import { usePortfolio } from '@/hooks/use-portfolio';
 import { cn } from '@/lib/utils';
+import type { Portfolio } from '@/types/portfolio';
 
 type SocialNetworksVariant = 'icon' | 'pill';
 
@@ -10,33 +11,34 @@ interface SocialNetworksProps {
   className?: string;
 }
 
-const socialNetworks = [
-  {
-    label: 'LinkedIn',
-    href: portfolio.contact.linkedin,
-    icon: RiLinkedinFill,
-    pillClassName: 'bg-[#0a66c2] hover:opacity-90',
-  },
-  {
-    label: 'GitHub',
-    href: portfolio.contact.github,
-    icon: RiGithubFill,
-    pillClassName:
-      'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
-  },
-  {
-    label: 'GitLab',
-    href: portfolio.contact.gitlab,
-    icon: RiGitlabFill,
-    pillClassName: 'bg-[#fc6d26] hover:opacity-90',
-  },
-] as const;
-
 export const SocialNetworks = ({
   variant = 'icon',
   className,
 }: SocialNetworksProps): ReactElement => {
   const isPillVariant: boolean = variant === 'pill';
+  const portfolio: Portfolio = usePortfolio();
+  const contact: Portfolio['contact'] = portfolio.contact;
+  const socialNetworks = [
+    {
+      label: 'LinkedIn',
+      href: contact.linkedin,
+      icon: RiLinkedinFill,
+      pillClassName: 'bg-[#0a66c2] hover:opacity-90',
+    },
+    {
+      label: 'GitHub',
+      href: contact.github,
+      icon: RiGithubFill,
+      pillClassName:
+        'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
+    },
+    {
+      label: 'GitLab',
+      href: contact.gitlab,
+      icon: RiGitlabFill,
+      pillClassName: 'bg-[#fc6d26] hover:opacity-90',
+    },
+  ];
 
   return (
     <div

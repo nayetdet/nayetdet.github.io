@@ -1,9 +1,11 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { sections } from '@/constants/sections';
 import { useScrollTo, type UseScrollToReturn } from '@/hooks/use-scroll-to';
 
 export const HeroScrollIndicator = (): ReactElement => {
+  const { t } = useTranslation();
   const { scrollTo }: UseScrollToReturn = useScrollTo();
 
   return (
@@ -11,7 +13,7 @@ export const HeroScrollIndicator = (): ReactElement => {
       type="button"
       onClick={(): void => scrollTo(sections.about.id)}
       className="group pointer-events-auto absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
-      aria-label="Scroll to about"
+      aria-label={t('hero.scrollToAbout')}
     >
       <RiArrowDownSLine
         className="size-6 text-[#191919] opacity-60 transition-all duration-300 ease-out group-hover:translate-y-1 group-hover:opacity-100 dark:text-white"

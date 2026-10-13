@@ -1,14 +1,16 @@
 import type { ReactElement } from 'react';
-import { portfolio } from '@/data/portfolio';
+import { useTranslation } from 'react-i18next';
+import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Education } from '@/types/education';
 
 export const EducationTimeline = (): ReactElement => {
-  const entries: Education[] = portfolio.education;
+  const { t } = useTranslation();
+  const entries: Education[] = usePortfolio().education;
 
   return (
     <div className="mb-8">
       <h5 className="mb-6 text-2xl font-bold text-[#191919] sm:text-3xl dark:text-white">
-        Education
+        {t('about.education')}
       </h5>
       <div className="relative space-y-6">
         <div
@@ -17,7 +19,7 @@ export const EducationTimeline = (): ReactElement => {
         />
         <div className="absolute top-0 left-1.75 h-8 w-0.5 bg-gray-300 dark:bg-gray-700" />
         {entries.map((entry): ReactElement => (
-          <div className="relative pl-8" key={entry.institution}>
+          <div className="relative pl-8" key={entry.startDate}>
             <div
               className={`absolute top-2 left-0 size-4  rounded-full ${
                 entry.isOngoing

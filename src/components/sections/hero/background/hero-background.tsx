@@ -1,6 +1,21 @@
 import type { ReactElement } from 'react';
 import { WavyBackground } from '@/components/ui/wavy-background';
 
+const darkColors: string[] = [
+  '#00e5ff',
+  '#00a8ff',
+  '#2563eb',
+  '#00e676',
+  '#14f195',
+];
+const lightColors: string[] = [
+  '#0891b2',
+  '#2563eb',
+  '#4f46e5',
+  '#059669',
+  '#10b981',
+];
+
 interface HeroBackgroundProps {
   isDarkTheme: boolean;
 }
@@ -8,9 +23,7 @@ interface HeroBackgroundProps {
 export const HeroBackground = ({
   isDarkTheme,
 }: HeroBackgroundProps): ReactElement => {
-  const colors: string[] = isDarkTheme
-    ? ['#00e5ff', '#00a8ff', '#2563eb', '#00e676', '#14f195']
-    : ['#0891b2', '#2563eb', '#4f46e5', '#059669', '#10b981'];
+  const colors: string[] = isDarkTheme ? darkColors : lightColors;
 
   return (
     <div className="absolute inset-0 z-0">

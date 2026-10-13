@@ -51,6 +51,13 @@ export const WavyBackground = ({
     let height: number = 0;
     let time: number = 0;
     let animationFrame: number = 0;
+    let isVisible: boolean = true;
+    let prefersReducedMotion: boolean = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    const reducedMotionQuery: MediaQueryList = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
 
     const resizeCanvas = (): void => {
       const bounds: DOMRect = container.getBoundingClientRect();
@@ -84,16 +91,42 @@ export const WavyBackground = ({
         context.closePath();
       }
 
-      animationFrame = window.requestAnimationFrame(draw);
+      if (isVisible && !prefersReducedMotion) {
+        animationFrame = window.requestAnimationFrame(draw);
+      }
+    };
+
+    const updateAnimation = (): void => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+
+      if (isVisible) {
+        draw();
+      }
+    };
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]): void => {
+        isVisible = entry?.isIntersecting ?? false;
+        updateAnimation();
+      },
+    );
+    const updateReducedMotion = (event: MediaQueryListEvent): void => {
+      prefersReducedMotion = event.matches;
+      updateAnimation();
     };
 
     const resizeObserver = new ResizeObserver(resizeCanvas);
     resizeObserver.observe(container);
+    visibilityObserver.observe(container);
+    reducedMotionQuery.addEventListener('change', updateReducedMotion);
     resizeCanvas();
-    animationFrame = window.requestAnimationFrame(draw);
+    updateAnimation();
 
     return (): void => {
       resizeObserver.disconnect();
+      visibilityObserver.disconnect();
+      reducedMotionQuery.removeEventListener('change', updateReducedMotion);
       window.cancelAnimationFrame(animationFrame);
     };
   }, [backgroundFill, blur, colors, speed, waveOpacity, waveWidth]);

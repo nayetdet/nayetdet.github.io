@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ri';
 import type { Portfolio } from '@/types/portfolio';
 
-export const portfolio: Portfolio = {
+const portfolioEnUS: Portfolio = {
   name: { first: 'João Pedro', last: 'Moreira' },
   role: 'Software Engineer',
   image: '/images/profile/joao-pedro-moreira.jpg',
@@ -42,3 +42,5 @@ export const portfolio: Portfolio = {
   },
   projects: [],
 };
+
+export default portfolioEnUS;

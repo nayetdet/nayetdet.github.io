@@ -1,10 +1,15 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SectionTitle } from '@/components/common/section-title';
-import { portfolio } from '@/data/portfolio';
+import { usePortfolio } from '@/hooks/use-portfolio';
 import { sections } from '@/constants/sections';
 import ProjectCard from '@/components/sections/projects/cards/project-card';
+import type { Portfolio } from '@/types/portfolio';
+import type { Project } from '@/types/project';
 
 export const ProjectsSection = (): ReactElement | null => {
+  const { t } = useTranslation();
+  const portfolio: Portfolio = usePortfolio();
   if (portfolio.projects.length === 0) {
     return null;
   }
@@ -15,9 +20,9 @@ export const ProjectsSection = (): ReactElement | null => {
       className="bg-gray-50 pt-32 pb-8 dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
-        <SectionTitle>Projects</SectionTitle>
+        <SectionTitle>{t('projects.title')}</SectionTitle>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {portfolio.projects.map((project) => (
+          {portfolio.projects.map((project: Project): ReactElement => (
             <ProjectCard
               key={project.name}
               images={project.images}

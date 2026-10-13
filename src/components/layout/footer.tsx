@@ -1,18 +1,17 @@
 import type { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RiMailLine, RiMapPinLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
-import { sections } from '@/constants/sections';
-import { portfolio } from '@/data/portfolio';
-
-const navItems = Object.values(sections).filter(
-  (section): boolean =>
-    portfolio.projects.length > 0 || section.id !== sections.projects.id,
-);
+import { navigationSections } from '@/constants/sections';
+import { usePortfolio } from '@/hooks/use-portfolio';
+import type { Portfolio } from '@/types/portfolio';
 
 const currentYear: number = new Date().getFullYear();
 
 export const Footer = (): ReactElement => {
+  const { t } = useTranslation();
+  const portfolio: Portfolio = usePortfolio();
   return (
     <footer className="bg-white dark:bg-[#191919]">
       <div className="mx-auto max-w-7xl px-6 py-10 sm:px-6 sm:py-12">
@@ -28,16 +27,16 @@ export const Footer = (): ReactElement => {
 
           <div>
             <h3 className="mb-3 text-2xl font-semibold text-[#191919] sm:mb-4 dark:text-white">
-              Navigation
+              {t('footer.navigation')}
             </h3>
             <ul className="space-y-2">
-              {navItems.map(({ label, id, href }): ReactElement => (
+              {navigationSections.map(({ id, href }): ReactElement => (
                 <li key={id}>
                   <a
                     href={href}
                     className="text-sm text-[#404040] transition-colors hover:text-black sm:text-base dark:text-[#d4d4d4] dark:hover:text-white"
                   >
-                    {label}
+                    {t(`navigation.${id}`)}
                   </a>
                 </li>
               ))}
@@ -46,7 +45,7 @@ export const Footer = (): ReactElement => {
 
           <div>
             <h3 className="mb-3 text-2xl font-semibold text-[#191919] sm:mb-4 dark:text-white">
-              Contact &amp; Networks
+              {t('footer.contactNetworks')}
             </h3>
             <div className="mb-3 sm:mb-4">
               <a
@@ -65,7 +64,7 @@ export const Footer = (): ReactElement => {
             </div>
             <div>
               <p className="mb-3 text-sm text-[#404040] dark:text-[#d4d4d4]">
-                Follow me:
+                {t('footer.followMe')}
               </p>
               <SocialNetworks />
             </div>
@@ -75,7 +74,7 @@ export const Footer = (): ReactElement => {
         <Separator className="mb-6 bg-gray-200 dark:bg-[#303030]" />
         <div className="flex flex-col items-center justify-between gap-3 text-center sm:gap-4 md:flex-row md:text-left">
           <p className="text-sm text-[#404040] dark:text-[#d4d4d4]">
-            © {currentYear} {portfolio.name.first}. All rights reserved.
+            © {currentYear} {portfolio.name.first}. {t('footer.rights')}
           </p>
         </div>
       </div>

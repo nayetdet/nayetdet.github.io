@@ -1,7 +1,7 @@
-import { useEffect, type EffectCallback } from 'react';
+import { useEffect } from 'react';
 
 export function useScrollLock(locked: boolean): void {
-  const lockEffect: EffectCallback = (): (() => void) | undefined => {
+  useEffect((): (() => void) | undefined => {
     if (!locked) {
       return undefined;
     }
@@ -17,7 +17,5 @@ export function useScrollLock(locked: boolean): void {
       document.body.style.overflow = previousBodyOverflow;
       document.documentElement.style.overflow = previousDocumentOverflow;
     };
-  };
-
-  useEffect(lockEffect, [locked]);
+  }, [locked]);
 }
