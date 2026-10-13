@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { BriefcaseBusiness } from 'lucide-react';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Portfolio } from '@/types/portfolio';
 
@@ -42,7 +44,10 @@ export const ContactProfile = (): ReactElement => {
       </div>
       <a
         href={`mailto:${portfolio.contact.email}`}
-        className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+        className={cn(
+          buttonVariants(),
+          'h-auto rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]',
+        )}
       >
         <RiMailLine className="size-4" aria-hidden="true" />
         <span>{portfolio.contact.email}</span>

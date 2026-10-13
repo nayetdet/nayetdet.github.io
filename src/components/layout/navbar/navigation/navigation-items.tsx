@@ -33,14 +33,13 @@ export const NavigationItems = memo(
             : `group relative cursor-pointer overflow-hidden rounded-full px-0 py-2 text-sm font-semibold transition-all duration-300 ${isActive ? 'text-[#191919] dark:text-white' : 'text-gray-500 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white'}`;
 
           return (
-            <li key={id} role={isMobile ? 'none' : undefined}>
+            <li key={id}>
               <button
                 type="button"
                 onClick={(): void => onNavigate(id)}
                 className={itemClassName}
                 aria-label={label}
                 aria-current={isActive ? 'location' : undefined}
-                role={isMobile ? 'menuitem' : undefined}
               >
                 {isMobile ? (
                   label

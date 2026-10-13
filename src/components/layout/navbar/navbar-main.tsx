@@ -5,13 +5,13 @@ import { ThemeToggle } from '@/components/layout/preferences/theme-toggle';
 import { NavbarMenuToggle } from '@/components/layout/navbar/navbar-menu-toggle';
 import { NavigationMobileMenu } from '@/components/layout/navbar/navigation/navigation-mobile-menu';
 import { NavigationItems } from '@/components/layout/navbar/navigation/navigation-items';
+import { Sheet } from '@/components/ui/sheet';
 import {
   navigationSections,
   type Section,
   type SectionId,
 } from '@/constants/sections';
 import { useActiveSection } from '@/hooks/use-active-section';
-import { useScrollLock } from '@/hooks/use-scroll-lock';
 import { useScrollTo, type UseScrollToReturn } from '@/hooks/use-scroll-to';
 
 export const NavbarMain = (): ReactElement => {
@@ -19,7 +19,6 @@ export const NavbarMain = (): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const activeSectionId: SectionId = useActiveSection(navigationSections);
 
-  useScrollLock(isMenuOpen);
   const { scrollTo }: UseScrollToReturn = useScrollTo();
   const navigateTo = useCallback(
     (sectionId: Section['id']): void => {
@@ -30,7 +29,7 @@ export const NavbarMain = (): ReactElement => {
   );
 
   return (
-    <>
+    <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
       <nav
         className="fixed top-4 left-1/2 z-50 w-[calc(100%-3rem)] -translate-x-1/2 transform md:w-max"
         aria-label={t('navigation.title')}
@@ -66,14 +65,12 @@ export const NavbarMain = (): ReactElement => {
           </div>
         </div>
       </nav>
-      {isMenuOpen && (
-        <NavigationMobileMenu
-          items={navigationSections}
-          activeSectionId={activeSectionId}
-          onNavigate={navigateTo}
-        />
-      )}
-    </>
+      <NavigationMobileMenu
+        items={navigationSections}
+        activeSectionId={activeSectionId}
+        onNavigate={navigateTo}
+      />
+    </Sheet>
   );
 };
 
