@@ -1,27 +1,10 @@
 import type { ReactElement } from 'react';
+import { ProjectCardImage } from '@/components/sections/projects/cards/project-card-image';
 
 interface ProjectCardGalleryProps {
   images: string[];
   title: string;
 }
-
-const ProjectImage = ({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className: string;
-}): ReactElement => (
-  <div className={className}>
-    <img
-      src={src}
-      alt={alt}
-      className="absolute inset-0 size-full object-cover"
-    />
-  </div>
-);
 
 export const ProjectCardGallery = ({
   images,
@@ -35,7 +18,7 @@ export const ProjectCardGallery = ({
     }
 
     return (
-      <ProjectImage
+      <ProjectCardImage
         src={firstImage}
         alt={title}
         className="relative h-48 bg-gray-900"
@@ -47,7 +30,7 @@ export const ProjectCardGallery = ({
     return (
       <div className="grid grid-cols-2 gap-2">
         {images.map((image, index): ReactElement => (
-          <ProjectImage
+          <ProjectCardImage
             key={image}
             src={image}
             alt={`${title} ${index + 1}`}
@@ -69,17 +52,17 @@ export const ProjectCardGallery = ({
 
     return (
       <div className="grid grid-cols-2 gap-2">
-        <ProjectImage
+        <ProjectCardImage
           src={firstImage}
           alt={`${title} 1`}
           className="relative row-span-2 h-48"
         />
-        <ProjectImage
+        <ProjectCardImage
           src={secondImage}
           alt={`${title} 2`}
           className="relative h-23"
         />
-        <ProjectImage
+        <ProjectCardImage
           src={thirdImage}
           alt={`${title} 3`}
           className="relative h-23"

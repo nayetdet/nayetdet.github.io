@@ -4,11 +4,13 @@ import { NavigationItems } from '@/components/layout/navbar/navigation/navigatio
 
 interface NavigationMobileMenuProps {
   items: readonly Section[];
+  activeSectionId: Section['id'];
   onNavigate: (sectionId: Section['id']) => void;
 }
 
 export const NavigationMobileMenu = ({
   items,
+  activeSectionId,
   onNavigate,
 }: NavigationMobileMenuProps): ReactElement => (
   <div
@@ -17,7 +19,12 @@ export const NavigationMobileMenu = ({
     aria-label="Mobile menu"
   >
     <div className="flex h-screen flex-col items-center justify-center">
-      <NavigationItems items={items} onNavigate={onNavigate} variant="mobile" />
+      <NavigationItems
+        items={items}
+        activeSectionId={activeSectionId}
+        onNavigate={onNavigate}
+        variant="mobile"
+      />
     </div>
   </div>
 );

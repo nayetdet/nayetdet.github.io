@@ -1,10 +1,10 @@
 import type { ReactElement } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { sections } from '@/constants/sections';
-import { useScrollTo } from '@/hooks/use-scroll-to';
+import { useScrollTo, type UseScrollToReturn } from '@/hooks/use-scroll-to';
 
 export const HeroScrollIndicator = (): ReactElement => {
-  const { scrollTo } = useScrollTo();
+  const { scrollTo }: UseScrollToReturn = useScrollTo();
 
   return (
     <button
