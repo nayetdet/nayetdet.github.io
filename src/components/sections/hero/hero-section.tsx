@@ -15,7 +15,7 @@ export const HeroSection = (): ReactElement => {
   return (
     <section
       id={sections.home.id}
-      className="relative h-screen overflow-hidden bg-white dark:bg-black"
+      className="relative h-dvh overflow-hidden bg-white dark:bg-black"
     >
       <HeroBackground isDarkTheme={isDarkTheme} />
       <NavbarMain />
