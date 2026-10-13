@@ -28,7 +28,7 @@ const portfolioPtBR: Portfolio = {
       position: 'Desenvolvedor Full Stack',
       startDate: '2026-05',
       summary:
-        'Atuei no desenvolvimento de um PaaS institucional que centraliza a gestão de projetos, ambientes e deploys, integrado ao GitHub e ao Coolify.',
+        'Desenvolvimento de um PaaS institucional para gerenciar projetos, ambientes e deploys. Atuei na automação do provisionamento de aplicações e bancos de dados e na implementação do controle de acesso por projeto.',
       techStack: [
         techStacks.typescript,
         techStacks.elysia,
@@ -44,7 +44,7 @@ const portfolioPtBR: Portfolio = {
       position: 'Desenvolvedor Backend',
       startDate: '2025-07',
       summary:
-        'Atuei no desenvolvimento de uma plataforma analítica para transformar dados de redes sociais em inteligência e suporte à decisão.',
+        'Desenvolvimento de APIs para uma plataforma que coletava publicações de três redes sociais e previa seu potencial de viralização. Atuei nos serviços de coleta e processamento e na predição da viralidade dos posts.',
       techStack: [
         techStacks.python,
         techStacks.fastApi,
@@ -58,7 +58,7 @@ const portfolioPtBR: Portfolio = {
       startDate: '2025-10',
       endDate: '2026-03',
       summary:
-        'Atuei no desenvolvimento de uma solução backend orientada a dados, composta por microsserviços de ingestão, processamento e predição.',
+        'Desenvolvimento de APIs para uma plataforma que previa quando veículos precisavam reabastecer, com base em dados de uso e consumo. Atuei nos serviços de ingestão, processamento e predição.',
       techStack: [
         techStacks.python,
         techStacks.fastApi,
@@ -72,7 +72,7 @@ const portfolioPtBR: Portfolio = {
       startDate: '2025-04',
       endDate: '2025-09',
       summary:
-        'Atuei na evolução do Integra-MEC, sistema administrativo da SETEC/MEC, com foco em segurança, regras de negócio e fluxos internos.',
+        'Desenvolvimento do Integra-MEC, plataforma de gestão acadêmica da SETEC/MEC. Implementei a camada de identidade e acesso com Keycloak e a geração de relatórios para os fluxos administrativos.',
       techStack: [
         techStacks.java,
         techStacks.springBoot,
@@ -89,7 +89,7 @@ const portfolioPtBR: Portfolio = {
       startDate: '2024-10',
       endDate: '2025-05',
       summary:
-        'Atuei na evolução de sistemas internos em C#/.NET, APIs REST e arquitetura de monólito modular.',
+        'Desenvolvimento de sistemas institucionais usados por servidores e setores do campus, incluindo a Intranet e o SysChaves. Atuei no backend com C#, criando e mantendo APIs e funcionalidades para esses sistemas.',
       techStack: [
         techStacks.csharp,
         techStacks.dotnetCore,

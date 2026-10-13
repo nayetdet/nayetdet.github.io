@@ -28,7 +28,7 @@ const portfolioEnUS: Portfolio = {
       position: 'Full Stack Developer',
       startDate: '2026-05',
       summary:
-        'Built an institutional PaaS that centralizes project, environment, and deployment management, integrated with GitHub and Coolify.',
+        'Developed an institutional PaaS for managing projects, environments, and deployments. I automated application and database provisioning and implemented project-level access control.',
       techStack: [
         techStacks.typescript,
         techStacks.elysia,
@@ -44,7 +44,7 @@ const portfolioEnUS: Portfolio = {
       position: 'Backend Developer',
       startDate: '2025-07',
       summary:
-        'Built an analytics platform that transforms social media data into intelligence and decision support.',
+        'Developed APIs for a platform that collected posts from three social networks and predicted their potential to go viral. I worked on the collection and processing services and on predicting post virality.',
       techStack: [
         techStacks.python,
         techStacks.fastApi,
@@ -58,7 +58,7 @@ const portfolioEnUS: Portfolio = {
       startDate: '2025-10',
       endDate: '2026-03',
       summary:
-        'Built a data-oriented backend solution composed of ingestion, processing, and prediction microservices.',
+        'Developed APIs for a platform that predicted when vehicles needed refueling based on usage and fuel consumption data. I worked on the ingestion, processing, and prediction services.',
       techStack: [
         techStacks.python,
         techStacks.fastApi,
@@ -72,7 +72,7 @@ const portfolioEnUS: Portfolio = {
       startDate: '2025-04',
       endDate: '2025-09',
       summary:
-        "Improved Integra-MEC, SETEC/MEC's administrative system, with a focus on security, business rules, and internal workflows.",
+        'Developed Integra-MEC, SETEC/MEC’s academic management platform. I implemented its identity and access layer with Keycloak and report generation for administrative workflows.',
       techStack: [
         techStacks.java,
         techStacks.springBoot,
@@ -89,7 +89,7 @@ const portfolioEnUS: Portfolio = {
       startDate: '2024-10',
       endDate: '2025-05',
       summary:
-        'Improved internal systems in C#/.NET, REST APIs, and a modular monolith architecture.',
+        'Developed institutional systems used by campus staff and departments, including Intranet and SysChaves. I worked on the backend in C#, building and maintaining APIs and features for these systems.',
       techStack: [
         techStacks.csharp,
         techStacks.dotnetCore,
