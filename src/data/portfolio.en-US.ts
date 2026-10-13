@@ -1,23 +1,16 @@
-import { Layers3, PanelsTopLeft, Server, Settings2 } from 'lucide-react';
+import { portfolioCommon } from '@/data/portfolio.common';
 import type { Portfolio } from '@/types/portfolio';
 
 const portfolioEnUS: Portfolio = {
-  name: { first: 'João Pedro', last: 'Moreira' },
+  ...portfolioCommon,
   role: 'Software Engineer',
-  image: '/images/profile/joao-pedro-moreira.jpg',
-  location: 'Fortaleza, Ceará, Brazil',
-  specialties: [
-    { name: 'Full Stack', icon: Layers3 },
-    { name: 'Backend', icon: Server },
-    { name: 'Frontend', icon: PanelsTopLeft },
-    { name: 'DevOps', icon: Settings2 },
-  ],
   tagline:
     'I build reliable backend platforms, web products, and data-driven solutions with thoughtful architecture and intuitive interfaces.',
   summary:
     'Software Engineer building backend platforms, web products, and data-driven solutions.',
   biography:
     'Software Engineer with experience building backend platforms, web products, and data-driven solutions. Works from architecture through delivery, automating processes, modernizing legacy systems, and building secure, scalable integrations with Java/Spring Boot, Python/FastAPI, Node.js, and React.',
+  cv: '/documents/cv-en-US.pdf',
   education: [
     {
       institution:
@@ -28,14 +21,6 @@ const portfolioEnUS: Portfolio = {
       isOngoing: true,
     },
   ],
-  cv: '/documents/cv.pdf',
-  contact: {
-    email: 'jpmoreirac21@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/jpmoreiracampos',
-    github: 'https://github.com/nayetdet',
-    gitlab: 'https://gitlab.com/nayetdet',
-  },
-  projects: [],
 };
 
 export default portfolioEnUS;

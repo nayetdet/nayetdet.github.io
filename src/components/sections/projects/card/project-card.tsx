@@ -2,8 +2,8 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { ProjectCardGallery } from '@/components/sections/projects/cards/project-card-gallery';
-import { ProjectCardInfo } from '@/components/sections/projects/cards/project-card-info';
+import { ProjectCardGallery } from '@/components/sections/projects/card/project-card-gallery';
+import { ProjectCardInfo } from '@/components/sections/projects/card/project-card-info';
 
 interface ProjectCardProps {
   images: string[];

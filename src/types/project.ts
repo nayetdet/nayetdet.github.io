@@ -3,6 +3,6 @@ export interface Project {
   description: string;
   date: string;
   images: string[];
-  technologies: string[];
+  techStack: string[];
   website: string;
 }

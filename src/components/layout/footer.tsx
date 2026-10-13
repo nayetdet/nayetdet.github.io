@@ -13,6 +13,7 @@ const currentYear: number = new Date().getFullYear();
 export const Footer = (): ReactElement => {
   const { t } = useTranslation();
   const portfolio: Portfolio = usePortfolio();
+
   return (
     <footer className="bg-white dark:bg-[#191919]">
       <div className="mx-auto max-w-7xl px-6 py-10 sm:px-6 sm:py-12">
@@ -31,16 +32,19 @@ export const Footer = (): ReactElement => {
               {t('footer.navigation')}
             </h3>
             <ul className="space-y-2">
-              {navigationSections.map(({ id, href }): ReactElement => (
-                <li key={id}>
-                  <a
-                    href={href}
-                    className="text-sm text-[#404040] transition-colors hover:text-black sm:text-base dark:text-[#d4d4d4] dark:hover:text-white"
-                  >
-                    {t(`navigation.${id}`)}
-                  </a>
-                </li>
-              ))}
+              {navigationSections.map(
+                ({ id, href, icon: Icon }): ReactElement => (
+                  <li key={id}>
+                    <a
+                      href={href}
+                      className="inline-flex items-center gap-2 text-sm text-[#404040] transition-colors hover:text-black sm:text-base dark:text-[#d4d4d4] dark:hover:text-white"
+                    >
+                      <Icon className="size-4" aria-hidden="true" />
+                      {t(`navigation.${id}`)}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 

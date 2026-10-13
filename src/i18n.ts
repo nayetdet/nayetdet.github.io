@@ -9,6 +9,7 @@ const resources = {
       navigation: {
         home: 'Home',
         about: 'About',
+        'tech-stack': 'Tech Stack',
         projects: 'Projects',
         contact: 'Contact',
         title: 'Main navigation',
@@ -35,6 +36,15 @@ const resources = {
         viewWebsite: 'View website',
         viewProjectWebsite: 'View {{title}} website',
       },
+      techStack: {
+        title: 'Tech Stack',
+        description:
+          'Tools and technologies I use to build reliable backend platforms, web applications, and infrastructure.',
+        backend: 'Backend',
+        frontend: 'Frontend',
+        databases: 'Databases',
+        infrastructure: 'Infrastructure and DevOps',
+      },
       contact: {
         title: 'Contact',
         usefulLinks: 'Useful links:',
@@ -60,6 +70,7 @@ const resources = {
       navigation: {
         home: 'Início',
         about: 'Sobre',
+        'tech-stack': 'Tecnologias',
         projects: 'Projetos',
         contact: 'Contato',
         title: 'Navegação principal',
@@ -89,6 +100,15 @@ const resources = {
         title: 'Projetos',
         viewWebsite: 'Ver site',
         viewProjectWebsite: 'Ver site de {{title}}',
+      },
+      techStack: {
+        title: 'Tecnologias',
+        description:
+          'Ferramentas e tecnologias que uso para criar plataformas backend, aplicações web e infraestrutura confiáveis.',
+        backend: 'Backend',
+        frontend: 'Frontend',
+        databases: 'Bancos de dados',
+        infrastructure: 'Infraestrutura e DevOps',
       },
       contact: {
         title: 'Contato',

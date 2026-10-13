@@ -19,8 +19,8 @@ import { scrollTo } from '@/utils/scroll';
 export const Navbar = (): ReactElement => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const activeSectionId: SectionId = useActiveSection(navigationSections);
   const isMobile: boolean = useMobile();
+  const activeSectionId: SectionId = useActiveSection(navigationSections);
 
   useEffect((): (() => void) | undefined => {
     if (isMobile) {

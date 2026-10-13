@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SectionTitle } from '@/components/common/section-title';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import { sections } from '@/constants/sections';
-import ProjectCard from '@/components/sections/projects/cards/project-card';
+import ProjectCard from '@/components/sections/projects/card/project-card';
 import type { Portfolio } from '@/types/portfolio';
 import type { Project } from '@/types/project';
 
@@ -29,7 +29,7 @@ export const ProjectsSection = (): ReactElement | null => {
               title={project.name}
               description={project.description}
               date={project.date}
-              tags={project.technologies}
+              tags={project.techStack}
               siteUrl={project.website}
             />
           ))}

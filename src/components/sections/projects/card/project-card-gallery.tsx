@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { ProjectCardImage } from '@/components/sections/projects/cards/project-card-image';
+import { ProjectCardImage } from '@/components/sections/projects/card/project-card-image';
 
 interface ProjectCardGalleryProps {
   images: string[];
