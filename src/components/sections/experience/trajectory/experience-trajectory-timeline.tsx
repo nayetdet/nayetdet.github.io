@@ -19,7 +19,6 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
       extendLastLine
       itemClassName="pb-6"
       connectionClassName="-bottom-8"
-      leadingLineClassName="top-0 left-1.75 h-8 w-0.5 bg-white"
       items={trajectory.map((experience: Trajectory): TimelineItem => {
         const endDate: string = experience.endDate
           ? formatDate(experience.endDate, language)
@@ -27,7 +26,8 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
 
         return {
           key: `${experience.name}-${experience.startDate}`,
-          isOngoing: !experience.endDate,
+          startDate: experience.startDate,
+          endDate: experience.endDate,
           content: (
             <article>
               <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">

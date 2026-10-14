@@ -30,7 +30,12 @@ const resources = {
       },
       theme: { toggle: 'Toggle between light and dark theme' },
       hero: { greeting: "Hi, I'm", scrollToAbout: 'Scroll to about' },
-      about: { title: 'About', education: 'Education', viewCv: 'View CV' },
+      about: {
+        title: 'About',
+        education: 'Education',
+        viewCv: 'View CV',
+        viewProjects: 'View projects',
+      },
       experience: {
         title: 'Experience',
         description:
@@ -117,7 +122,12 @@ const resources = {
       },
       theme: { toggle: 'Alternar entre os temas claro e escuro' },
       hero: { greeting: 'Olá, eu sou', scrollToAbout: 'Ir para a seção Sobre' },
-      about: { title: 'Sobre', education: 'Formação', viewCv: 'Ver currículo' },
+      about: {
+        title: 'Sobre',
+        education: 'Formação',
+        viewCv: 'Ver currículo',
+        viewProjects: 'Ver projetos',
+      },
       experience: {
         title: 'Experiência',
         description:

@@ -15,26 +15,30 @@ export const EducationTimeline = (): ReactElement => {
       </h5>
       <Timeline
         extendLastLine
-        items={entries.map((entry): TimelineItem => ({
-          key: String(entry.startDate),
-          isOngoing: entry.isOngoing,
-          content: (
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0 flex-1">
-                <h6 className="text-lg font-bold text-[#191919] uppercase dark:text-white">
-                  {entry.institution}
-                </h6>
-                <p className="text-base font-medium text-[#404040] dark:text-gray-300">
-                  {entry.degree}
-                </p>
+        items={entries.map((entry): TimelineItem => {
+          const endDate = entry.endDate ?? t('experience.present');
+
+          return {
+            key: String(entry.startDate),
+            startDate: entry.startDate,
+            endDate: entry.endDate,
+            content: (
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <h6 className="text-lg font-bold text-[#191919] uppercase dark:text-white">
+                    {entry.institution}
+                  </h6>
+                  <p className="text-base font-medium text-[#404040] dark:text-gray-300">
+                    {entry.degree}
+                  </p>
+                </div>
+                <span className="shrink-0 text-sm whitespace-nowrap text-gray-600 italic dark:text-gray-400">
+                  {entry.startDate} – {endDate}
+                </span>
               </div>
-              <span className="shrink-0 text-sm whitespace-nowrap text-gray-600 italic dark:text-gray-400">
-                {entry.startDate} – {entry.endDate}
-              </span>
-            </div>
-          ),
-        }))}
-        leadingLineClassName="top-0 left-1.75 h-8 w-0.5 bg-white"
+            ),
+          };
+        })}
       />
     </div>
   );

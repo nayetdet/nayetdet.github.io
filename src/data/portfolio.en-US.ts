@@ -128,9 +128,8 @@ const portfolioEnUS: Portfolio = {
       institution:
         'Federal Institute of Education, Science and Technology of Ceará',
       degree: "Bachelor's Degree in Computer Science",
-      startDate: 2024,
-      endDate: 2027,
-      isOngoing: true,
+      startDate: '2024',
+      endDate: '2027',
     },
   ],
   trajectory: [

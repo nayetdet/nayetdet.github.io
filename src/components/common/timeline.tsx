@@ -1,10 +1,12 @@
 import type { ReactElement, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { isOngoing } from '@/utils/date';
 
 export interface TimelineItem {
   key: string;
   content: ReactNode;
-  isOngoing?: boolean;
+  startDate: string;
+  endDate: string | undefined;
 }
 
 interface TimelineProps {
@@ -34,6 +36,7 @@ export const Timeline = ({
     {items.map((item: TimelineItem, index: number): ReactElement => {
       const hasNextItem = index < items.length - 1;
       const hasLine = hasNextItem || extendLastLine;
+      const ongoing = isOngoing(item.endDate);
 
       return (
         <div
@@ -57,10 +60,16 @@ export const Timeline = ({
             <span
               className={cn(
                 'absolute top-2 left-0 z-10 size-4 rounded-full',
-                item.isOngoing
-                  ? 'border-[3px] border-white! bg-gray-300 dark:bg-[#404040]'
-                  : lineClassName,
+                ongoing ? 'border-[3px]' : lineClassName,
               )}
+              style={
+                ongoing
+                  ? {
+                      backgroundColor: 'var(--background)',
+                      borderColor: 'var(--foreground)',
+                    }
+                  : undefined
+              }
               aria-hidden="true"
             />
           </div>

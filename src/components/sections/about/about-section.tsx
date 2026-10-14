@@ -4,6 +4,7 @@ import { SectionTitle } from '@/components/common/section-title';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import { sections } from '@/constants/sections';
 import { CvButton } from '@/components/sections/about/actions/cv-button';
+import { ProjectsButton } from '@/components/sections/about/actions/projects-button';
 import { EducationTimeline } from '@/components/sections/about/education/education-timeline';
 import { AboutProfile } from '@/components/sections/about/profile/about-profile';
 import { AboutProfileSpecialties } from '@/components/sections/about/profile/about-profile-specialties';
@@ -36,7 +37,10 @@ export const AboutSection = (): ReactElement => {
               {portfolio.biography}
             </p>
             {portfolio.education.length > 0 && <EducationTimeline />}
-            <CvButton />
+            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+              <CvButton />
+              {portfolio.projects.length > 0 && <ProjectsButton />}
+            </div>
           </div>
         </div>
       </div>

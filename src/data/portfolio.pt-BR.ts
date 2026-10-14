@@ -128,9 +128,8 @@ const portfolioPtBR: Portfolio = {
       institution:
         'Instituto Federal de Educação, Ciência e Tecnologia do Ceará',
       degree: 'Bacharelado em Ciência da Computação',
-      startDate: 2024,
-      endDate: 2027,
-      isOngoing: true,
+      startDate: '2024',
+      endDate: '2027',
     },
   ],
   trajectory: [
