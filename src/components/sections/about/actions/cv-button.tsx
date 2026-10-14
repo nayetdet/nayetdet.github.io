@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { FileText } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { Portfolio } from '@/types/portfolio';
+import type { About } from '@/types/portfolio/about/about';
 
 export const CvButton = (): ReactElement => {
   const { t } = useTranslation();
-  const portfolio: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   return (
     <a
-      href={portfolio.cv}
+      href={about.cv}
       target="_blank"
       rel="noopener noreferrer"
       className={buttonVariants({

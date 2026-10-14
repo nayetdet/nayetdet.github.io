@@ -4,35 +4,21 @@ import {
   House,
   Mail,
   UserRound,
-  type LucideIcon,
 } from 'lucide-react';
-import { portfolios } from '@/data/portfolios';
+import type { IconType } from 'react-icons';
 
 export type SectionId =
   'home' | 'about' | 'experience' | 'projects' | 'contact';
 
 export interface Section {
   id: SectionId;
-  href: string;
-  icon: LucideIcon;
+  icon: IconType;
 }
 
 export const sections = {
-  home: { id: 'home', href: '#home', icon: House },
-  about: { id: 'about', href: '#about', icon: UserRound },
-  experience: {
-    id: 'experience',
-    href: '#experience',
-    icon: BriefcaseBusiness,
-  },
-  projects: { id: 'projects', href: '#projects', icon: FolderGit2 },
-  contact: { id: 'contact', href: '#contact', icon: Mail },
+  home: { id: 'home', icon: House },
+  about: { id: 'about', icon: UserRound },
+  experience: { id: 'experience', icon: BriefcaseBusiness },
+  projects: { id: 'projects', icon: FolderGit2 },
+  contact: { id: 'contact', icon: Mail },
 } as const satisfies Record<string, Section>;
-
-export const navigationSections: Section[] = Object.values(sections).filter(
-  (section: Section): boolean =>
-    section.id !== sections.projects.id ||
-    Object.values(portfolios).some(
-      (portfolio): boolean => portfolio.projects.length > 0,
-    ),
-);

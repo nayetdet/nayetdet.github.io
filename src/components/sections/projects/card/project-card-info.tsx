@@ -1,18 +1,16 @@
 import type { ReactElement } from 'react';
 import { Badge } from '@/components/ui/badge';
-import type { TechStackItem } from '@/types/tech-stack';
+import type { TechStackItem } from '@/types/portfolio/tech-stack/tech-stack-item';
 
 interface ProjectCardInfoProps {
   title: string;
   description: string;
-  date?: string | undefined;
   tags: TechStackItem[];
 }
 
 export const ProjectCardInfo = ({
   title,
   description,
-  date,
   tags,
 }: ProjectCardInfoProps): ReactElement => (
   <div className="flex flex-1 flex-col p-6">
@@ -23,9 +21,6 @@ export const ProjectCardInfo = ({
       {description}
     </p>
     <div className="flex flex-col items-start gap-3">
-      {date && (
-        <span className="text-sm text-gray-500 dark:text-gray-400">{date}</span>
-      )}
       <div className="flex flex-wrap gap-2">
         {tags.map((tag: TechStackItem): ReactElement => {
           const Icon = tag.icon;

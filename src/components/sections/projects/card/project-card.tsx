@@ -4,13 +4,12 @@ import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { ProjectCardGallery } from '@/components/sections/projects/card/project-card-gallery';
 import { ProjectCardInfo } from '@/components/sections/projects/card/project-card-info';
-import type { TechStackItem } from '@/types/tech-stack';
+import type { TechStackItem } from '@/types/portfolio/tech-stack/tech-stack-item';
 
 interface ProjectCardProps {
   images: string[];
   title: string;
   description: string;
-  date?: string | undefined;
   tags: TechStackItem[];
   siteUrl?: string;
 }
@@ -19,7 +18,6 @@ export const ProjectCard = ({
   images,
   title,
   description,
-  date,
   tags,
   siteUrl,
 }: ProjectCardProps): ReactElement => {
@@ -44,12 +42,7 @@ export const ProjectCard = ({
             </div>
           </div>
         </div>
-        <ProjectCardInfo
-          title={title}
-          description={description}
-          date={date}
-          tags={tags}
-        />
+        <ProjectCardInfo title={title} description={description} tags={tags} />
       </Card>
     </a>
   );

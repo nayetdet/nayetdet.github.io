@@ -49,7 +49,8 @@
     "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "^5.9.3",
-    "vite": "^8.2.1"
+    "vite": "^8.2.1",
+    "vite-imagetools": "^10.0.1"
   },
   "lint-staged": {
     "*.{css,js,mjs,ts,tsx,json,yaml,yml,md}": "prettier --write",

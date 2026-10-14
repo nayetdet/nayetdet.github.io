@@ -2,10 +2,10 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/components/ui/card';
 import { TechStackCardItem } from '@/components/sections/experience/tech-stack/card/tech-stack-card-item';
-import type { TechStack } from '@/types/tech-stack';
+import type { TechStackCategory } from '@/types/portfolio/tech-stack/tech-stack-category';
 
 interface TechStackCardProps {
-  stack: TechStack;
+  stack: TechStackCategory;
 }
 
 export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {

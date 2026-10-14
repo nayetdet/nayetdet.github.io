@@ -7,20 +7,18 @@ import { ThemeToggle } from '@/components/layout/preferences/theme-toggle';
 import { NavbarMenu } from '@/components/layout/navbar/navbar-menu';
 import { NavbarMenuToggle } from '@/components/layout/navbar/navbar-menu-toggle';
 import { Sheet } from '@/components/ui/sheet';
-import {
-  navigationSections,
-  type Section,
-  type SectionId,
-} from '@/constants/sections';
+import { sections, type Section, type SectionId } from '@/constants/sections';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { useMobile } from '@/hooks/use-mobile';
 import { scrollTo } from '@/utils/scroll';
+
+const items: Section[] = Object.values(sections);
 
 export const Navbar = (): ReactElement => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isMobile: boolean = useMobile();
-  const activeSectionId: SectionId = useActiveSection(navigationSections);
+  const activeSectionId: SectionId = useActiveSection();
 
   useEffect((): (() => void) | undefined => {
     if (isMobile) {
@@ -28,7 +26,6 @@ export const Navbar = (): ReactElement => {
     }
 
     const frameId: number = requestAnimationFrame(() => setIsMenuOpen(false));
-
     return (): void => cancelAnimationFrame(frameId);
   }, [isMobile]);
 
@@ -47,7 +44,7 @@ export const Navbar = (): ReactElement => {
           <div className="flex h-full items-center justify-center">
             <div className="hidden items-center gap-6 md:flex">
               <NavbarItems
-                items={navigationSections}
+                items={items}
                 activeSectionId={activeSectionId}
                 onNavigate={navigateTo}
                 variant="desktop"
@@ -76,7 +73,7 @@ export const Navbar = (): ReactElement => {
         </div>
       </nav>
       <NavbarMenu
-        items={navigationSections}
+        items={items}
         activeSectionId={activeSectionId}
         onNavigate={navigateTo}
         onClose={(): void => setIsMenuOpen(false)}

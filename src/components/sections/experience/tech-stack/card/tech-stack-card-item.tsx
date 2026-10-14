@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
-import type { TechStackItem as TechStackItemData } from '@/types/tech-stack';
+import type { TechStackItem } from '@/types/portfolio/tech-stack/tech-stack-item';
 
 interface TechStackCardItemProps {
-  item: TechStackItemData;
+  item: TechStackItem;
 }
 
 export const TechStackCardItem = ({

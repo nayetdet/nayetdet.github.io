@@ -1,0 +1,27 @@
+import { commonAbout } from '@/data/portfolio/common/about';
+import type { About } from '@/types/portfolio/about/about';
+
+export const about: About = {
+  ...commonAbout,
+  identity: { ...commonAbout.identity, role: 'Full Stack Developer' },
+  introduction: {
+    tagline:
+      'I build web applications across the frontend and backend, including APIs, integrations, and deployment infrastructure.',
+    summary:
+      'Full Stack Developer connecting interfaces, backend services, and infrastructure to build web applications.',
+    biography:
+      'I am a Full Stack Developer building web applications for different contexts. I develop interfaces, APIs, and integrations, and also work with infrastructure and deployment automation. My experience includes web products, institutional systems, and analytics platforms, using Java/Spring Boot, Python/FastAPI, Node.js, and React.',
+  },
+  cv: '/documents/cv-en-US.pdf',
+  education: [
+    {
+      institution:
+        'Federal Institute of Education, Science and Technology of Ceará',
+      degree: "Bachelor's Degree in Computer Science",
+      startDate: '2024',
+      endDate: '2027',
+    },
+  ],
+};
+
+export default about;

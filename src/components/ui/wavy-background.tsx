@@ -51,6 +51,7 @@ export const WavyBackground = ({
     let height: number = 0;
     let time: number = 0;
     let animationFrame: number = 0;
+    let lastFrameTime: number = 0;
     let isVisible: boolean = true;
     let prefersReducedMotion: boolean = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
@@ -61,7 +62,14 @@ export const WavyBackground = ({
 
     const resizeCanvas = (): void => {
       const bounds: DOMRect = container.getBoundingClientRect();
-      const pixelRatio: number = Math.min(window.devicePixelRatio || 1, 2);
+      const maxPixelRatio: number = window.matchMedia('(max-width: 767px)')
+        .matches
+        ? 1.25
+        : 1.5;
+      const pixelRatio: number = Math.min(
+        window.devicePixelRatio || 1,
+        maxPixelRatio,
+      );
 
       width = bounds.width;
       height = bounds.height;
@@ -71,7 +79,17 @@ export const WavyBackground = ({
       context.filter = `blur(${blur}px)`;
     };
 
-    const draw = (): void => {
+    const draw = (frameTime: number): void => {
+      if (!isVisible || prefersReducedMotion) {
+        return;
+      }
+
+      if (frameTime - lastFrameTime < 1000 / 30) {
+        animationFrame = window.requestAnimationFrame(draw);
+        return;
+      }
+
+      lastFrameTime = frameTime;
       context.fillStyle = backgroundFill;
       context.globalAlpha = waveOpacity;
       context.fillRect(0, 0, width, height);
@@ -82,7 +100,9 @@ export const WavyBackground = ({
         context.lineWidth = waveWidth;
         context.strokeStyle = waveColors[wave % waveColors.length] ?? '#38bdf8';
 
-        for (let x = 0; x <= width; x += 5) {
+        const pointStep: number = width < 768 ? 8 : 6;
+
+        for (let x = 0; x <= width; x += pointStep) {
           const y: number = noise(x / 800, 0.3 * wave, time) * 100;
           context.lineTo(x, y + height * 0.5);
         }
@@ -99,9 +119,10 @@ export const WavyBackground = ({
     const updateAnimation = (): void => {
       window.cancelAnimationFrame(animationFrame);
       animationFrame = 0;
+      lastFrameTime = 0;
 
       if (isVisible) {
-        draw();
+        animationFrame = window.requestAnimationFrame(draw);
       }
     };
 

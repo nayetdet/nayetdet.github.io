@@ -7,17 +7,14 @@ export const Logo = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <a
-      href="#home"
-      onClick={(event): void => {
-        event.preventDefault();
-        scrollTo(sections.home.id);
-      }}
+    <button
+      type="button"
+      onClick={(): void => scrollTo(sections.home.id)}
       aria-label={t('brand.goHome')}
-      className="shrink-0 text-lg leading-none font-bold tracking-tight text-[#191919] transition-opacity hover:opacity-70 dark:text-white"
+      className="shrink-0 cursor-pointer border-0 bg-transparent p-0 text-lg leading-none font-bold tracking-tight text-[#191919] transition-opacity hover:opacity-70 dark:text-white"
     >
       João Pedro
-    </a>
+    </button>
   );
 };
 

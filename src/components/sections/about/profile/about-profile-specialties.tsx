@@ -2,15 +2,15 @@ import type { ReactElement } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { Portfolio } from '@/types/portfolio';
-import type { Specialty } from '@/types/specialty';
+import type { About } from '@/types/portfolio/about/about';
+import type { Specialty } from '@/types/portfolio/about/specialty';
 
 export const AboutProfileSpecialties = (): ReactElement => {
-  const { specialties }: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   return (
     <div className="mb-6 flex flex-wrap gap-2 sm:mb-8 sm:gap-3">
-      {specialties.map((specialty: Specialty): ReactElement => {
+      {about.specialties.map((specialty: Specialty): ReactElement => {
         const Icon: LucideIcon | undefined = specialty.icon;
 
         return (

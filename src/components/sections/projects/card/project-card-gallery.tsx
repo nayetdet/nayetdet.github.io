@@ -1,5 +1,4 @@
 import type { ReactElement } from 'react';
-import { ProjectCardImage } from '@/components/sections/projects/card/project-card-image';
 
 interface ProjectCardGalleryProps {
   images: string[];
@@ -18,11 +17,15 @@ export const ProjectCardGallery = ({
     }
 
     return (
-      <ProjectCardImage
-        src={firstImage}
-        alt={title}
-        className="relative h-48 bg-gray-900"
-      />
+      <div className="relative h-48 bg-gray-900">
+        <img
+          src={firstImage}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover"
+        />
+      </div>
     );
   }
 
@@ -30,12 +33,15 @@ export const ProjectCardGallery = ({
     return (
       <div className="grid grid-cols-2 gap-2">
         {images.map((image, index): ReactElement => (
-          <ProjectCardImage
-            key={image}
-            src={image}
-            alt={`${title} ${index + 1}`}
-            className="relative h-48"
-          />
+          <div key={image} className="relative h-48">
+            <img
+              src={image}
+              alt={`${title} ${index + 1}`}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 size-full object-cover"
+            />
+          </div>
         ))}
       </div>
     );
@@ -52,21 +58,33 @@ export const ProjectCardGallery = ({
 
     return (
       <div className="grid grid-cols-2 gap-2">
-        <ProjectCardImage
-          src={firstImage}
-          alt={`${title} 1`}
-          className="relative row-span-2 h-48"
-        />
-        <ProjectCardImage
-          src={secondImage}
-          alt={`${title} 2`}
-          className="relative h-23"
-        />
-        <ProjectCardImage
-          src={thirdImage}
-          alt={`${title} 3`}
-          className="relative h-23"
-        />
+        <div className="relative row-span-2 h-48">
+          <img
+            src={firstImage}
+            alt={`${title} 1`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+        </div>
+        <div className="relative h-23">
+          <img
+            src={secondImage}
+            alt={`${title} 2`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+        </div>
+        <div className="relative h-23">
+          <img
+            src={thirdImage}
+            alt={`${title} 3`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover"
+          />
+        </div>
       </div>
     );
   }

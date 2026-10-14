@@ -70,7 +70,7 @@ const resources = {
       techStack: {
         title: 'Tech Stack',
         description:
-          'Tools I have worked with across different projects, grouped by area.',
+          'Tools I have used across different projects, organized by area and applied to a range of development needs.',
         backend: 'Backend',
         frontend: 'Frontend',
         databases: 'Databases',
@@ -162,7 +162,7 @@ const resources = {
       techStack: {
         title: 'Tecnologias',
         description:
-          'Ferramentas que já fizeram parte dos projetos em que trabalhei, separadas por área.',
+          'Ferramentas que já fizeram parte dos projetos em que trabalhei, organizadas por área e aplicadas a diferentes necessidades de desenvolvimento.',
         backend: 'Backend',
         frontend: 'Frontend',
         databases: 'Bancos de dados',

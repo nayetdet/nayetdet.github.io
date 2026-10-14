@@ -11,14 +11,16 @@ export const App = (): ReactElement => {
   useLocale();
 
   return (
-    <main>
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <ContactSection />
+    <>
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

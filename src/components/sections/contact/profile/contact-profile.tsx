@@ -6,11 +6,11 @@ import { SocialNetworks } from '@/components/common/social-networks';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { Portfolio } from '@/types/portfolio';
+import type { About } from '@/types/portfolio/about/about';
 
 export const ContactProfile = (): ReactElement => {
   const { t } = useTranslation();
-  const portfolio: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   return (
     <div>
@@ -18,21 +18,21 @@ export const ContactProfile = (): ReactElement => {
         <div className="mb-6 flex items-center gap-4">
           <div className="relative size-24 shrink-0 overflow-hidden rounded-full">
             <img
-              src={portfolio.aboutImage}
-              alt={`${portfolio.name.first} ${portfolio.name.last}`}
+              src={about.identity.image}
+              alt={`${about.identity.firstName} ${about.identity.lastName}`}
               className="absolute inset-0 size-full object-cover object-top"
             />
           </div>
           <div className="flex w-fit flex-col items-start">
             <h3 className="text-2xl leading-none font-semibold tracking-tight text-[#191919] dark:text-white">
-              {portfolio.name.first}
+              {about.identity.firstName}
             </h3>
             <p className="mt-1 inline-flex items-center gap-2 text-sm/6 font-medium text-gray-600 dark:text-gray-300">
               <BriefcaseBusiness
                 className="size-4 shrink-0"
                 aria-hidden="true"
               />
-              {portfolio.role}
+              {about.identity.role}
             </p>
           </div>
         </div>
@@ -44,14 +44,14 @@ export const ContactProfile = (): ReactElement => {
         <SocialNetworks variant="pill" />
       </div>
       <a
-        href={`mailto:${portfolio.contact.email}`}
+        href={`mailto:${about.contact.email}`}
         className={cn(
           buttonVariants(),
           'h-auto rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]',
         )}
       >
         <RiMailLine className="size-4" aria-hidden="true" />
-        <span>{portfolio.contact.email}</span>
+        <span>{about.contact.email}</span>
       </a>
     </div>
   );

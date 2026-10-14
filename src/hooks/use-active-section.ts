@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
-import type { Section, SectionId } from '@/constants/sections';
+import { sections, type Section, type SectionId } from '@/constants/sections';
 
-export const useActiveSection = (sections: readonly Section[]): SectionId => {
+const sectionList: Section[] = Object.values(sections);
+
+export const useActiveSection = (): SectionId => {
   const [activeSectionId, setActiveSectionId] = useState<SectionId>(
-    sections[0]?.id ?? 'home',
+    sectionList[0]?.id ?? 'home',
   );
 
   useEffect((): (() => void) => {
     const updateActiveSection = (): void => {
       setActiveSectionId(
-        sections.findLast(
+        sectionList.findLast(
           ({ id }: Section): boolean =>
             (document.getElementById(id)?.getBoundingClientRect().top ??
               Infinity) <=
             window.innerHeight * 0.35,
         )?.id ??
-          sections[0]?.id ??
+          sectionList[0]?.id ??
           'home',
       );
     };
@@ -28,7 +30,7 @@ export const useActiveSection = (sections: readonly Section[]): SectionId => {
       window.removeEventListener('scroll', updateActiveSection);
       window.removeEventListener('resize', updateActiveSection);
     };
-  }, [sections]);
+  }, []);
 
   return activeSectionId;
 };

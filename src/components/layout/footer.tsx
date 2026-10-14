@@ -4,15 +4,16 @@ import { Globe, MapPin } from 'lucide-react';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
-import { navigationSections } from '@/constants/sections';
+import { sections } from '@/constants/sections';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { Portfolio } from '@/types/portfolio';
+import type { About } from '@/types/portfolio/about/about';
+import { scrollTo } from '@/utils/scroll';
 
 const currentYear: number = new Date().getFullYear();
 
 export const Footer = (): ReactElement => {
   const { t } = useTranslation();
-  const portfolio: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   return (
     <footer className="bg-white dark:bg-[#191919]">
@@ -20,10 +21,10 @@ export const Footer = (): ReactElement => {
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <h3 className="mb-3 text-xl font-semibold tracking-tight text-[#191919] dark:text-white">
-              {portfolio.name.first}
+              {about.identity.firstName}
             </h3>
             <p className="text-base/7 text-[#525252] md:pr-5 dark:text-[#a3a3a3]">
-              {portfolio.summary}
+              {about.introduction.summary}
             </p>
           </div>
 
@@ -32,16 +33,17 @@ export const Footer = (): ReactElement => {
               {t('footer.navigation')}
             </h3>
             <ul className="space-y-2">
-              {navigationSections.map(
-                ({ id, href, icon: Icon }): ReactElement => (
+              {Object.values(sections).map(
+                ({ id, icon: Icon }): ReactElement => (
                   <li key={id}>
-                    <a
-                      href={href}
-                      className="inline-flex items-center gap-2 text-sm/6 text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white"
+                    <button
+                      type="button"
+                      onClick={(): void => scrollTo(id)}
+                      className="inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 text-sm/6 text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white"
                     >
                       <Icon className="size-4" aria-hidden="true" />
                       {t(`navigation.${id}`)}
-                    </a>
+                    </button>
                   </li>
                 ),
               )}
@@ -60,10 +62,10 @@ export const Footer = (): ReactElement => {
                 />
                 <span>{t('contact.email')}:</span>
                 <a
-                  href={`mailto:${portfolio.contact.email}`}
+                  href={`mailto:${about.contact.email}`}
                   className="text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white"
                 >
-                  {portfolio.contact.email}
+                  {about.contact.email}
                 </a>
               </div>
             </div>
@@ -83,7 +85,7 @@ export const Footer = (): ReactElement => {
                   className="size-4 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
                 />
-                {portfolio.location}
+                {about.contact.location}
               </div>
             </div>
           </div>
@@ -92,7 +94,7 @@ export const Footer = (): ReactElement => {
         <Separator className="mb-6 bg-gray-200 dark:bg-[#303030]" />
         <div className="flex flex-col items-center justify-between gap-3 text-center sm:gap-4 md:flex-row md:text-left">
           <p className="text-sm text-[#404040] dark:text-[#d4d4d4]">
-            © {currentYear} {portfolio.name.first}. {t('footer.rights')}
+            © {currentYear} {about.identity.firstName}. {t('footer.rights')}
           </p>
         </div>
       </div>

@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { RiGithubFill, RiGitlabFill, RiLinkedinFill } from 'react-icons/ri';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import { cn } from '@/lib/utils';
+import type { About } from '@/types/portfolio/about/about';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import type { Portfolio } from '@/types/portfolio';
 
 type SocialNetworksVariant = 'icon' | 'pill';
 
@@ -25,20 +25,20 @@ export const SocialNetworks = ({
 }: SocialNetworksProps): ReactElement => {
   const { t } = useTranslation();
   const isPillVariant: boolean = variant === 'pill';
-  const portfolio: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   const socialNetworks = [
     {
       name: 'LinkedIn',
       label: t('social.linkedin'),
-      href: portfolio.contact.linkedin,
+      href: about.contact.linkedin,
       icon: RiLinkedinFill,
       pillClassName: 'bg-[#0a66c2] hover:opacity-90',
     },
     {
       name: 'GitHub',
       label: t('social.github'),
-      href: portfolio.contact.github,
+      href: about.contact.github,
       icon: RiGithubFill,
       pillClassName:
         'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
@@ -46,7 +46,7 @@ export const SocialNetworks = ({
     {
       name: 'GitLab',
       label: t('social.gitlab'),
-      href: portfolio.contact.gitlab,
+      href: about.contact.gitlab,
       icon: RiGitlabFill,
       pillClassName: 'bg-[#fc6d26] hover:opacity-90',
     },

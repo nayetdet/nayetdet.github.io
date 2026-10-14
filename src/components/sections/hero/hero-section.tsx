@@ -14,12 +14,12 @@ import { sections } from '@/constants/sections';
 import { HeroBackground } from '@/components/sections/hero/background/hero-background';
 import { HeroContent } from '@/components/sections/hero/introduction/hero-content';
 import { HeroScrollIndicator } from '@/components/sections/hero/introduction/hero-scroll-indicator';
-import type { Portfolio } from '@/types/portfolio';
+import type { About } from '@/types/portfolio/about/about';
 
 export const HeroSection = (): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme }: UseThemeReturn = useTheme();
-  const portfolio: Portfolio = usePortfolio();
+  const about: About = usePortfolio('about');
 
   return (
     <section
@@ -33,7 +33,7 @@ export const HeroSection = (): ReactElement => {
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href={`mailto:${portfolio.contact.email}`}
+              href={`mailto:${about.contact.email}`}
               className="flex size-6 items-center justify-center text-[#191919] transition-opacity duration-300 hover:opacity-60 dark:text-white"
               aria-label={t('contact.email')}
             >

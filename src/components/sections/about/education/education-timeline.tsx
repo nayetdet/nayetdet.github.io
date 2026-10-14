@@ -2,11 +2,11 @@ import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, type TimelineItem } from '@/components/common/timeline';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { Education } from '@/types/education';
+import type { Education } from '@/types/portfolio/about/education';
 
 export const EducationTimeline = (): ReactElement => {
   const { t } = useTranslation();
-  const entries: Education[] = usePortfolio().education;
+  const entries: Education[] = usePortfolio('about').education;
 
   return (
     <div className="mb-8">
