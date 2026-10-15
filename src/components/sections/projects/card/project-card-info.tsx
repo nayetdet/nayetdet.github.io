@@ -26,7 +26,7 @@ export const ProjectCardInfo = ({
   websiteAriaLabel,
 }: ProjectCardInfoProps): ReactElement => (
   <div className="flex flex-1 flex-col p-[clamp(1.5rem,2.5vw,2.5rem)]">
-    <h3 className="mb-4 text-[clamp(1.75rem,2.6vw,3rem)] leading-none font-semibold tracking-tighter text-[#191919] dark:text-white">
+    <h3 className="mb-4.5 text-[clamp(1.875rem,2.8vw,3.125rem)] leading-[0.98] font-semibold tracking-[-0.045em] text-[#191919] dark:text-white">
       <a
         href={siteUrl}
         target="_blank"
@@ -38,10 +38,10 @@ export const ProjectCardInfo = ({
         <ExternalLink className="size-[0.9em]" aria-hidden="true" />
       </a>
     </h3>
-    <p className="text-[1.0625rem]/[1.6] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
+    <p className="text-[1.0625rem]/[1.65] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
       {description}
     </p>
-    <div className="mt-auto pt-5">
+    <div className="mt-auto pt-6">
       <Carousel
         opts={{ align: 'start', dragFree: true }}
         aria-label="Tecnologias do projeto"
@@ -55,9 +55,9 @@ export const ProjectCardInfo = ({
               <CarouselItem key={tag.name} className="basis-auto pl-2">
                 <Badge
                   variant="secondary"
-                  className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-3.5 py-2 text-sm font-semibold text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] sm:px-4 sm:py-2.5 sm:text-[0.9375rem] dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
+                  className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-4 py-2.5 text-[0.9375rem] font-semibold text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
                 >
-                  <Icon aria-hidden="true" className="size-4.5 shrink-0" />
+                  <Icon aria-hidden="true" className="size-5 shrink-0" />
                   {tag.name}
                 </Badge>
               </CarouselItem>

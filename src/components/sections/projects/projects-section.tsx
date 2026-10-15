@@ -19,7 +19,7 @@ export const ProjectsSection = (): ReactElement => {
   return (
     <div
       id={sections.projects.id}
-      className="scroll-mt-24 bg-gray-50 py-[clamp(4.5rem,12vh,9rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle description={t('projects.description')}>

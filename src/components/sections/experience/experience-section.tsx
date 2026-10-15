@@ -18,13 +18,13 @@ export const ExperienceSection = (): ReactElement => {
   return (
     <div
       id={sections.experience.id}
-      className="scroll-mt-24 bg-gray-50 py-[clamp(4.5rem,12vh,9rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('experience.title')}</SectionTitle>
-        <div className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2rem,4vw,4rem)] md:flex-row md:items-stretch">
+        <div className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">
           <div className="flex w-full flex-col gap-[clamp(2.5rem,4vw,4rem)] md:flex-1">
-            <p className="w-full max-w-2xl text-left text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.6] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+            <p className="w-full max-w-2xl text-left text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
               {t('experience.description')}
             </p>
             <ExperienceHighlights />

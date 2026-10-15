@@ -7,11 +7,11 @@ export const ExperienceTrajectory = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-[clamp(5rem,10vw,8rem)]">
-      <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-medium tracking-[-0.055em] text-[#191919] dark:text-white">
+    <div className="mt-[clamp(5.5rem,10vw,8rem)]">
+      <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-semibold tracking-[-0.055em] text-[#191919] dark:text-white">
         {t('experience.trajectory')}
       </h3>
-      <p className="mt-[clamp(3rem,6vw,5.5rem)] mb-[clamp(2.5rem,4vw,4rem)] max-w-xl text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.55] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
+      <p className="mt-[clamp(1.75rem,3.5vw,3rem)] mb-[clamp(2.5rem,4vw,4rem)] max-w-2xl text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.6] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
         {t('experience.trajectoryDescription')}
       </p>
       <div className="grid w-full gap-[clamp(2.5rem,5vw,4rem)] md:grid-cols-2 md:gap-[clamp(2rem,4vw,4rem)]">

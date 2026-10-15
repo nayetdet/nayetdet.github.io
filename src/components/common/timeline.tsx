@@ -25,7 +25,7 @@ export const Timeline = ({
   itemClassName,
   leadingLineClassName,
   lineClassName = 'bg-[#191919] dark:bg-white',
-  connectionClassName = '-bottom-9',
+  connectionClassName = '-bottom-10',
   extendLastLine = false,
 }: TimelineProps): ReactElement => (
   <div className={cn('relative', className)}>
@@ -34,7 +34,7 @@ export const Timeline = ({
     )}
     {extendLastLine && items.length > 0 && (
       <span
-        className={cn('absolute top-4 bottom-0 left-2.25 w-0.5', lineClassName)}
+        className={cn('absolute top-4 bottom-0 left-2.5 w-0.5', lineClassName)}
         aria-hidden="true"
       />
     )}
@@ -46,7 +46,7 @@ export const Timeline = ({
       return (
         <div
           className={cn(
-            'relative grid grid-cols-[1.25rem_minmax(0,1fr)] gap-x-5 pb-[clamp(3rem,5vw,4.5rem)] last:pb-0',
+            'relative grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-4 pb-[clamp(3.5rem,5vw,5rem)] last:pb-0 sm:gap-x-5',
             itemClassName,
           )}
           key={item.key}
@@ -55,7 +55,7 @@ export const Timeline = ({
             {hasNextItem && !extendLastLine && (
               <span
                 className={cn(
-                  'absolute top-4 left-2.25 w-0.5',
+                  'absolute top-4 left-2.5 w-0.5',
                   connectionClassName,
                   lineClassName,
                 )}
@@ -64,7 +64,7 @@ export const Timeline = ({
             )}
             <span
               className={cn(
-                'absolute top-1 left-0.5 z-10 size-4 rounded-full',
+                'absolute top-1 left-0.5 z-10 size-5 rounded-full',
                 ongoing ? 'border-[3px]' : lineClassName,
               )}
               style={
