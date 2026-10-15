@@ -1,6 +1,5 @@
 import carekoBooks01 from '@/assets/projects/carekobooks/demo-01.jpg';
 import carekoBooks02 from '@/assets/projects/carekobooks/demo-02.jpg';
-import carekoBooks03 from '@/assets/projects/carekobooks/demo-03.jpg';
 import gameKube01 from '@/assets/projects/gamekube/demo-01.jpg';
 import gameKube02 from '@/assets/projects/gamekube/demo-02.jpg';
 import gameKube03 from '@/assets/projects/gamekube/demo-03.jpg';
@@ -81,7 +80,7 @@ export const commonProjects = [
   },
   {
     name: 'CarekoBooks',
-    images: [carekoBooks01, carekoBooks02, carekoBooks03],
+    images: [carekoBooks01, carekoBooks02],
     techStack: [
       techStacks.java,
       techStacks.springBoot,
