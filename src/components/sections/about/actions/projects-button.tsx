@@ -14,10 +14,10 @@ export const ProjectsButton = (): ReactElement => {
       type="button"
       onClick={(): void => scrollTo(sections.projects.id)}
       style={{ borderColor: isDarkTheme ? 'transparent' : '#000000' }}
-      className={`inline-flex h-auto w-52 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl border-2 px-7 py-4 text-base/6 font-semibold whitespace-nowrap transition-colors outline-none focus-visible:ring-2 focus-visible:outline-none ${isDarkTheme ? 'border-transparent bg-black text-white hover:bg-[#222222] focus-visible:ring-white/50' : 'border-[#191919] bg-white text-[#191919] hover:bg-gray-100 focus-visible:ring-[#191919]/50'}`}
+      className={`inline-flex h-auto w-52 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl border-2 px-6 py-3.5 text-base font-semibold whitespace-nowrap transition-colors outline-none focus-visible:ring-2 focus-visible:outline-none ${isDarkTheme ? 'border-transparent bg-black text-white hover:bg-[#222222] focus-visible:ring-white/50' : 'border-[#191919] bg-white text-[#191919] hover:bg-gray-100 focus-visible:ring-[#191919]/50'}`}
     >
       {t('about.viewProjects')}
-      <FolderGit2 className="size-5" aria-hidden="true" />
+      <FolderGit2 className="size-4.5" aria-hidden="true" />
     </button>
   );
 };

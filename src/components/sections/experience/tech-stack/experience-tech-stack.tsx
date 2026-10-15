@@ -11,13 +11,13 @@ export const ExperienceTechStack = (): ReactElement => {
 
   return (
     <div>
-      <h3 className="text-3xl leading-none font-bold tracking-tight text-[#191919] sm:text-4xl dark:text-white">
+      <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-medium tracking-[-0.055em] text-[#191919] dark:text-white">
         {t('techStack.title')}
       </h3>
-      <p className="mt-8 mb-10 max-w-2xl text-base/7 text-[#404040] sm:mt-10 sm:text-lg/8 dark:text-gray-300">
+      <p className="mt-[clamp(2rem,3vw,3rem)] mb-[clamp(2.5rem,4vw,4rem)] max-w-2xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.6] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
         {t('techStack.description')}
       </p>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-[clamp(1.25rem,2vw,2rem)] md:grid-cols-2">
         {techStack.categories.map((stack: TechStackCategory): ReactElement => (
           <TechStackCard key={stack.category} stack={stack} />
         ))}

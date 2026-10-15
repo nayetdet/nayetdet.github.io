@@ -15,9 +15,9 @@ export const ContactProfile = (): ReactElement => {
 
   return (
     <div>
-      <div className="mb-8">
-        <div className="mb-6 flex items-center gap-4">
-          <div className="relative size-24 shrink-0 overflow-hidden rounded-full">
+      <div className="mb-[clamp(2.5rem,4vw,4rem)]">
+        <div className="flex items-center gap-4">
+          <div className="relative size-20 shrink-0 overflow-hidden rounded-full sm:size-24">
             <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               src={about.identity.image}
@@ -26,12 +26,12 @@ export const ContactProfile = (): ReactElement => {
             />
           </div>
           <div className="flex w-fit flex-col items-start">
-            <h3 className="text-2xl leading-none font-semibold tracking-tight text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {about.identity.firstName}
             </h3>
-            <p className="mt-1 inline-flex items-center gap-2 text-sm/6 font-medium text-gray-600 dark:text-gray-300">
+            <p className="mt-2.5 inline-flex items-center gap-2 text-base/normal font-medium tracking-[-0.01em] text-gray-600 dark:text-gray-300">
               <BriefcaseBusiness
-                className="size-4 shrink-0"
+                className="size-4.5 shrink-0"
                 aria-hidden="true"
               />
               {about.identity.role}
@@ -39,8 +39,8 @@ export const ContactProfile = (): ReactElement => {
           </div>
         </div>
       </div>
-      <div className="mb-3">
-        <h4 className="mb-4 text-lg font-semibold tracking-tight text-[#191919] dark:text-white">
+      <div className="mb-5">
+        <h4 className="mb-5 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
           {t('contact.usefulLinks')}
         </h4>
         <SocialNetworks variant="pill" />
@@ -49,7 +49,7 @@ export const ContactProfile = (): ReactElement => {
         href={`mailto:${about.contact.email}`}
         className={cn(
           buttonVariants(),
-          'h-auto rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]',
+          'h-auto rounded-full bg-gray-200 px-4 py-2.5 text-[0.9375rem] font-semibold text-gray-700 hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]',
         )}
       >
         <RiMailLine className="size-4" aria-hidden="true" />

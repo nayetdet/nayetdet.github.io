@@ -32,26 +32,31 @@ export const Timeline = ({
     {leadingLineClassName && (
       <div className={cn('absolute', leadingLineClassName)} />
     )}
+    {extendLastLine && items.length > 0 && (
+      <span
+        className={cn('absolute top-4 bottom-0 left-2.25 w-0.5', lineClassName)}
+        aria-hidden="true"
+      />
+    )}
 
     {items.map((item: TimelineItem, index: number): ReactElement => {
       const hasNextItem = index < items.length - 1;
-      const hasLine = hasNextItem || extendLastLine;
       const ongoing = isOngoing(item.endDate);
 
       return (
         <div
           className={cn(
-            'relative grid grid-cols-[1rem_minmax(0,1fr)] gap-x-4 pb-5 last:pb-0',
+            'relative grid grid-cols-[1.25rem_minmax(0,1fr)] gap-x-4 pb-[clamp(2.5rem,4vw,4rem)] last:pb-0',
             itemClassName,
           )}
           key={item.key}
         >
           <div className="relative">
-            {hasLine && (
+            {hasNextItem && !extendLastLine && (
               <span
                 className={cn(
-                  'absolute top-4 left-1.75 w-0.5',
-                  hasNextItem ? connectionClassName : 'bottom-0',
+                  'absolute top-4 left-2.25 w-0.5',
+                  connectionClassName,
                   lineClassName,
                 )}
                 aria-hidden="true"
@@ -59,7 +64,7 @@ export const Timeline = ({
             )}
             <span
               className={cn(
-                'absolute top-2 left-0 z-10 size-4 rounded-full',
+                'absolute top-1 left-0.5 z-10 size-4 rounded-full',
                 ongoing ? 'border-[3px]' : lineClassName,
               )}
               style={

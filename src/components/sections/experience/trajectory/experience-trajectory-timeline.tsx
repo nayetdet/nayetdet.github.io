@@ -17,8 +17,6 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
     <Timeline
       className="md:col-start-1"
       extendLastLine
-      itemClassName="pb-6"
-      connectionClassName="-bottom-8"
       items={trajectory.items.map(
         (experience: TrajectoryItem): TimelineItem => {
           const endDate: string = experience.endDate
@@ -31,33 +29,31 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
             endDate: experience.endDate,
             content: (
               <article>
-                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
-                  <h4 className="text-lg font-bold text-[#191919] uppercase dark:text-white">
-                    {experience.position}
-                  </h4>
-                  <time className="shrink-0 text-sm whitespace-nowrap text-gray-600 italic dark:text-gray-400">
-                    {formatDate(experience.startDate, language)} – {endDate}
-                  </time>
-                </div>
-                <p className="text-base font-medium text-[#404040] dark:text-gray-300">
+                <time className="mb-3 block text-[0.9375rem]/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
+                  {formatDate(experience.startDate, language)} – {endDate}
+                </time>
+                <h4 className="text-[clamp(1.5rem,2vw,2rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+                  {experience.position}
+                </h4>
+                <p className="mt-1.5 text-[1.0625rem]/[1.45] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
                   {experience.name}
                 </p>
-                <p className="mt-2 text-base/relaxed text-[#525252] dark:text-gray-300">
+                <p className="mt-4 max-w-xl text-[1.0625rem]/[1.6] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
                   {experience.summary}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
+                <div className="mt-5 flex flex-wrap gap-2">
                   {experience.techStack.map((technology): ReactElement => {
                     const Icon = technology.icon;
 
                     return (
                       <Badge
-                        className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-3 py-1.5 text-xs font-medium text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] sm:px-4 sm:py-2 sm:text-sm dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
+                        className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-3.5 py-2 text-sm font-semibold text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] sm:px-4 sm:py-2.5 sm:text-[0.9375rem] dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
                         key={technology.name}
                         variant="secondary"
                       >
                         <Icon
                           aria-hidden="true"
-                          className="size-4 shrink-0 text-[#191919] dark:text-white"
+                          className="size-4.5 shrink-0 text-[#191919] dark:text-white"
                         />
                         {technology.name}
                       </Badge>

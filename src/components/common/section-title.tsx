@@ -7,12 +7,12 @@ interface SectionTitleProps {
 
 export const SectionTitle = ({ children }: SectionTitleProps): ReactElement => {
   return (
-    <div className="mb-12 sm:mb-16">
-      <div className="flex items-end gap-5 sm:gap-6">
-        <h2 className="text-5xl leading-none font-bold tracking-tight whitespace-nowrap text-[#191919] sm:text-6xl lg:text-7xl dark:text-white">
+    <div className="mb-[clamp(3rem,6vw,5.5rem)]">
+      <div className="flex items-end gap-[clamp(1.5rem,3vw,2.75rem)]">
+        <h2 className="text-[clamp(3rem,6.5vw,7.5rem)] leading-[0.98] font-medium tracking-[-0.055em] whitespace-nowrap text-[#191919] dark:text-white">
           {children}
         </h2>
-        <Separator className="mb-1.5 h-0.75 min-w-0 flex-1 bg-gray-900/30 dark:bg-white/30" />
+        <Separator className="mb-[0.12em] h-0.75 min-w-0 flex-1 rounded-full bg-gray-900/35 dark:bg-white/35" />
       </div>
     </div>
   );

@@ -17,23 +17,23 @@ export const AboutSection = (): ReactElement => {
   return (
     <div
       id={sections.about.id}
-      className="scroll-mt-24 bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 pt-[clamp(8rem,16vh,14rem)] pb-[clamp(4.5rem,12vh,9rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
-        <div className="flex flex-col items-start gap-10 md:flex-row md:items-stretch lg:gap-14">
+        <div className="flex flex-col items-start gap-[clamp(2rem,4vw,4rem)] md:flex-row md:items-stretch">
           <AboutProfile />
           <div className="flex-1">
-            <div className="mb-6">
-              <h3 className="text-3xl leading-none font-medium tracking-tight text-[#191919] sm:text-4xl dark:text-white">
+            <div className="mb-[clamp(1.5rem,2.5vw,2.25rem)]">
+              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-medium tracking-[-0.055em] text-[#191919] dark:text-white">
                 {about.identity.firstName}
               </h3>
-              <h4 className="text-5xl leading-none font-bold tracking-tight text-[#191919] sm:text-6xl dark:text-white">
+              <h4 className="text-[clamp(3.5rem,6.5vw,7.5rem)] leading-[0.9] font-medium tracking-[-0.065em] text-[#191919] dark:text-white">
                 {about.identity.lastName}
               </h4>
             </div>
             <AboutProfileSpecialties />
-            <p className="mb-8 max-w-3xl text-base/7 text-[#404040] sm:text-lg/8 dark:text-gray-300">
+            <p className="mb-[clamp(2.5rem,4vw,4rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.6] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
               {about.introduction.biography}
             </p>
             <EducationTimeline />

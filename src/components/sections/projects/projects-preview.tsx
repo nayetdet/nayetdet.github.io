@@ -37,7 +37,7 @@ export const ProjectsPreview = ({
   return (
     <div
       style={isExpanded ? { height: `${contentHeight}px` } : undefined}
-      className="relative h-36 overflow-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none sm:h-40"
+      className="relative h-28 overflow-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none sm:h-32"
     >
       <div
         ref={contentRef}

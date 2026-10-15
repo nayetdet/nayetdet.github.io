@@ -9,17 +9,17 @@ export const HeroContent = (): ReactElement => {
   const about: About = usePortfolio('about');
 
   return (
-    <div className="relative flex max-w-5xl flex-col items-center text-center">
-      <p className="mb-6 inline-flex items-center gap-2 text-lg font-medium text-[#191919] sm:text-xl dark:text-white">
+    <div className="relative flex max-w-280 flex-col items-center text-center">
+      <p className="mb-7 inline-flex items-center gap-2 text-base font-medium tracking-[-0.02em] text-[#191919] sm:text-[1.0625rem] dark:text-white">
         <BriefcaseBusiness className="size-6" aria-hidden="true" />
         {about.identity.role}
       </p>
-      <h1 className="relative z-10 text-5xl font-bold tracking-[-0.06em] text-[#191919] sm:text-6xl md:text-8xl lg:text-9xl dark:text-white">
+      <h1 className="relative z-10 text-[clamp(4rem,11vw,11rem)] leading-[0.88] font-medium tracking-[-0.075em] text-[#191919] dark:text-white">
         {t('hero.greeting')}
         <br />
         {about.identity.firstName}!
       </h1>
-      <p className="mt-6 max-w-xl text-base/relaxed text-[#404040] sm:text-lg dark:text-gray-300">
+      <p className="mt-[clamp(1.5rem,2.5vw,2.25rem)] max-w-2xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.6] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
         {about.introduction.tagline}
       </p>
     </div>

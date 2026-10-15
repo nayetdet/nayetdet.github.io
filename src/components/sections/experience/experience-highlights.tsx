@@ -23,20 +23,21 @@ export const ExperienceHighlights = (): ReactElement => {
   ];
 
   return (
-    <div className="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
+    <div className="grid gap-[clamp(1rem,1.5vw,1.5rem)] sm:grid-cols-3 md:grid-cols-1">
       {highlights.map(({ icon: Icon, title, description }) => (
         <article
           key={title}
-          className="flex items-start gap-4 rounded-2xl border border-[#191919] bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none sm:p-6 dark:border-0 dark:bg-[#1a1a1a]"
+          className="flex items-start gap-4 rounded-2xl border border-[#191919] bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none dark:border-0 dark:bg-[#1a1a1a]"
         >
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#e5e5e5]/80 text-[#191919] dark:bg-[#2a2a2a] dark:text-white">
-            <Icon aria-hidden="true" className="size-5" />
-          </span>
+          <Icon
+            aria-hidden="true"
+            className="mt-0.5 size-7 shrink-0 text-[#191919] dark:text-white"
+          />
           <div className="min-w-0">
-            <h3 className="text-lg/6 font-semibold tracking-tight text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.25rem,1.6vw,1.5rem)] leading-[1.1] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {title}
             </h3>
-            <p className="mt-1 text-sm/6 text-[#525252] dark:text-gray-300">
+            <p className="mt-2.5 text-base/[1.55] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
               {description}
             </p>
           </div>

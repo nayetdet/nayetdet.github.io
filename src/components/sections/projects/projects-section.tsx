@@ -19,11 +19,11 @@ export const ProjectsSection = (): ReactElement => {
   return (
     <div
       id={sections.projects.id}
-      className="scroll-mt-24 bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(4.5rem,12vh,9rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('projects.title')}</SectionTitle>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] md:grid-cols-2">
           {items.slice(0, INITIAL_PROJECT_COUNT).map((project: Project) => (
             <ProjectCard
               key={project.name}
@@ -36,9 +36,9 @@ export const ProjectsSection = (): ReactElement => {
           ))}
         </div>
         {items.length > INITIAL_PROJECT_COUNT && (
-          <div className="relative mt-6">
+          <div className="relative mt-[clamp(1rem,1.5vw,1.5rem)]">
             <ProjectsPreview isExpanded={isExpanded}>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] md:grid-cols-2">
                 {items.slice(INITIAL_PROJECT_COUNT).map((project: Project) => (
                   <ProjectCard
                     key={project.name}
@@ -58,7 +58,7 @@ export const ProjectsSection = (): ReactElement => {
                   scrollY.current = window.scrollY;
                   setIsExpanded(true);
                 }}
-                className="absolute inset-x-0 bottom-10 mx-auto cursor-pointer text-sm font-medium text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-12 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+                className="absolute inset-x-0 bottom-4 mx-auto cursor-pointer text-[0.9375rem] font-semibold text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-5 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
               >
                 {t('projects.showMore')}
               </button>
@@ -66,14 +66,14 @@ export const ProjectsSection = (): ReactElement => {
           </div>
         )}
         {isExpanded && (
-          <div className="mt-8 flex justify-center">
+          <div className="mt-[clamp(1.5rem,3vw,2.75rem)] flex justify-center">
             <button
               type="button"
               onClick={() => {
                 setIsExpanded(false);
                 window.scrollTo({ top: scrollY.current });
               }}
-              className="cursor-pointer text-sm font-medium text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+              className="cursor-pointer text-[0.9375rem] font-semibold text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
             >
               {t('projects.showLess')}
             </button>

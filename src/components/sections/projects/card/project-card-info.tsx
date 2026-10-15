@@ -1,6 +1,13 @@
 import type { ReactElement } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import type { TechStackItem } from '@/types/portfolio/tech-stack/tech-stack-item';
 
 interface ProjectCardInfoProps {
@@ -18,8 +25,8 @@ export const ProjectCardInfo = ({
   siteUrl,
   websiteAriaLabel,
 }: ProjectCardInfoProps): ReactElement => (
-  <div className="flex flex-1 flex-col p-6">
-    <h3 className="mb-2 text-2xl font-bold tracking-tight text-[#191919] dark:text-white">
+  <div className="flex flex-1 flex-col p-[clamp(1.5rem,2.5vw,2.5rem)]">
+    <h3 className="mb-3 text-[clamp(1.75rem,2.6vw,3rem)] leading-none font-semibold tracking-tighter text-[#191919] dark:text-white">
       <a
         href={siteUrl}
         target="_blank"
@@ -28,29 +35,44 @@ export const ProjectCardInfo = ({
         className="inline-flex items-center gap-2 transition-colors hover:text-[#555555] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#191919] dark:hover:text-gray-300 dark:focus-visible:outline-white"
       >
         {title}
-        <ExternalLink className="size-4" aria-hidden="true" />
+        <ExternalLink className="size-[0.9em]" aria-hidden="true" />
       </a>
     </h3>
-    <p className="mb-4 text-sm/6 text-[#404040] dark:text-gray-300">
+    <p className="text-base/[1.6] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
       {description}
     </p>
-    <div className="flex flex-col items-start gap-3">
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag: TechStackItem): ReactElement => {
-          const Icon = tag.icon;
+    <div className="mt-auto pt-5">
+      <Carousel
+        opts={{ align: 'start', dragFree: true }}
+        aria-label="Tecnologias do projeto"
+        className="w-full cursor-grab touch-pan-y select-none active:cursor-grabbing"
+      >
+        <CarouselContent className="-ml-2">
+          {tags.map((tag: TechStackItem): ReactElement => {
+            const Icon = tag.icon;
 
-          return (
-            <Badge
-              key={tag.name}
-              variant="secondary"
-              className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-3 py-1.5 text-xs font-medium text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] sm:px-4 sm:py-2 sm:text-sm dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
-            >
-              <Icon aria-hidden="true" className="size-4 shrink-0" />
-              {tag.name}
-            </Badge>
-          );
-        })}
-      </div>
+            return (
+              <CarouselItem key={tag.name} className="basis-auto pl-2">
+                <Badge
+                  variant="secondary"
+                  className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-3.5 py-2 text-sm font-semibold text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] sm:px-4 sm:py-2.5 sm:text-[0.9375rem] dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
+                >
+                  <Icon aria-hidden="true" className="size-4.5 shrink-0" />
+                  {tag.name}
+                </Badge>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselPrevious
+          aria-label="Tecnologia anterior"
+          className="top-1/2 -left-6 size-6 rounded-none border-0 bg-transparent p-0 text-[#191919] shadow-none hover:scale-110 hover:bg-transparent hover:text-[#191919] disabled:opacity-30 xl:-left-7 2xl:-left-8 dark:text-white dark:hover:bg-transparent dark:hover:text-white"
+        />
+        <CarouselNext
+          aria-label="Próxima tecnologia"
+          className="top-1/2 -right-6 size-6 rounded-none border-0 bg-transparent p-0 text-[#191919] shadow-none hover:scale-110 hover:bg-transparent hover:text-[#191919] disabled:opacity-30 xl:-right-7 2xl:-right-8 dark:text-white dark:hover:bg-transparent dark:hover:text-white"
+        />
+      </Carousel>
     </div>
   </div>
 );
