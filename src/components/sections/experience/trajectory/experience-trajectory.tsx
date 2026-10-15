@@ -6,7 +6,7 @@ export const ExperienceTrajectory = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-[clamp(5.5rem,10vw,8rem)]">
+    <div className="mt-[clamp(5.5rem,10vw,8rem)] lg:w-1/2">
       <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-semibold tracking-[-0.055em] text-[#191919] dark:text-white">
         {t('experience.trajectory')}
       </h3>

@@ -31,7 +31,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                 <time className="mb-3.5 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-base/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
                   <CalendarDays
                     aria-hidden="true"
-                    className="size-4.5 justify-self-center"
+                    className="size-4.5 justify-self-center text-white"
                   />
                   <span>
                     {formatDate(experience.startDate)} – {endDate}
@@ -40,14 +40,14 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                 <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.625rem,2.2vw,2.125rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
                   <BriefcaseBusiness
                     aria-hidden="true"
-                    className="size-5 justify-self-center"
+                    className="size-5 justify-self-center text-white"
                   />
                   <span>{experience.position}</span>
                 </h4>
                 <p className="mt-2.5 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[1.0625rem]/[1.55] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
                   <Building2
                     aria-hidden="true"
-                    className="size-4.5 justify-self-center"
+                    className="size-4.5 justify-self-center text-white"
                   />
                   <span className="min-w-0">{experience.name}</span>
                 </p>
@@ -66,7 +66,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                       >
                         <Icon
                           aria-hidden="true"
-                          className="size-5 shrink-0 text-[#191919] dark:text-white"
+                          className="size-5 shrink-0 text-white"
                         />
                         {technology.name}
                       </Badge>
