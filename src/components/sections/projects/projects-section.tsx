@@ -22,7 +22,9 @@ export const ProjectsSection = (): ReactElement => {
       className="scroll-mt-24 bg-gray-50 py-[clamp(4.5rem,12vh,9rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
-        <SectionTitle>{t('projects.title')}</SectionTitle>
+        <SectionTitle description={t('projects.description')}>
+          {t('projects.title')}
+        </SectionTitle>
         <div className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] md:grid-cols-2">
           {items.slice(0, INITIAL_PROJECT_COUNT).map((project: Project) => (
             <ProjectCard

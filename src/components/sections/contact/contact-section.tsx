@@ -14,7 +14,9 @@ export const ContactSection = (): ReactElement => {
       className="scroll-mt-24 bg-gray-50 pt-[clamp(4.5rem,12vh,9rem)] pb-[clamp(8rem,16vh,14rem)] dark:bg-[#121212]"
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
-        <SectionTitle>{t('contact.title')}</SectionTitle>
+        <SectionTitle description={t('contact.description')}>
+          {t('contact.title')}
+        </SectionTitle>
         <div className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-3">
           <ContactProfile />
           <ContactForm />

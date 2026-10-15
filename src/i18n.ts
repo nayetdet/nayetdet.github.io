@@ -65,6 +65,8 @@ const resources = {
       },
       projects: {
         title: 'Projects',
+        description:
+          'A selection of projects I have built, from web applications to experiments and working prototypes.',
         showMore: 'Show more',
         showLess: 'Show less',
         viewProjectWebsite: 'View {{title}} website',
@@ -82,6 +84,8 @@ const resources = {
       },
       contact: {
         title: 'Contact',
+        description:
+          'Have a project, idea, or opportunity in mind? Get in touch and let’s talk.',
         usefulLinks: 'Useful links:',
         sendMessage: 'Send me a message',
         lastName: 'Last Name',
@@ -161,6 +165,8 @@ const resources = {
       },
       projects: {
         title: 'Projetos',
+        description:
+          'Uma seleção de projetos que desenvolvi, de aplicações web a experimentos e protótipos funcionais.',
         showMore: 'Mostrar mais',
         showLess: 'Mostrar menos',
         viewProjectWebsite: 'Ver site de {{title}}',
@@ -178,6 +184,8 @@ const resources = {
       },
       contact: {
         title: 'Contato',
+        description:
+          'Tem um projeto, uma ideia ou uma oportunidade em mente? Me chama para conversarmos.',
         usefulLinks: 'Links úteis:',
         sendMessage: 'Envie uma mensagem',
         lastName: 'Sobrenome',
