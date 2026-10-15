@@ -13,7 +13,7 @@ export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {
   const { category, icon: CategoryIcon, items } = stack;
 
   return (
-    <Card className="rounded-2xl border-0 bg-white p-[clamp(1.5rem,2.5vw,2.25rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgb(25_25_25/0.12)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0">
+    <Card className="rounded-2xl border-0 bg-white p-[clamp(1.5rem,2.5vw,2.25rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgb(25_25_25/0.12)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-white/10">
       <div className="mb-[clamp(1.5rem,2.5vw,2rem)] flex items-center gap-3.5">
         <CategoryIcon
           className="size-7 shrink-0 text-[#191919] dark:text-white"

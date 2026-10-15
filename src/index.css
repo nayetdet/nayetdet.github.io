@@ -83,3 +83,29 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+@keyframes reveal-theme {
+  from {
+    clip-path: circle(0 at var(--theme-transition-x) var(--theme-transition-y));
+  }
+
+  to {
+    clip-path: circle(
+      150vmax at var(--theme-transition-x) var(--theme-transition-y)
+    );
+  }
+}
+
+html::view-transition-old(root),
+html::view-transition-new(root) {
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+}
+
+html::view-transition-old(root) {
+  animation-name: none;
+}
+
+html::view-transition-new(root) {
+  animation-name: reveal-theme;
+}
