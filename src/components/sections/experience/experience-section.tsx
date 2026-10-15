@@ -29,7 +29,7 @@ export const ExperienceSection = (): ReactElement => {
             </p>
             <ExperienceHighlights />
           </div>
-          <div className="group relative h-80 w-full shrink-0 overflow-hidden rounded-3xl shadow-[0_12px_30px_rgb(25_25_25/0.1)] ring-1 ring-[#191919]/15 sm:h-88 sm:w-72 md:h-auto lg:w-96 xl:w-xl dark:shadow-none dark:ring-white/10">
+          <div className="group relative h-80 w-full shrink-0 overflow-hidden rounded-3xl shadow-[0_12px_30px_rgb(25_25_25/0.1)] ring-1 ring-[#191919]/15 ring-inset sm:h-88 sm:w-72 md:h-auto lg:w-96 xl:w-xl dark:shadow-none dark:ring-0">
             <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               buttonClassName="absolute inset-0 size-full cursor-zoom-in"

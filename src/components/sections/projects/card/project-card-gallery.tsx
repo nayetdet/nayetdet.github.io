@@ -34,7 +34,7 @@ export const ProjectCardGallery = ({
     <Carousel
       opts={{ align: 'start', loop: true }}
       setApi={setPreviewCarousel}
-      className="group/gallery h-56 bg-gray-900 shadow-[0_8px_20px_rgb(25_25_25/0.1)] ring-1 ring-[#191919]/15 ring-inset sm:h-64 dark:shadow-none dark:ring-white/10"
+      className="group/gallery h-56 bg-gray-900 shadow-[0_8px_20px_rgb(25_25_25/0.1)] ring-1 ring-[#191919]/15 ring-inset sm:h-64 dark:shadow-none dark:ring-0"
       aria-label={`${title} gallery`}
     >
       <CarouselContent className="ml-0 h-56 sm:h-64">
