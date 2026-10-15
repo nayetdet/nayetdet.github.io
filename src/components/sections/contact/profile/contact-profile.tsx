@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BriefcaseBusiness } from 'lucide-react';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
+import { Image } from '@/components/common/image';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { usePortfolio } from '@/hooks/use-portfolio';
@@ -17,10 +18,11 @@ export const ContactProfile = (): ReactElement => {
       <div className="mb-8">
         <div className="mb-6 flex items-center gap-4">
           <div className="relative size-24 shrink-0 overflow-hidden rounded-full">
-            <img
-              src={about.identity.image}
+            <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
-              className="absolute inset-0 size-full object-cover object-top"
+              src={about.identity.image}
+              buttonClassName="absolute inset-0 size-full cursor-zoom-in"
+              className="size-full object-cover object-top transition-transform duration-300 group-hover/image:scale-105 motion-reduce:transition-none"
             />
           </div>
           <div className="flex w-fit flex-col items-start">
