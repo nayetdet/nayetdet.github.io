@@ -8,6 +8,7 @@ import { ExperienceTechStack } from '@/components/sections/experience/tech-stack
 import { ExperienceTrajectory } from '@/components/sections/experience/trajectory/experience-trajectory';
 import { ExperienceHighlights } from '@/components/sections/experience/experience-highlights';
 import { sections } from '@/constants/sections';
+import { Image } from '@/components/common/image';
 
 export const ExperienceSection = (): ReactElement => {
   const { t } = useTranslation();
@@ -29,11 +30,10 @@ export const ExperienceSection = (): ReactElement => {
             <ExperienceHighlights />
           </div>
           <div className="group relative h-80 w-full shrink-0 overflow-hidden rounded-3xl sm:h-88 sm:w-72 md:h-auto lg:w-96 xl:w-xl">
-            <img
+            <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
-              className="absolute inset-0 size-full -scale-x-100 rounded-3xl object-cover object-right"
-              decoding="async"
-              loading="lazy"
+              buttonClassName="absolute inset-0 size-full cursor-zoom-in"
+              className="size-full rounded-3xl object-cover object-right transition-transform duration-300 group-hover/image:scale-105 motion-reduce:transition-none"
               src={trajectory.image}
             />
           </div>

@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Image } from '@/components/common/image';
 import {
   Carousel,
   CarouselContent,
@@ -33,12 +34,11 @@ export const ProjectCardGallery = ({
       <CarouselContent className="ml-0 h-56 sm:h-64">
         {images.map((image, index): ReactElement => (
           <CarouselItem key={image} className="pl-0">
-            <img
+            <Image
               src={image}
               alt={`${title} ${index + 1}`}
-              loading="lazy"
-              decoding="async"
-              className={`size-full object-cover ${images.length > 1 ? 'cursor-grab active:cursor-grabbing' : ''}`}
+              buttonClassName={`size-full ${images.length > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
+              className="size-full object-cover transition-transform duration-300 group-hover/image:scale-[1.03] motion-reduce:transition-none"
             />
           </CarouselItem>
         ))}

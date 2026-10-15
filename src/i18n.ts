@@ -6,6 +6,7 @@ const resources = {
     translation: {
       page: { title: 'Portfolio' },
       brand: { goHome: 'Go to home page' },
+      image: { expand: 'Expand image: {{alt}}' },
       navigation: {
         home: 'Home',
         about: 'About',
@@ -101,6 +102,7 @@ const resources = {
     translation: {
       page: { title: 'Portfólio' },
       brand: { goHome: 'Ir para a página inicial' },
+      image: { expand: 'Expandir imagem: {{alt}}' },
       navigation: {
         home: 'Início',
         about: 'Sobre',
