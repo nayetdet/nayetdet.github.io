@@ -140,7 +140,7 @@ export const LineWaves = ({
       startedAt ??= time;
       draw(time);
 
-      if (isVisible && !prefersReducedMotion) {
+      if (isVisible && !prefersReducedMotion && speed > 0) {
         frame = window.requestAnimationFrame(animate);
       }
     };
@@ -149,7 +149,7 @@ export const LineWaves = ({
       window.cancelAnimationFrame(frame);
       draw(performance.now());
 
-      if (isVisible && !prefersReducedMotion) {
+      if (isVisible && !prefersReducedMotion && speed > 0) {
         frame = window.requestAnimationFrame(animate);
       }
     };
