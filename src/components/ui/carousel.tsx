@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 type CarouselApi = UseEmblaCarouselType[1];
+type CarouselInstance = Exclude<CarouselApi, undefined>;
 type CarouselOptions = Parameters<typeof useEmblaCarousel>[0];
 type CarouselPlugin = Parameters<typeof useEmblaCarousel>[1];
 
@@ -15,6 +16,7 @@ type CarouselProps = {
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
   setApi?: (api: CarouselApi) => void;
+  onSlideChange?: (api: CarouselInstance) => void;
 } & React.ComponentProps<'div'>;
 
 type CarouselContextProps = {
@@ -43,6 +45,7 @@ export const Carousel = ({
   orientation = 'horizontal',
   opts,
   setApi,
+  onSlideChange,
   plugins,
   className,
   children,
@@ -55,14 +58,18 @@ export const Carousel = ({
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
-  const onSelect = React.useCallback((selectedApi: CarouselApi) => {
-    if (selectedApi === undefined) {
-      return;
-    }
+  const onSelect = React.useCallback(
+    (selectedApi: CarouselApi) => {
+      if (selectedApi === undefined) {
+        return;
+      }
 
-    setCanScrollPrev(selectedApi.canScrollPrev());
-    setCanScrollNext(selectedApi.canScrollNext());
-  }, []);
+      setCanScrollPrev(selectedApi.canScrollPrev());
+      setCanScrollNext(selectedApi.canScrollNext());
+      onSlideChange?.(selectedApi);
+    },
+    [onSlideChange],
+  );
 
   const scrollPrev = React.useCallback(() => api?.scrollPrev(), [api]);
   const scrollNext = React.useCallback(() => api?.scrollNext(), [api]);

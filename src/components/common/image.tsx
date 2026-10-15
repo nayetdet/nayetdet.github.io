@@ -13,6 +13,7 @@ interface ImageProps {
   className: string;
   buttonClassName?: string;
   onClick?: () => void;
+  onExpand?: () => void;
 }
 
 export const Image = ({
@@ -21,29 +22,36 @@ export const Image = ({
   className,
   buttonClassName = '',
   onClick,
+  onExpand,
 }: ImageProps): ReactElement => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
+  const trigger = (
+    <button
+      type="button"
+      aria-label={t('image.expand', { alt })}
+      className={`group/image block overflow-hidden ${buttonClassName}`}
+      onClick={onExpand ?? onClick}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        className={className}
+      />
+    </button>
+  );
+
+  if (onExpand !== undefined) {
+    return trigger;
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <button
-          type="button"
-          aria-label={t('image.expand', { alt })}
-          className={`group/image block overflow-hidden ${buttonClassName}`}
-          onClick={onClick}
-        >
-          <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
-            className={className}
-          />
-        </button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       {isOpen && (
         <DialogContent
           onClick={(event): void => {

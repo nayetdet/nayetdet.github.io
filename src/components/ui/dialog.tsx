@@ -13,7 +13,7 @@ const DialogOverlay = ({
 }: React.ComponentProps<typeof DialogPrimitive.Overlay>) => (
   <DialogPrimitive.Overlay
     className={cn(
-      'fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0',
+      'fixed inset-0 z-100 bg-black/85 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0',
       className,
     )}
     {...props}
@@ -29,7 +29,7 @@ const DialogContent = ({
     <DialogOverlay />
     <DialogPrimitive.Content
       className={cn(
-        'fixed inset-0 z-[101] flex items-center justify-center p-4 outline-none sm:p-8',
+        'fixed inset-0 z-101 flex items-center justify-center p-4 outline-none sm:p-8',
         className,
       )}
       {...props}
