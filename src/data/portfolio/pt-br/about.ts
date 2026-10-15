@@ -12,7 +12,7 @@ export const about: About = {
     biography:
       'Sou desenvolvedor Full Stack e construo aplicações web para diferentes contextos. Desenvolvo interfaces, APIs e integrações, além de trabalhar com infraestrutura e automação de deploy. Minha experiência inclui produtos web, sistemas institucionais e plataformas analíticas, com Java/Spring Boot, Python/FastAPI, Node.js e React.',
   },
-  cv: '/documents/cv-pt-BR.pdf',
+  cv: 'https://github.com/nayetdet/resume/releases/download/nightly/resume_pt_BR.pdf',
   education: [
     {
       institution:

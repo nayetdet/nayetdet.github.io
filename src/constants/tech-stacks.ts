@@ -32,7 +32,6 @@ import {
   SiRedis,
   SiSass,
   SiSqlite,
-  SiSpring,
   SiSpringboot,
   SiTailwindcss,
   SiTerraform,
@@ -44,7 +43,6 @@ import type { TechStackItem } from '@/types/portfolio/tech-stack/tech-stack-item
 
 export const techStacks = {
   java: { name: 'Java', icon: FaJava },
-  spring: { name: 'Spring', icon: SiSpring },
   springBoot: { name: 'Spring Boot', icon: SiSpringboot },
   python: { name: 'Python', icon: SiPython },
   fastApi: { name: 'FastAPI', icon: SiFastapi },

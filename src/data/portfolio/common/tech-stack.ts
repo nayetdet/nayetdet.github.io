@@ -9,7 +9,7 @@ export const techStack: TechStack = {
       category: 'backend',
       items: [
         techStacks.java,
-        techStacks.spring,
+        techStacks.springBoot,
         techStacks.python,
         techStacks.fastApi,
         techStacks.django,

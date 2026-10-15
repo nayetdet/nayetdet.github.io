@@ -75,7 +75,7 @@ export const ContactForm = (): ReactElement => {
         </FieldGroup>
         <Button
           type="submit"
-          className="h-auto rounded-lg bg-[#191919] px-5 py-3.5 text-base font-semibold text-white transition-opacity hover:bg-[#191919] hover:opacity-90 dark:bg-white dark:text-[#191919] dark:hover:bg-white"
+          className="size-auto cursor-pointer rounded-xl border-2 border-transparent bg-[#191919] px-5 py-3 text-base font-semibold whitespace-nowrap text-white transition-opacity duration-300 outline-none hover:bg-[#191919] hover:opacity-80 focus-visible:ring-2 focus-visible:ring-[#191919]/50 focus-visible:outline-none dark:bg-white dark:text-[#191919] dark:hover:bg-white dark:focus-visible:ring-white/50"
         >
           <span className="-translate-y-px">{t('contact.send')}</span>
           <ArrowRight className="size-4.5" aria-hidden="true" />

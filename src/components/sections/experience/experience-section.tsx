@@ -33,7 +33,7 @@ export const ExperienceSection = (): ReactElement => {
             <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               buttonClassName="absolute inset-0 size-full cursor-zoom-in"
-              className="size-full rounded-3xl object-cover object-right transition-transform duration-300 group-hover/image:scale-105 motion-reduce:transition-none"
+              className="size-full rounded-3xl object-cover object-left transition-transform duration-300 group-hover/image:scale-105 motion-reduce:transition-none"
               src={trajectory.image}
             />
           </div>

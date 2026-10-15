@@ -11,11 +11,10 @@ export const CvButton = (): ReactElement => {
   return (
     <a
       href={about.cv}
-      target="_blank"
-      rel="noopener noreferrer"
+      download
       className="inline-flex h-auto w-52 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-transparent bg-[#191919] px-6 py-3.5 text-base font-semibold whitespace-nowrap text-white transition-opacity duration-300 outline-none hover:bg-[#191919] hover:opacity-80 focus-visible:ring-2 focus-visible:ring-[#191919]/50 focus-visible:outline-none dark:bg-white dark:text-[#191919] dark:hover:bg-white dark:focus-visible:ring-white/50"
     >
-      {t('about.viewCv')}
+      {t('about.downloadCv')}
       <FileText className="size-4.5" aria-hidden="true" />
     </a>
   );

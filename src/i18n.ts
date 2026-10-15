@@ -34,7 +34,7 @@ const resources = {
       about: {
         title: 'About',
         education: 'Education',
-        viewCv: 'View CV',
+        downloadCv: 'Download CV',
         viewProjects: 'View projects',
       },
       experience: {
@@ -130,7 +130,7 @@ const resources = {
       about: {
         title: 'Sobre',
         education: 'Formação',
-        viewCv: 'Ver currículo',
+        downloadCv: 'Baixar currículo',
         viewProjects: 'Ver projetos',
       },
       experience: {

@@ -12,7 +12,7 @@ export const about: About = {
     biography:
       'I am a Full Stack Developer building web applications for different contexts. I develop interfaces, APIs, and integrations, and also work with infrastructure and deployment automation. My experience includes web products, institutional systems, and analytics platforms, using Java/Spring Boot, Python/FastAPI, Node.js, and React.',
   },
-  cv: '/documents/cv-en-US.pdf',
+  cv: 'https://github.com/nayetdet/resume/releases/download/nightly/resume_en_US.pdf',
   education: [
     {
       institution:
