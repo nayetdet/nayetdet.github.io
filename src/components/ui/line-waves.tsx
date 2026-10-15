@@ -11,6 +11,7 @@ interface LineWavesProps {
   lineCount?: number;
   lineWidth?: number;
   opacity?: number;
+  baseIntensity?: number;
   speed?: number;
   className?: string;
   style?: CSSProperties;
@@ -41,6 +42,7 @@ export const LineWaves = ({
   lineCount = 54,
   lineWidth = 1,
   opacity = 1,
+  baseIntensity = 0.34,
   speed = 0.22,
   className,
   style,
@@ -103,7 +105,8 @@ export const LineWaves = ({
         const shimmer: number = Math.exp(
           -Math.pow(center - Math.sin(elapsed * 0.55) * 0.16, 2) * 11,
         );
-        const intensity: number = (0.34 + shimmer * 0.66) * opacity;
+        const intensity: number =
+          (baseIntensity + shimmer * (1 - baseIntensity)) * opacity;
 
         context.beginPath();
         context.strokeStyle = hexToRgba(
@@ -175,7 +178,15 @@ export const LineWaves = ({
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
     };
-  }, [color, highlightColor, lineCount, lineWidth, opacity, speed]);
+  }, [
+    baseIntensity,
+    color,
+    highlightColor,
+    lineCount,
+    lineWidth,
+    opacity,
+    speed,
+  ]);
 
   return (
     <canvas
