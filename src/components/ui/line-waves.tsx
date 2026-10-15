@@ -51,7 +51,9 @@ export const LineWaves = ({
 
   useEffect((): (() => void) | undefined => {
     const canvas: HTMLCanvasElement | null = canvasRef.current;
-    const context: CanvasRenderingContext2D | null = canvas?.getContext('2d');
+    const context: CanvasRenderingContext2D | null = canvas
+      ? canvas.getContext('2d')
+      : null;
     const container: HTMLElement | null = canvas?.parentElement ?? null;
 
     if (!canvas || !context || !container) {
