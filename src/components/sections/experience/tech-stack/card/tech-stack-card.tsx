@@ -14,9 +14,9 @@ export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {
 
   return (
     <Card className="rounded-2xl border border-[#191919] bg-white p-[clamp(1.5rem,2.5vw,2.25rem)] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none dark:border-0 dark:bg-[#1a1a1a]">
-      <div className="mb-[clamp(1.5rem,2.5vw,2.25rem)] flex items-center gap-4">
+      <div className="mb-[clamp(1.25rem,2vw,1.75rem)] flex items-center gap-3">
         <CategoryIcon
-          className="size-7 shrink-0 text-[#191919] dark:text-white"
+          className="size-6 shrink-0 text-[#191919] dark:text-white"
           aria-hidden="true"
         />
         <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">

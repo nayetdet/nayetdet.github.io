@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { Building2, CalendarDays, GraduationCap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, type TimelineItem } from '@/components/common/timeline';
 import { usePortfolio } from '@/hooks/use-portfolio';
@@ -24,14 +25,28 @@ export const EducationTimeline = (): ReactElement => {
             endDate: entry.endDate,
             content: (
               <div>
-                <span className="mb-3 block text-[0.9375rem]/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
-                  {entry.startDate} – {endDate}
-                </span>
-                <h6 className="text-[clamp(1.25rem,1.6vw,1.5rem)] leading-[1.1] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
-                  {entry.institution}
+                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[0.9375rem]/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
+                  <CalendarDays
+                    aria-hidden="true"
+                    className="size-4 justify-self-center"
+                  />
+                  <span>
+                    {entry.startDate} – {endDate}
+                  </span>
+                </time>
+                <h6 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[clamp(1.25rem,1.6vw,1.5rem)] leading-[1.1] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+                  <Building2
+                    aria-hidden="true"
+                    className="size-4.5 justify-self-center"
+                  />
+                  <span>{entry.institution}</span>
                 </h6>
-                <p className="mt-1.5 text-base/[1.55] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
-                  {entry.degree}
+                <p className="mt-2 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-base/[1.55] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
+                  <GraduationCap
+                    aria-hidden="true"
+                    className="size-4.5 justify-self-center"
+                  />
+                  <span>{entry.degree}</span>
                 </p>
               </div>
             ),

@@ -1,11 +1,12 @@
 import type { ReactElement } from 'react';
+import { BriefcaseBusiness, Building2, CalendarDays } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, type TimelineItem } from '@/components/common/timeline';
 import { Badge } from '@/components/ui/badge';
 import { useLanguage, type UseLanguageReturn } from '@/hooks/use-language';
 import { usePortfolio } from '@/hooks/use-portfolio';
-import type { TrajectoryItem } from '@/types/portfolio/trajectory/trajectory-item';
 import type { Trajectory } from '@/types/portfolio/trajectory/trajectory';
+import type { TrajectoryItem } from '@/types/portfolio/trajectory/trajectory-item';
 import { formatDate } from '@/utils/date';
 
 export const ExperienceTrajectoryTimeline = (): ReactElement => {
@@ -29,14 +30,28 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
             endDate: experience.endDate,
             content: (
               <article>
-                <time className="mb-3 block text-[0.9375rem]/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
-                  {formatDate(experience.startDate, language)} – {endDate}
+                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[0.9375rem]/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
+                  <CalendarDays
+                    aria-hidden="true"
+                    className="size-4 justify-self-center"
+                  />
+                  <span>
+                    {formatDate(experience.startDate, language)} – {endDate}
+                  </span>
                 </time>
-                <h4 className="text-[clamp(1.5rem,2vw,2rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
-                  {experience.position}
+                <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[clamp(1.5rem,2vw,2rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+                  <BriefcaseBusiness
+                    aria-hidden="true"
+                    className="size-4.5 justify-self-center"
+                  />
+                  <span>{experience.position}</span>
                 </h4>
-                <p className="mt-1.5 text-[1.0625rem]/[1.45] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
-                  {experience.name}
+                <p className="mt-2 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[1.0625rem]/[1.45] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+                  <Building2
+                    aria-hidden="true"
+                    className="size-4.5 justify-self-center"
+                  />
+                  <span className="min-w-0">{experience.name}</span>
                 </p>
                 <p className="mt-4 max-w-xl text-[1.0625rem]/[1.6] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
                   {experience.summary}

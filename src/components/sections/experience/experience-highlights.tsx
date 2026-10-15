@@ -31,13 +31,13 @@ export const ExperienceHighlights = (): ReactElement => {
         >
           <Icon
             aria-hidden="true"
-            className="mt-0.5 size-7 shrink-0 text-[#191919] dark:text-white"
+            className="mt-0.5 size-6 shrink-0 text-[#191919] dark:text-white"
           />
           <div className="min-w-0">
             <h3 className="text-[clamp(1.25rem,1.6vw,1.5rem)] leading-[1.1] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {title}
             </h3>
-            <p className="mt-2.5 text-base/[1.55] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+            <p className="mt-3 text-[1.0625rem]/[1.55] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
               {description}
             </p>
           </div>
