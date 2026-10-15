@@ -22,7 +22,7 @@ export const ProjectCard = ({
 }: ProjectCardProps): ReactElement => {
   const { t } = useTranslation();
   return (
-    <Card className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#191919] bg-white shadow-sm transition-all duration-300 hover:bg-gray-50 hover:shadow-md dark:border-0 dark:bg-[#1a1a1a] dark:hover:bg-[#222222]">
+    <Card className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#191919] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-gray-50 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none dark:border-0 dark:bg-[#1a1a1a] dark:hover:bg-[#222222]">
       <ProjectCardGallery
         images={images}
         title={title}
