@@ -65,7 +65,9 @@ export const ProjectCardGallery = ({
       <Dialog
         open={openImage !== null}
         onOpenChange={(open) => {
-          if (!open) {setOpenImage(null);}
+          if (!open) {
+            setOpenImage(null);
+          }
         }}
       >
         {openImage !== null && (
@@ -98,7 +100,6 @@ export const ProjectCardGallery = ({
                       src={image}
                       alt={`${title} ${index + 1}`}
                       draggable={false}
-                      onDragStart={(event): void => event.preventDefault()}
                       className={`mx-auto max-h-[90dvh] max-w-full object-contain select-none [-webkit-touch-callout:none] [-webkit-user-select:none] ${images.length > 1 ? 'cursor-grab active:cursor-grabbing' : ''}`}
                     />
                   </CarouselItem>
