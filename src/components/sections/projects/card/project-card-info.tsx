@@ -65,11 +65,11 @@ export const ProjectCardInfo = ({
           })}
         </CarouselContent>
         <CarouselPrevious
-          aria-label="Tecnologia anterior"
+          aria-label="Anterior"
           className="top-1/2 -left-6 size-6 rounded-none border-0 bg-transparent p-0 text-[#191919] shadow-none hover:scale-110 hover:bg-transparent hover:text-[#191919] disabled:opacity-30 xl:-left-7 2xl:-left-8 dark:text-white dark:hover:bg-transparent dark:hover:text-white"
         />
         <CarouselNext
-          aria-label="Próxima tecnologia"
+          aria-label="Próxima"
           className="top-1/2 -right-6 size-6 rounded-none border-0 bg-transparent p-0 text-[#191919] shadow-none hover:scale-110 hover:bg-transparent hover:text-[#191919] disabled:opacity-30 xl:-right-7 2xl:-right-8 dark:text-white dark:hover:bg-transparent dark:hover:text-white"
         />
       </Carousel>

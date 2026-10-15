@@ -45,7 +45,7 @@ export const HeroSection = (): ReactElement => {
           </TooltipContent>
         </Tooltip>
       </div>
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
+      <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
         <HeroContent />
         <HeroScrollIndicator />
       </div>

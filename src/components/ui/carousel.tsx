@@ -4,6 +4,11 @@ import useEmblaCarousel, {
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -163,57 +168,75 @@ export const CarouselItem = ({
 
 export const CarouselPrevious = ({
   className,
+  'aria-label': ariaLabel,
   ...props
 }: React.ComponentProps<typeof Button>): React.ReactElement => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    <Button
-      type="button"
-      variant="outline"
-      size="icon"
-      className={cn(
-        'absolute size-8 rounded-full',
-        orientation === 'horizontal'
-          ? 'top-1/2 -left-4 -translate-y-1/2'
-          : '-top-4 left-1/2 -translate-x-1/2 rotate-90',
-        className,
-      )}
-      disabled={!canScrollPrev}
-      onClick={scrollPrev}
-      {...props}
-    >
-      <ChevronLeft className="size-4" />
-      <span className="sr-only">Previous slide</span>
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className={cn(
+            'absolute size-8 rounded-full',
+            orientation === 'horizontal'
+              ? 'top-1/2 -left-4 -translate-y-1/2'
+              : '-top-4 left-1/2 -translate-x-1/2 rotate-90',
+            className,
+          )}
+          disabled={!canScrollPrev}
+          onClick={scrollPrev}
+          aria-label={ariaLabel ?? 'Previous slide'}
+          {...props}
+        >
+          <ChevronLeft className="size-4" />
+          <span className="sr-only">{ariaLabel ?? 'Previous slide'}</span>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" sideOffset={8}>
+        {ariaLabel ?? 'Previous slide'}
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
 export const CarouselNext = ({
   className,
+  'aria-label': ariaLabel,
   ...props
 }: React.ComponentProps<typeof Button>): React.ReactElement => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <Button
-      type="button"
-      variant="outline"
-      size="icon"
-      className={cn(
-        'absolute size-8 rounded-full',
-        orientation === 'horizontal'
-          ? 'top-1/2 -right-4 -translate-y-1/2'
-          : '-bottom-4 left-1/2 -translate-x-1/2 rotate-90',
-        className,
-      )}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
-      {...props}
-    >
-      <ChevronRight className="size-4" />
-      <span className="sr-only">Next slide</span>
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className={cn(
+            'absolute size-8 rounded-full',
+            orientation === 'horizontal'
+              ? 'top-1/2 -right-4 -translate-y-1/2'
+              : '-bottom-4 left-1/2 -translate-x-1/2 rotate-90',
+            className,
+          )}
+          disabled={!canScrollNext}
+          onClick={scrollNext}
+          aria-label={ariaLabel ?? 'Next slide'}
+          {...props}
+        >
+          <ChevronRight className="size-4" />
+          <span className="sr-only">{ariaLabel ?? 'Next slide'}</span>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent side="top" sideOffset={8}>
+        {ariaLabel ?? 'Next slide'}
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
