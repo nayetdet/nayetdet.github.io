@@ -47,11 +47,11 @@ export const ProjectCardGallery = ({
         <>
           <CarouselPrevious
             aria-label={previousSlideLabel}
-            className="left-3 border-white/25 bg-black/35 text-white opacity-0 backdrop-blur-sm group-hover/gallery:opacity-100 hover:bg-black/60 hover:text-white focus-visible:opacity-100"
+            className="left-3 size-auto rounded-none border-0 bg-transparent p-1 text-white opacity-0 shadow-none transition-opacity duration-300 ease-out group-hover/gallery:opacity-100 hover:bg-transparent hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
           <CarouselNext
             aria-label={nextSlideLabel}
-            className="right-3 border-white/25 bg-black/35 text-white opacity-0 backdrop-blur-sm group-hover/gallery:opacity-100 hover:bg-black/60 hover:text-white focus-visible:opacity-100"
+            className="right-3 size-auto rounded-none border-0 bg-transparent p-1 text-white opacity-0 shadow-none transition-opacity duration-300 ease-out group-hover/gallery:opacity-100 hover:bg-transparent hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
         </>
       )}
