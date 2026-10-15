@@ -46,14 +46,14 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                   />
                   <span>{experience.position}</span>
                 </h4>
-                <p className="mt-2 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[1.0625rem]/[1.45] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+                <p className="mt-2 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-base/[1.45] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
                   <Building2
                     aria-hidden="true"
-                    className="size-4.5 justify-self-center"
+                    className="size-4 justify-self-center"
                   />
                   <span className="min-w-0">{experience.name}</span>
                 </p>
-                <p className="mt-4 max-w-xl text-[1.0625rem]/[1.6] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+                <p className="mt-4 max-w-xl text-base/[1.6] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
                   {experience.summary}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
