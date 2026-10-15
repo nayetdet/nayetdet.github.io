@@ -64,6 +64,8 @@ const resources = {
       },
       projects: {
         title: 'Projects',
+        showMore: 'Show more',
+        showLess: 'Show less',
         viewProjectWebsite: 'View {{title}} website',
         previousImage: 'Previous image',
         nextImage: 'Next image',
@@ -157,6 +159,8 @@ const resources = {
       },
       projects: {
         title: 'Projetos',
+        showMore: 'Mostrar mais',
+        showLess: 'Mostrar menos',
         viewProjectWebsite: 'Ver site de {{title}}',
         previousImage: 'Imagem anterior',
         nextImage: 'Próxima imagem',
