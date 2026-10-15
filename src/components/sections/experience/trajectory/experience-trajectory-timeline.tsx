@@ -3,7 +3,6 @@ import { BriefcaseBusiness, Building2, CalendarDays } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, type TimelineItem } from '@/components/common/timeline';
 import { Badge } from '@/components/ui/badge';
-import { useLanguage, type UseLanguageReturn } from '@/hooks/use-language';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Trajectory } from '@/types/portfolio/trajectory/trajectory';
 import type { TrajectoryItem } from '@/types/portfolio/trajectory/trajectory-item';
@@ -11,7 +10,6 @@ import { formatDate } from '@/utils/date';
 
 export const ExperienceTrajectoryTimeline = (): ReactElement => {
   const { t } = useTranslation();
-  const { language }: UseLanguageReturn = useLanguage();
   const trajectory: Trajectory = usePortfolio('trajectory');
 
   return (
@@ -21,7 +19,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
       items={trajectory.items.map(
         (experience: TrajectoryItem): TimelineItem => {
           const endDate: string = experience.endDate
-            ? formatDate(experience.endDate, language)
+            ? formatDate(experience.endDate)
             : t('experience.present');
 
           return {
@@ -36,7 +34,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                     className="size-4 justify-self-center"
                   />
                   <span>
-                    {formatDate(experience.startDate, language)} – {endDate}
+                    {formatDate(experience.startDate)} – {endDate}
                   </span>
                 </time>
                 <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-2.5 text-[clamp(1.5rem,2vw,2rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">

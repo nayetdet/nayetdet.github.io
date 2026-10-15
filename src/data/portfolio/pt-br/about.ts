@@ -18,8 +18,8 @@ export const about: About = {
       institution:
         'Instituto Federal de Educação, Ciência e Tecnologia do Ceará (IFCE)',
       degree: 'Bacharelado em Ciência da Computação',
-      startDate: '2024',
-      endDate: '2027',
+      startDate: '2024-03',
+      endDate: '2027-12',
     },
   ],
 };
