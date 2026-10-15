@@ -9,17 +9,20 @@ export const HeroContent = (): ReactElement => {
   const about: About = usePortfolio('about');
 
   return (
-    <div className="relative flex max-w-280 flex-col items-center text-center">
-      <p className="mb-7 inline-flex items-center gap-2 text-base font-medium tracking-[-0.02em] text-[#191919] sm:text-[1.0625rem] dark:text-white">
-        <BriefcaseBusiness className="size-6" aria-hidden="true" />
+    <div className="relative flex max-w-328 flex-col items-center text-center">
+      <p className="mb-[clamp(1.25rem,2vw,2rem)] inline-flex items-center gap-2 text-sm font-medium tracking-[-0.015em] text-[#404040] sm:text-base dark:text-gray-300">
+        <BriefcaseBusiness className="size-5" aria-hidden="true" />
         {about.identity.role}
       </p>
-      <h1 className="relative z-10 text-[clamp(4rem,11vw,11rem)] leading-[0.88] font-medium tracking-[-0.075em] text-[#191919] dark:text-white">
-        {t('hero.greeting')}
-        <br />
-        {about.identity.firstName}!
+      <h1 className="relative z-10 text-[#191919] dark:text-white">
+        <span className="block text-[clamp(2.25rem,4.5vw,5rem)] leading-[0.95] font-medium tracking-[-0.06em]">
+          {t('hero.greeting')}
+        </span>
+        <span className="mt-[clamp(0.25rem,0.6vw,0.75rem)] block text-[clamp(5rem,11.5vw,12rem)] leading-[0.84] font-semibold tracking-[-0.085em]">
+          {about.identity.firstName}!
+        </span>
       </h1>
-      <p className="mt-[clamp(1.5rem,2.5vw,2.25rem)] max-w-2xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.6] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+      <p className="mt-[clamp(2rem,3vw,3rem)] max-w-172 text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.5] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
         {about.introduction.tagline}
       </p>
     </div>
