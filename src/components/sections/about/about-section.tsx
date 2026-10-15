@@ -8,13 +8,17 @@ import { EducationTimeline } from '@/components/sections/about/education/educati
 import { AboutProfile } from '@/components/sections/about/profile/about-profile';
 import { AboutProfileSpecialties } from '@/components/sections/about/profile/about-profile-specialties';
 import type { About } from '@/types/portfolio/about/about';
+import { sections } from '@/constants/sections';
 
 export const AboutSection = (): ReactElement => {
   const { t } = useTranslation();
   const about: About = usePortfolio('about');
 
   return (
-    <div className="bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]">
+    <div
+      id={sections.about.id}
+      className="scroll-mt-24 bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
         <div className="flex flex-col items-start gap-10 md:flex-row md:items-stretch lg:gap-14">

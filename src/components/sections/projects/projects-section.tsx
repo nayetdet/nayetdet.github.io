@@ -6,6 +6,7 @@ import ProjectCard from '@/components/sections/projects/card/project-card';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Project } from '@/types/portfolio/projects/project';
 import type { Projects } from '@/types/portfolio/projects/projects';
+import { sections } from '@/constants/sections';
 
 const INITIAL_PROJECT_COUNT = 2;
 
@@ -16,7 +17,10 @@ export const ProjectsSection = (): ReactElement => {
   const scrollY: React.RefObject<number> = useRef<number>(0);
 
   return (
-    <div className="bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]">
+    <div
+      id={sections.projects.id}
+      className="scroll-mt-24 bg-gray-50 py-12 sm:py-16 dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('projects.title')}</SectionTitle>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
