@@ -28,30 +28,30 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
             endDate: experience.endDate,
             content: (
               <article>
-                <time className="mb-3.5 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-base/[1.45] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
+                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#6b6b6b] dark:text-gray-400">
                   <CalendarDays
                     aria-hidden="true"
-                    className="size-4.5 justify-self-center text-white"
+                    className="size-4.5 justify-self-center text-[#6b6b6b] dark:text-gray-400"
                   />
                   <span>
                     {formatDate(experience.startDate)} – {endDate}
                   </span>
                 </time>
-                <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.625rem,2.2vw,2.125rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+                <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
                   <BriefcaseBusiness
                     aria-hidden="true"
-                    className="size-5 justify-self-center text-white"
+                    className="size-5 justify-self-center text-[#191919] dark:text-white"
                   />
                   <span>{experience.position}</span>
                 </h4>
-                <p className="mt-2.5 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[1.0625rem]/[1.55] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
+                <p className="mt-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
                   <Building2
                     aria-hidden="true"
-                    className="size-4.5 justify-self-center text-white"
+                    className="size-4.5 justify-self-center text-[#525252] dark:text-gray-300"
                   />
                   <span className="min-w-0">{experience.name}</span>
                 </p>
-                <p className="mt-5 max-w-xl text-[1.0625rem]/[1.65] font-medium tracking-[-0.01em] text-gray-500 dark:text-gray-400">
+                <p className="mt-5 max-w-xl text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#666666] dark:text-gray-400">
                   {experience.summary}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2.5">

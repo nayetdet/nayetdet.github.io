@@ -24,7 +24,7 @@ export const ExperienceSection = (): ReactElement => {
         <SectionTitle>{t('experience.title')}</SectionTitle>
         <div className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">
           <div className="flex w-full flex-col gap-[clamp(2.5rem,4vw,4rem)] md:flex-1">
-            <p className="w-full max-w-2xl text-left text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+            <p className="w-full max-w-2xl text-left text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300">
               {t('experience.description')}
             </p>
             <ExperienceHighlights />

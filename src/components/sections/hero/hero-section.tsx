@@ -28,7 +28,7 @@ export const HeroSection = (): ReactElement => {
     >
       <HeroBackground isDarkTheme={isDarkTheme} />
       <Navbar />
-      <div className="absolute bottom-8 left-8 z-10 flex flex-col gap-3">
+      <div className="pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3">
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
         <Tooltip>
           <TooltipTrigger asChild>

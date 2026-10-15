@@ -60,7 +60,7 @@ export const ProjectsSection = (): ReactElement => {
                   scrollY.current = window.scrollY;
                   setIsExpanded(true);
                 }}
-                className="absolute inset-x-0 bottom-4 mx-auto cursor-pointer text-[0.9375rem] font-semibold text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-5 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+                className="absolute inset-x-0 bottom-4 mx-auto cursor-pointer text-[0.9375rem]/[1.25] font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-5 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
               >
                 {t('projects.showMore')}
               </button>
@@ -75,7 +75,7 @@ export const ProjectsSection = (): ReactElement => {
                 setIsExpanded(false);
                 window.scrollTo({ top: scrollY.current });
               }}
-              className="cursor-pointer text-[0.9375rem] font-semibold text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+              className="cursor-pointer text-[0.9375rem]/[1.25] font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
             >
               {t('projects.showLess')}
             </button>

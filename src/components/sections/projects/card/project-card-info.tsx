@@ -31,7 +31,7 @@ export const ProjectCardInfo = ({
   websiteAriaLabel,
 }: ProjectCardInfoProps): ReactElement => (
   <div className="flex flex-1 flex-col p-[clamp(1.5rem,2.5vw,2.5rem)]">
-    <h3 className="mb-4.5 text-[clamp(1.875rem,2.8vw,3.125rem)] leading-[0.98] font-semibold tracking-[-0.045em] text-[#191919] dark:text-white">
+    <h3 className="mb-5 text-[clamp(1.75rem,2.8vw,3rem)] leading-none font-semibold tracking-[-0.045em] text-[#191919] dark:text-white">
       <Tooltip>
         <TooltipTrigger asChild>
           <a
@@ -50,7 +50,7 @@ export const ProjectCardInfo = ({
         </TooltipContent>
       </Tooltip>
     </h3>
-    <p className="text-[1.0625rem]/[1.65] font-medium tracking-[-0.01em] text-[#404040] dark:text-gray-300">
+    <p className="text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
       {description}
     </p>
     <div className="mt-auto pt-6">

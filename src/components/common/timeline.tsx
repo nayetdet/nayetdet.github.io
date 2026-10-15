@@ -46,7 +46,8 @@ export const Timeline = ({
       return (
         <div
           className={cn(
-            'relative grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-4 pb-[clamp(3.5rem,5vw,5rem)] last:pb-0 sm:gap-x-5',
+            'relative grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-4 sm:gap-x-5',
+            'pb-[clamp(3.5rem,5vw,5rem)] last:pb-0',
             itemClassName,
           )}
           key={item.key}

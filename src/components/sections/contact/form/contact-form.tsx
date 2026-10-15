@@ -13,7 +13,7 @@ export const ContactForm = (): ReactElement => {
 
   return (
     <div className="lg:col-span-2">
-      <h3 className="mb-7 text-[clamp(1.5rem,2vw,2rem)] leading-[1.08] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+      <h3 className="mb-7 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
         {t('contact.sendMessage')}
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4">

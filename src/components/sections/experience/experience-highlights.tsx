@@ -34,10 +34,10 @@ export const ExperienceHighlights = (): ReactElement => {
             className="mt-0.5 size-7 shrink-0 text-[#191919] dark:text-white"
           />
           <div className="min-w-0">
-            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.1] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {title}
             </h3>
-            <p className="mt-3.5 text-[1.0625rem]/[1.6] font-medium tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+            <p className="mt-3.5 text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
               {description}
             </p>
           </div>

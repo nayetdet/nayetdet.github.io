@@ -26,10 +26,10 @@ export const ContactProfile = (): ReactElement => {
             />
           </div>
           <div className="flex w-fit flex-col items-start">
-            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {about.identity.firstName}
             </h3>
-            <p className="mt-2.5 inline-flex items-center gap-2 text-base/normal font-medium tracking-[-0.01em] text-gray-600 dark:text-gray-300">
+            <p className="mt-2.5 inline-flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#6b6b6b] dark:text-gray-400">
               <BriefcaseBusiness
                 className="size-4.5 shrink-0"
                 aria-hidden="true"
@@ -40,7 +40,7 @@ export const ContactProfile = (): ReactElement => {
         </div>
       </div>
       <div className="mb-5">
-        <h4 className="mb-5 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+        <h4 className="mb-5 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
           {t('contact.usefulLinks')}
         </h4>
         <SocialNetworks variant="pill" className="flex-nowrap" />

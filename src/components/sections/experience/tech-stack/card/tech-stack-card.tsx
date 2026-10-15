@@ -19,7 +19,7 @@ export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {
           className="size-7 shrink-0 text-[#191919] dark:text-white"
           aria-hidden="true"
         />
-        <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+        <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
           {t(`techStack.${category}`)}
         </h3>
       </div>

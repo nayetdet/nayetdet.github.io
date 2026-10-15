@@ -25,15 +25,15 @@ export const AboutSection = (): ReactElement => {
           <AboutProfile />
           <div className="flex-1">
             <div className="mb-[clamp(1.75rem,3vw,2.5rem)]">
-              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#191919] dark:text-white">
+              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-gray-300">
                 {about.identity.firstName}
               </h3>
-              <h4 className="text-[clamp(3.5rem,6.5vw,7.5rem)] leading-[0.9] font-semibold tracking-[-0.065em] text-[#191919] dark:text-white">
+              <h4 className="text-[clamp(3.5rem,6.5vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.065em] text-[#191919] dark:text-white">
                 {about.identity.lastName}
               </h4>
             </div>
             <AboutProfileSpecialties />
-            <p className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-medium tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+            <p className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300">
               {about.introduction.biography}
             </p>
             <EducationTimeline />

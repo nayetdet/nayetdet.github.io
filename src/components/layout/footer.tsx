@@ -20,16 +20,16 @@ export const Footer = (): ReactElement => {
       <div className="mx-auto max-w-7xl px-6 py-[clamp(2.5rem,5vw,4.5rem)] sm:px-12">
         <div className="mb-[clamp(2rem,4vw,3.5rem)] grid grid-cols-1 gap-[clamp(2rem,4vw,3.5rem)] md:grid-cols-3">
           <div>
-            <h3 className="mb-5 text-[clamp(1.5rem,2vw,2rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+            <h3 className="mb-5 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {about.identity.firstName}
             </h3>
-            <p className="max-w-xs text-base/[1.55] font-medium tracking-[-0.01em] text-gray-500 md:pr-5 dark:text-gray-400">
+            <p className="max-w-xs text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#666666] md:pr-5 dark:text-gray-400">
               {about.introduction.summary}
             </p>
           </div>
 
           <div>
-            <h3 className="mb-5 text-[clamp(1.5rem,2vw,2rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+            <h3 className="mb-5 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {t('footer.navigation')}
             </h3>
             <ul className="grid grid-cols-2 gap-x-5 gap-y-3">
@@ -51,11 +51,11 @@ export const Footer = (): ReactElement => {
           </div>
 
           <div>
-            <h3 className="mb-5 text-[clamp(1.5rem,2vw,2rem)] leading-[1.05] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
+            <h3 className="mb-5 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
               {t('footer.contactNetworks')}
             </h3>
             <div className="mb-3 sm:mb-4">
-              <div className="flex items-center gap-2 text-base/6 font-medium text-[#404040] dark:text-[#d4d4d4]">
+              <div className="flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
                 <RiMailLine
                   className="size-3.5 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
@@ -74,13 +74,13 @@ export const Footer = (): ReactElement => {
                 className="size-3.5 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
               />
-              <p className="text-base/6 font-medium text-[#404040] dark:text-[#d4d4d4]">
+              <p className="text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
                 {t('footer.followMe')}
               </p>
               <SocialNetworks iconClassName="text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white" />
             </div>
             <div>
-              <div className="flex items-center gap-2 text-base/6 font-medium text-[#404040] dark:text-[#d4d4d4]">
+              <div className="flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
                 <MapPin
                   className="size-3.5 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
@@ -93,7 +93,7 @@ export const Footer = (): ReactElement => {
 
         <Separator className="mb-6 bg-gray-200 dark:bg-[#303030]" />
         <div className="flex flex-col items-center justify-between gap-3 text-center sm:gap-4 md:flex-row md:text-left">
-          <p className="text-[0.9375rem]/[1.55] font-medium tracking-[-0.01em] text-[#404040] dark:text-[#d4d4d4]">
+          <p className="text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
             © {currentYear} {about.identity.firstName}. {t('footer.rights')}
           </p>
         </div>
