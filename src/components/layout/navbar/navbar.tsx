@@ -48,7 +48,7 @@ export const Navbar = (): ReactElement => {
           height={56}
           borderRadius={999}
           borderWidth={0.09}
-          backgroundOpacity={isDarkTheme ? 0.04 : 0.12}
+          backgroundOpacity={isDarkTheme ? 0.04 : 1}
           blur={8}
           saturation={1.05}
           showRim={false}
@@ -57,7 +57,7 @@ export const Navbar = (): ReactElement => {
             colorScheme: isDarkTheme ? 'dark' : 'light',
             background: isDarkTheme
               ? 'rgb(44 45 50 / 0.38)'
-              : 'rgb(255 255 255 / 0.72)',
+              : 'rgb(255 255 255)',
             boxShadow: isDarkTheme
               ? '0 8px 28px rgb(0 0 0 / 0.3)'
               : '0 8px 28px rgb(0 0 0 / 0.12)',

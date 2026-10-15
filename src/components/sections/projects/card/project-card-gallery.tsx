@@ -38,7 +38,7 @@ export const ProjectCardGallery = ({
               alt={`${title} ${index + 1}`}
               loading="lazy"
               decoding="async"
-              className="size-full object-cover"
+              className={`size-full object-cover ${images.length > 1 ? 'cursor-grab active:cursor-grabbing' : ''}`}
             />
           </CarouselItem>
         ))}
@@ -47,11 +47,11 @@ export const ProjectCardGallery = ({
         <>
           <CarouselPrevious
             aria-label={previousSlideLabel}
-            className="left-3 size-auto rounded-none border-0 bg-transparent p-1 text-white opacity-0 shadow-none transition-opacity duration-300 ease-out group-hover/gallery:opacity-100 hover:bg-transparent hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
+            className="left-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-300 ease-out group-hover/gallery:opacity-100 hover:scale-105 hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
           <CarouselNext
             aria-label={nextSlideLabel}
-            className="right-3 size-auto rounded-none border-0 bg-transparent p-1 text-white opacity-0 shadow-none transition-opacity duration-300 ease-out group-hover/gallery:opacity-100 hover:bg-transparent hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
+            className="right-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-300 ease-out group-hover/gallery:opacity-100 hover:scale-105 hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
         </>
       )}
