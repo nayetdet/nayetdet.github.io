@@ -43,7 +43,7 @@ export const ContactProfile = (): ReactElement => {
         <h4 className="mb-5 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.05] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
           {t('contact.usefulLinks')}
         </h4>
-        <SocialNetworks variant="pill" />
+        <SocialNetworks variant="pill" className="flex-nowrap" />
       </div>
       <a
         href={`mailto:${about.contact.email}`}
