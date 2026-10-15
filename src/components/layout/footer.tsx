@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, MapPin } from 'lucide-react';
+import { ArrowUp, Globe, MapPin } from 'lucide-react';
 import { RiMailLine } from 'react-icons/ri';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
@@ -96,6 +96,14 @@ export const Footer = (): ReactElement => {
           <p className="text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
             © {currentYear} {about.identity.firstName}. {t('footer.rights')}
           </p>
+          <button
+            type="button"
+            onClick={(): void => scrollTo(sections.home.id)}
+            className="inline-flex cursor-pointer items-center gap-2 bg-transparent p-0 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] transition-colors hover:text-[#191919] focus-visible:ring-2 focus-visible:ring-[#191919]/40 focus-visible:outline-none dark:text-gray-300 dark:hover:text-white dark:focus-visible:ring-white/40"
+          >
+            {t('footer.backToTop')}
+            <ArrowUp className="size-4" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </footer>
