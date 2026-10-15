@@ -1,93 +1,60 @@
 import type { ReactElement } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 interface ProjectCardGalleryProps {
   images: string[];
   title: string;
+  previousSlideLabel: string;
+  nextSlideLabel: string;
 }
 
 export const ProjectCardGallery = ({
   images,
   title,
+  previousSlideLabel,
+  nextSlideLabel,
 }: ProjectCardGalleryProps): ReactElement | null => {
-  const [firstImage, secondImage, thirdImage] = images;
-
-  if (images.length === 1) {
-    if (firstImage === undefined) {
-      return null;
-    }
-
-    return (
-      <div className="relative h-48 bg-gray-900">
-        <img
-          src={firstImage}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 size-full object-cover"
-        />
-      </div>
-    );
+  if (images.length === 0) {
+    return null;
   }
 
-  if (images.length === 2) {
-    return (
-      <div className="grid grid-cols-2 gap-2">
+  return (
+    <Carousel
+      opts={{ align: 'start', loop: true }}
+      className="group/gallery h-56 bg-gray-900 sm:h-64"
+      aria-label={`${title} gallery`}
+    >
+      <CarouselContent className="ml-0 h-56 sm:h-64">
         {images.map((image, index): ReactElement => (
-          <div key={image} className="relative h-48">
+          <CarouselItem key={image} className="pl-0">
             <img
               src={image}
               alt={`${title} ${index + 1}`}
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 size-full object-cover"
+              className="size-full object-cover"
             />
-          </div>
+          </CarouselItem>
         ))}
-      </div>
-    );
-  }
-
-  if (images.length === 3) {
-    if (
-      firstImage === undefined ||
-      secondImage === undefined ||
-      thirdImage === undefined
-    ) {
-      return null;
-    }
-
-    return (
-      <div className="grid grid-cols-2 gap-2">
-        <div className="relative row-span-2 h-48">
-          <img
-            src={firstImage}
-            alt={`${title} 1`}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 size-full object-cover"
+      </CarouselContent>
+      {images.length > 1 && (
+        <>
+          <CarouselPrevious
+            aria-label={previousSlideLabel}
+            className="left-3 border-white/25 bg-black/35 text-white opacity-0 backdrop-blur-sm group-hover/gallery:opacity-100 hover:bg-black/60 hover:text-white focus-visible:opacity-100"
           />
-        </div>
-        <div className="relative h-23">
-          <img
-            src={secondImage}
-            alt={`${title} 2`}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 size-full object-cover"
+          <CarouselNext
+            aria-label={nextSlideLabel}
+            className="right-3 border-white/25 bg-black/35 text-white opacity-0 backdrop-blur-sm group-hover/gallery:opacity-100 hover:bg-black/60 hover:text-white focus-visible:opacity-100"
           />
-        </div>
-        <div className="relative h-23">
-          <img
-            src={thirdImage}
-            alt={`${title} 3`}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 size-full object-cover"
-          />
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+        </>
+      )}
+    </Carousel>
+  );
 };

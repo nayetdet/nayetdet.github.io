@@ -64,8 +64,9 @@ const resources = {
       },
       projects: {
         title: 'Projects',
-        viewWebsite: 'View website',
         viewProjectWebsite: 'View {{title}} website',
+        previousImage: 'Previous image',
+        nextImage: 'Next image',
       },
       techStack: {
         title: 'Tech Stack',
@@ -156,8 +157,9 @@ const resources = {
       },
       projects: {
         title: 'Projetos',
-        viewWebsite: 'Ver site',
         viewProjectWebsite: 'Ver site de {{title}}',
+        previousImage: 'Imagem anterior',
+        nextImage: 'Próxima imagem',
       },
       techStack: {
         title: 'Tecnologias',
