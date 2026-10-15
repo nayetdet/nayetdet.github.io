@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExperienceTrajectoryTimeline } from '@/components/sections/experience/trajectory/experience-trajectory-timeline';
-import { ExperienceTrajectoryGallery } from '@/components/sections/experience/trajectory/experience-trajectory-gallery';
 
 export const ExperienceTrajectory = (): ReactElement => {
   const { t } = useTranslation();
@@ -14,9 +13,8 @@ export const ExperienceTrajectory = (): ReactElement => {
       <p className="mt-[clamp(1.75rem,3.5vw,3rem)] mb-[clamp(2.5rem,4vw,4rem)] max-w-2xl text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.6] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
         {t('experience.trajectoryDescription')}
       </p>
-      <div className="grid w-full gap-[clamp(2.5rem,5vw,4rem)] md:grid-cols-2 md:gap-[clamp(2rem,4vw,4rem)]">
+      <div className="w-full max-w-3xl">
         <ExperienceTrajectoryTimeline />
-        <ExperienceTrajectoryGallery />
       </div>
     </div>
   );
