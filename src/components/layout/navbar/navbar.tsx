@@ -48,18 +48,18 @@ export const Navbar = (): ReactElement => {
           height={56}
           borderRadius={999}
           borderWidth={0.09}
-          backgroundOpacity={isDarkTheme ? 0.12 : 0.3}
-          blur={10}
+          backgroundOpacity={isDarkTheme ? 0.22 : 0.5}
+          blur={14}
           saturation={1.05}
           showRim={false}
           className="min-w-full"
           style={{
             colorScheme: isDarkTheme ? 'dark' : 'light',
             background: isDarkTheme
-              ? 'rgb(24 24 27 / 0.48)'
-              : 'rgb(255 255 255 / 0.56)',
-            WebkitBackdropFilter: 'blur(10px) saturate(1.05)',
-            backdropFilter: 'blur(10px) saturate(1.05)',
+              ? 'rgb(24 24 27 / 0.62)'
+              : 'rgb(255 255 255 / 0.78)',
+            WebkitBackdropFilter: 'blur(14px) saturate(1.12)',
+            backdropFilter: 'blur(14px) saturate(1.12)',
             boxShadow: isDarkTheme
               ? '0 8px 28px rgb(0 0 0 / 0.3)'
               : '0 8px 28px rgb(0 0 0 / 0.12)',

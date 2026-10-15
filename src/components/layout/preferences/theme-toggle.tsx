@@ -13,6 +13,16 @@ export const ThemeToggle = (): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme, toggleTheme }: UseThemeReturn = useTheme();
 
+  const handleToggle = (): void => {
+    toggleTheme();
+    document.querySelectorAll('main, footer').forEach((element): void => {
+      element.animate([{ opacity: 0.72 }, { opacity: 1 }], {
+        duration: 280,
+        easing: 'ease-out',
+      });
+    });
+  };
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -20,7 +30,7 @@ export const ThemeToggle = (): ReactElement => {
           type="button"
           variant="ghost"
           size="icon"
-          onClick={toggleTheme}
+          onClick={handleToggle}
           aria-label={t('theme.toggle')}
           aria-pressed={isDarkTheme}
           className="group relative flex size-6 cursor-pointer items-center justify-center rounded-none p-0 text-[#191919] transition-colors duration-300 hover:bg-transparent hover:text-[#191919] focus-visible:ring-0 dark:text-white dark:hover:text-white"
