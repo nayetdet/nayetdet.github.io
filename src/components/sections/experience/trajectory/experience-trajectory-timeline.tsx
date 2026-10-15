@@ -66,7 +66,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                       >
                         <Icon
                           aria-hidden="true"
-                          className="size-5 shrink-0 text-white"
+                          className="size-5 shrink-0 text-[#191919] dark:text-white"
                         />
                         {technology.name}
                       </Badge>
