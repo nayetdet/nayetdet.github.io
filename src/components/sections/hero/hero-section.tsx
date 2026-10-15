@@ -24,7 +24,7 @@ export const HeroSection = (): ReactElement => {
   return (
     <section
       id={sections.home.id}
-      className="relative h-dvh overflow-hidden bg-white dark:bg-black"
+      className="relative box-border h-dvh overflow-hidden border-b border-[#191919] bg-white dark:border-b-0 dark:bg-black"
     >
       <HeroBackground isDarkTheme={isDarkTheme} />
       <Navbar />
@@ -45,7 +45,7 @@ export const HeroSection = (): ReactElement => {
           </TooltipContent>
         </Tooltip>
       </div>
-      <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
         <HeroContent />
         <HeroScrollIndicator />
       </div>

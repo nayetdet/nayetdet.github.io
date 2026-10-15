@@ -1,20 +1,5 @@
 import type { ReactElement } from 'react';
-import { WavyBackground } from '@/components/ui/wavy-background';
-
-const darkColors: string[] = [
-  '#00e5ff',
-  '#00a8ff',
-  '#2563eb',
-  '#00e676',
-  '#14f195',
-];
-const lightColors: string[] = [
-  '#0891b2',
-  '#2563eb',
-  '#4f46e5',
-  '#059669',
-  '#10b981',
-];
+import { LineWaves } from '@/components/ui/line-waves';
 
 interface HeroBackgroundProps {
   isDarkTheme: boolean;
@@ -23,20 +8,19 @@ interface HeroBackgroundProps {
 export const HeroBackground = ({
   isDarkTheme,
 }: HeroBackgroundProps): ReactElement => {
-  const colors: string[] = isDarkTheme ? darkColors : lightColors;
-
   return (
-    <div className="absolute inset-0 z-0">
-      <WavyBackground
+    <div className="absolute inset-0 z-0 overflow-hidden">
+      <LineWaves
         key={isDarkTheme ? 'dark-waves' : 'light-waves'}
-        containerClassName="absolute inset-0 h-full overflow-hidden"
-        colors={colors}
-        waveWidth={48}
-        backgroundFill={isDarkTheme ? '#000000' : '#ffffff'}
-        blur={11}
-        speed="slow"
-        waveOpacity={isDarkTheme ? 0.34 : 0.26}
+        className="pointer-events-none absolute inset-0 size-full"
+        color={isDarkTheme ? '#ffffff' : '#1d4ed8'}
+        highlightColor={isDarkTheme ? '#ffffff' : '#0ea5e9'}
+        lineCount={isDarkTheme ? 58 : 50}
+        lineWidth={isDarkTheme ? 1.3 : 1.05}
+        opacity={isDarkTheme ? 0.9 : 0.75}
+        speed={0.16}
       />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,transparent_0%,transparent_42%,rgba(0,0,0,0.32)_100%)] dark:bg-[radial-gradient(circle_at_50%_45%,transparent_0%,transparent_48%,rgba(0,0,0,0.58)_100%)]" />
     </div>
   );
 };

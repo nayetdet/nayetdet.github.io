@@ -49,7 +49,7 @@ export const ContactProfile = (): ReactElement => {
         href={`mailto:${about.contact.email}`}
         className={cn(
           buttonVariants(),
-          'h-auto rounded-full bg-gray-200 px-4 py-2.5 text-[0.9375rem] font-semibold text-gray-700 hover:bg-gray-300 dark:bg-[#222222] dark:text-gray-300 dark:hover:bg-[#2a2a2a]',
+          'h-auto rounded-full border-0 bg-white px-4 py-2.5 text-[0.9375rem] font-semibold text-[#191919] shadow-[0_2px_6px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 ring-inset hover:bg-gray-100 dark:bg-[#222222] dark:text-gray-300 dark:shadow-none dark:ring-0 dark:hover:bg-[#2a2a2a]',
         )}
       >
         <RiMailLine className="size-4" aria-hidden="true" />

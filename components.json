@@ -18,8 +18,5 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
-    "@react-bits": "https://reactbits.dev/r/{name}.json"
-  }
+  "registries": { "@react-bits": "https://reactbits.dev/r/{name}.json" }
 }
