@@ -39,7 +39,11 @@ export const ProjectsPreview = ({
       style={isExpanded ? { height: `${contentHeight}px` } : undefined}
       className="relative h-36 overflow-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none sm:h-40"
     >
-      <div ref={contentRef} className="pointer-events-none" inert={!isExpanded}>
+      <div
+        ref={contentRef}
+        className={isExpanded ? 'pointer-events-auto' : 'pointer-events-none'}
+        inert={!isExpanded}
+      >
         {children}
       </div>
       <div
