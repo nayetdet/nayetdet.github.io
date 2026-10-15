@@ -17,7 +17,7 @@ export const ContactProfile = (): ReactElement => {
     <div>
       <div className="mb-[clamp(2.5rem,4vw,4rem)]">
         <div className="flex items-center gap-4">
-          <div className="relative size-20 shrink-0 overflow-hidden rounded-full sm:size-24">
+          <div className="relative size-20 shrink-0 overflow-hidden rounded-full shadow-[0_6px_16px_rgb(25_25_25/0.12)] ring-1 ring-[#191919]/15 sm:size-24 dark:shadow-none dark:ring-0">
             <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               src={about.identity.image}

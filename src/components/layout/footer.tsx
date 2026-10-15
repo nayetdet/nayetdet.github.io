@@ -16,7 +16,7 @@ export const Footer = (): ReactElement => {
   const about: About = usePortfolio('about');
 
   return (
-    <footer className="border-t border-[#191919] bg-white dark:border-t-0 dark:bg-[#191919]">
+    <footer className="border-t border-[#191919] bg-white dark:border-t-[#191919] dark:bg-[#191919]">
       <div className="mx-auto max-w-7xl px-6 py-[clamp(2.5rem,5vw,4.5rem)] sm:px-12">
         <div className="mb-[clamp(2rem,4vw,3.5rem)] grid grid-cols-1 gap-[clamp(2rem,4vw,3.5rem)] md:grid-cols-3">
           <div>

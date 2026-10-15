@@ -27,7 +27,7 @@ export const ExperienceHighlights = (): ReactElement => {
       {highlights.map(({ icon: Icon, title, description }) => (
         <article
           key={title}
-          className="flex items-start gap-4 rounded-2xl border border-[#191919] bg-white p-[clamp(1.5rem,2.5vw,2rem)] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none dark:border-0 dark:bg-[#1a1a1a]"
+          className="flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.5rem,2.5vw,2rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgb(25_25_25/0.12)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
         >
           <Icon
             aria-hidden="true"

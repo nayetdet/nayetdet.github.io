@@ -29,7 +29,7 @@ export const ContactForm = (): ReactElement => {
                 name="firstName"
                 placeholder={t('contact.firstName')}
                 required
-                className="h-auto rounded-lg border border-[#191919] bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 transition-shadow focus-visible:ring-[#191919] dark:border-0 dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:focus-visible:ring-white"
+                className="h-auto rounded-lg border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/20 transition-shadow focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
               />
             </Field>
             <Field className="gap-0">
@@ -42,7 +42,7 @@ export const ContactForm = (): ReactElement => {
                 name="lastName"
                 placeholder={t('contact.lastName')}
                 required
-                className="h-auto rounded-lg border border-[#191919] bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 transition-shadow focus-visible:ring-[#191919] dark:border-0 dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:focus-visible:ring-white"
+                className="h-auto rounded-lg border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/20 transition-shadow focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
               />
             </Field>
           </div>
@@ -56,7 +56,7 @@ export const ContactForm = (): ReactElement => {
               name="email"
               placeholder={t('contact.email')}
               required
-              className="h-auto rounded-lg border border-[#191919] bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 transition-shadow focus-visible:ring-[#191919] dark:border-0 dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:focus-visible:ring-white"
+              className="h-auto rounded-lg border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/20 transition-shadow focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
             />
           </Field>
           <Field className="gap-0">
@@ -69,7 +69,7 @@ export const ContactForm = (): ReactElement => {
               placeholder={t('contact.message')}
               rows={6}
               required
-              className="resize-none rounded-lg border border-[#191919] bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 transition-shadow focus-visible:ring-[#191919] dark:border-0 dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:focus-visible:ring-white"
+              className="resize-none rounded-lg border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/20 transition-shadow focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
             />
           </Field>
         </FieldGroup>

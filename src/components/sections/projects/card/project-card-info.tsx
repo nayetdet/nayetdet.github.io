@@ -55,7 +55,7 @@ export const ProjectCardInfo = ({
               <CarouselItem key={tag.name} className="basis-auto pl-2">
                 <Badge
                   variant="secondary"
-                  className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-4 py-2.5 text-[0.9375rem] font-semibold text-[#191919] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] dark:bg-[#2a2a2a]/80 dark:text-white dark:hover:bg-[#404040]"
+                  className="inline-flex items-center gap-2 rounded-full border-0 bg-[#e5e5e5]/80 px-4 py-2.5 text-[0.9375rem] font-semibold text-[#191919] shadow-[0_2px_6px_rgb(25_25_25/0.12)] ring-1 ring-[#191919]/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d4d4d4] dark:bg-[#2a2a2a]/80 dark:text-white dark:shadow-none dark:ring-0 dark:hover:bg-[#404040]"
                 >
                   <Icon aria-hidden="true" className="size-5 shrink-0" />
                   {tag.name}
