@@ -70,7 +70,7 @@ export const SocialNetworks = ({
                 aria-label={label}
                 className={cn(
                   isPillVariant
-                    ? `inline-flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-opacity ${pillClassName}`
+                    ? `inline-flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#191919]/40 focus-visible:outline-none active:translate-y-0 active:scale-[.98] motion-reduce:transform-none motion-reduce:transition-none ${pillClassName}`
                     : 'flex size-6 items-center justify-center text-[#191919] dark:text-white',
                 )}
               >
