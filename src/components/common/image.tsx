@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Dialog,
@@ -6,6 +6,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils';
 
 interface ImageProps {
   src: string;
@@ -26,21 +28,34 @@ export const Image = ({
 }: ImageProps): ReactElement => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(false);
+  }, [src]);
 
   const trigger = (
     <button
       type="button"
       aria-label={t('image.expand', { alt })}
-      className={`group/image block overflow-hidden ${buttonClassName}`}
+      className={`group/image relative block overflow-hidden ${buttonClassName}`}
       onClick={onExpand ?? onClick}
     >
+      {!isLoaded && (
+        <Skeleton
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 size-full rounded-none"
+        />
+      )}
       <img
         src={src}
         alt={alt}
         loading="lazy"
         decoding="async"
         draggable={false}
-        className={className}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
+        className={cn(className, isLoaded ? 'opacity-100' : 'opacity-0')}
       />
     </button>
   );
