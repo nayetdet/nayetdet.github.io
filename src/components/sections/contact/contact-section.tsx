@@ -8,7 +8,10 @@ export const ContactSection = (): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <div className="scroll-mt-24 bg-gray-50 pt-[clamp(6rem,12vh,10rem)] pb-[clamp(7rem,14vh,12rem)] dark:bg-[#121212]">
+    <section
+      id="contact"
+      className="scroll-mt-24 bg-gray-50 pt-[clamp(6rem,12vh,10rem)] pb-[clamp(7rem,14vh,12rem)] dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle description={t('contact.description')}>
           {t('contact.title')}
@@ -18,7 +21,7 @@ export const ContactSection = (): ReactElement => {
           <ContactForm />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

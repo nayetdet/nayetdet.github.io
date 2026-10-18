@@ -1,12 +1,17 @@
-import { useCallback, useEffect, useState, type ReactElement } from 'react';
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+  type ReactElement,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Logo } from '@/components/common/logo';
 import { NavbarItems } from '@/components/layout/navbar/navbar-items';
 import { LanguageToggle } from '@/components/layout/preferences/language-toggle';
 import { ThemeToggle } from '@/components/layout/preferences/theme-toggle';
-import { NavbarMenu } from '@/components/layout/navbar/navbar-menu';
 import { NavbarMenuToggle } from '@/components/layout/navbar/navbar-menu-toggle';
-import { Sheet } from '@/components/ui/sheet';
 import GlassSurface from '@/components/ui/glass-surface';
 import { sections, type Section } from '@/constants/sections';
 import { useActiveSection } from '@/hooks/use-active-section';
@@ -15,6 +20,11 @@ import { useTheme, type UseThemeReturn } from '@/hooks/use-theme';
 import { scrollTo } from '@/utils/scroll';
 
 const items: Section[] = Object.values(sections);
+const NavbarMenu = lazy(() =>
+  import('@/components/layout/navbar/navbar-menu').then(
+    ({ NavbarMenu: component }) => ({ default: component }),
+  ),
+);
 
 export const Navbar = (): ReactElement => {
   const { t } = useTranslation();
@@ -39,7 +49,7 @@ export const Navbar = (): ReactElement => {
   }, []);
 
   return (
-    <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+    <>
       <nav
         className="fixed top-4 left-1/2 z-50 w-[calc(100%-3rem)] -translate-x-1/2 transform md:w-max"
         aria-label={t('navigation.title')}
@@ -98,14 +108,19 @@ export const Navbar = (): ReactElement => {
           </div>
         </GlassSurface>
       </nav>
-      <NavbarMenu
-        items={items}
-        activeSectionId={activeSectionId}
-        activeTargetId={activeTargetId}
-        onNavigate={navigateTo}
-        onClose={(): void => setIsMenuOpen(false)}
-      />
-    </Sheet>
+      {isMobile && (
+        <Suspense fallback={null}>
+          <NavbarMenu
+            open={isMenuOpen}
+            onOpenChange={setIsMenuOpen}
+            items={items}
+            activeSectionId={activeSectionId}
+            activeTargetId={activeTargetId}
+            onNavigate={navigateTo}
+          />
+        </Suspense>
+      )}
+    </>
   );
 };
 

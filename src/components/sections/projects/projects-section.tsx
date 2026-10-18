@@ -16,7 +16,10 @@ export const ProjectsSection = (): ReactElement => {
   const scrollY: React.RefObject<number> = useRef<number>(0);
 
   return (
-    <div className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]">
+    <section
+      id="projects"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle description={t('projects.description')}>
           {t('projects.title')}
@@ -78,7 +81,7 @@ export const ProjectsSection = (): ReactElement => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

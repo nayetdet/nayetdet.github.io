@@ -15,7 +15,10 @@ export const ExperienceSection = (): ReactElement => {
   const trajectory: Trajectory = usePortfolio('trajectory');
 
   return (
-    <div className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]">
+    <section
+      id="experience"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('experience.title')}</SectionTitle>
         <div className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">
@@ -37,7 +40,7 @@ export const ExperienceSection = (): ReactElement => {
         <ExperienceTechStack />
         <ExperienceTrajectory />
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -14,7 +14,10 @@ export const AboutSection = (): ReactElement => {
   const about: About = usePortfolio('about');
 
   return (
-    <div className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]">
+    <section
+      id="about"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
         <div className="flex flex-col items-start gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">
@@ -40,7 +43,7 @@ export const AboutSection = (): ReactElement => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
