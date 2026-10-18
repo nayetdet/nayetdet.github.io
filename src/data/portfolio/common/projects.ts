@@ -40,6 +40,17 @@ export const commonProjects = [
     website: 'https://github.com/nayetdet/gamekube',
   },
   {
+    name: 'HTTP Load Balancer',
+    images: [httpLoadBalancer01, httpLoadBalancer02],
+    techStack: [
+      techStacks.python,
+      techStacks.flask,
+      techStacks.docker,
+      techStacks.kubernetes,
+    ],
+    website: 'https://github.com/nayetdet/http-load-balancer',
+  },
+  {
     name: 'CarekoBooks',
     images: [carekoBooks01, carekoBooks02],
     techStack: [
@@ -57,18 +68,6 @@ export const commonProjects = [
     website: 'https://github.com/carekocorps/carekobooks-backend',
   },
   {
-    name: 'SoftWorker',
-    images: [softWorker01, softWorker02],
-    techStack: [
-      techStacks.python,
-      techStacks.typescript,
-      techStacks.react,
-      techStacks.nextJs,
-      techStacks.docker,
-    ],
-    website: 'https://github.com/nayetdet/softworker',
-  },
-  {
     name: 'Homelab',
     images: [homeLab01, homeLab02, homeLab03],
     techStack: [
@@ -80,12 +79,6 @@ export const commonProjects = [
       techStacks.ansible,
     ],
     website: 'https://github.com/nayetdet/homelab',
-  },
-  {
-    name: 'OBS RVC',
-    images: [obsRvc01, obsRvc02],
-    techStack: [techStacks.python, techStacks.cplusplus],
-    website: 'https://github.com/nayetdet/obs-rvc',
   },
   {
     name: 'Gatekeeper',
@@ -101,14 +94,21 @@ export const commonProjects = [
     website: 'https://github.com/nayetdet/gatekeeper',
   },
   {
-    name: 'HTTP Load Balancer',
-    images: [httpLoadBalancer01, httpLoadBalancer02],
+    name: 'OBS RVC',
+    images: [obsRvc01, obsRvc02],
+    techStack: [techStacks.python, techStacks.cplusplus],
+    website: 'https://github.com/nayetdet/obs-rvc',
+  },
+  {
+    name: 'SoftWorker',
+    images: [softWorker01, softWorker02],
     techStack: [
       techStacks.python,
-      techStacks.flask,
+      techStacks.typescript,
+      techStacks.react,
+      techStacks.nextJs,
       techStacks.docker,
-      techStacks.kubernetes,
     ],
-    website: 'https://github.com/nayetdet/http-load-balancer',
+    website: 'https://github.com/nayetdet/softworker',
   },
 ] satisfies Omit<Project, 'description'>[];
