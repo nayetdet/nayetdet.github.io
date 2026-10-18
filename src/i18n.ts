@@ -39,7 +39,7 @@ const resources = {
           'I build web applications end to end, connecting interfaces, APIs, data, and infrastructure to deliver complete products.',
         highlights: {
           platforms: {
-            title: 'Web interfaces',
+            title: 'Frontend and user experience',
             description:
               'I build functional, responsive experiences around product needs.',
           },
@@ -133,22 +133,22 @@ const resources = {
       experience: {
         title: 'Experiência',
         description:
-          'Desenvolvo aplicações web de ponta a ponta, conectando interfaces, APIs, dados e infraestrutura para entregar produtos completos.',
+          'Atuo no desenvolvimento de produtos digitais de ponta a ponta: do front-end e das APIs à infraestrutura e à publicação.',
         highlights: {
           platforms: {
-            title: 'Interfaces web',
+            title: 'Frontend e experiência do usuário',
             description:
-              'Construo experiências funcionais e responsivas, conectadas às necessidades do produto.',
+              'Crio interfaces responsivas e acessíveis, alinhadas às necessidades de cada produto.',
           },
           systems: {
             title: 'Backend e integrações',
             description:
-              'Desenvolvo APIs e serviços que conectam regras de negócio, dados e aplicações.',
+              'Conecto sistemas, dados e regras de negócio por meio de APIs e serviços.',
           },
           data: {
-            title: 'Infraestrutura e deploy',
+            title: 'Infraestrutura e entrega',
             description:
-              'Estruturo ambientes e automatizo entregas para levar os produtos à produção.',
+              'Automatizo ambientes e publicações para levar aplicações à produção com confiança.',
           },
         },
         trajectory: 'Trajetória',
