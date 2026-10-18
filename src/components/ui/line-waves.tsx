@@ -19,6 +19,7 @@ interface LineWavesProps {
 
 const MAX_PIXEL_RATIO = 1.5;
 const OVERFLOW_LINES = 8;
+const FRAME_INTERVAL = 1000 / 30;
 
 const hexToRgba = (color: string, opacity: number): string => {
   const value: string = color.replace('#', '');
@@ -65,6 +66,8 @@ export const LineWaves = ({
     let frame: number = 0;
     let startedAt: number | undefined;
     let isVisible: boolean = true;
+    let isDocumentVisible: boolean = !document.hidden;
+    let lastDrawAt: number | undefined;
     const prefersReducedMotion: boolean = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
@@ -136,11 +139,17 @@ export const LineWaves = ({
       }
     };
 
+    const canAnimate = (): boolean =>
+      isVisible && isDocumentVisible && !prefersReducedMotion && speed > 0;
+
     const animate = (time: number): void => {
       startedAt ??= time;
-      draw(time);
+      if (lastDrawAt === undefined || time - lastDrawAt >= FRAME_INTERVAL) {
+        draw(time);
+        lastDrawAt = time;
+      }
 
-      if (isVisible && !prefersReducedMotion && speed > 0) {
+      if (canAnimate()) {
         frame = window.requestAnimationFrame(animate);
       }
     };
@@ -148,9 +157,19 @@ export const LineWaves = ({
     const restart = (): void => {
       window.cancelAnimationFrame(frame);
       draw(performance.now());
+      lastDrawAt = performance.now();
 
-      if (isVisible && !prefersReducedMotion && speed > 0) {
+      if (canAnimate()) {
         frame = window.requestAnimationFrame(animate);
+      }
+    };
+
+    const onVisibilityChange = (): void => {
+      isDocumentVisible = !document.hidden;
+      if (isDocumentVisible && isVisible) {
+        restart();
+      } else {
+        window.cancelAnimationFrame(frame);
       }
     };
 
@@ -172,6 +191,7 @@ export const LineWaves = ({
 
     resizeObserver.observe(container);
     visibilityObserver.observe(container);
+    document.addEventListener('visibilitychange', onVisibilityChange);
     resize();
     restart();
 
@@ -179,6 +199,7 @@ export const LineWaves = ({
       window.cancelAnimationFrame(frame);
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, [
     baseIntensity,
