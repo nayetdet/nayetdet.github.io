@@ -7,7 +7,6 @@ import { SectionTitle } from '@/components/common/section-title';
 import { ExperienceTechStack } from '@/components/sections/experience/tech-stack/experience-tech-stack';
 import { ExperienceTrajectory } from '@/components/sections/experience/trajectory/experience-trajectory';
 import { ExperienceHighlights } from '@/components/sections/experience/experience-highlights';
-import { sections } from '@/constants/sections';
 import { Image } from '@/components/common/image';
 
 export const ExperienceSection = (): ReactElement => {
@@ -16,10 +15,7 @@ export const ExperienceSection = (): ReactElement => {
   const trajectory: Trajectory = usePortfolio('trajectory');
 
   return (
-    <div
-      id={sections.experience.id}
-      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
-    >
+    <div className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]">
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('experience.title')}</SectionTitle>
         <div className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">

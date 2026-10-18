@@ -1,6 +1,8 @@
-import { lazy, Suspense, type ReactElement } from 'react';
+import { lazy, type ReactElement } from 'react';
+import { LazySection } from '@/components/common/lazy-section';
 import { Footer } from '@/components/layout/footer';
 import { HeroSection } from '@/components/sections/hero/hero-section';
+import { sections } from '@/constants/sections';
 import { useLocale } from '@/hooks/use-locale';
 
 const AboutSection = lazy(() =>
@@ -34,18 +36,18 @@ export const App = (): ReactElement => {
     <>
       <main>
         <HeroSection />
-        <Suspense fallback={null}>
+        <LazySection id={sections.about.id} minHeight="900px">
           <AboutSection />
-        </Suspense>
-        <Suspense fallback={null}>
+        </LazySection>
+        <LazySection id={sections.experience.id} minHeight="1500px">
           <ExperienceSection />
-        </Suspense>
-        <Suspense fallback={null}>
+        </LazySection>
+        <LazySection id={sections.projects.id} minHeight="1100px">
           <ProjectsSection />
-        </Suspense>
-        <Suspense fallback={null}>
+        </LazySection>
+        <LazySection id={sections.contact.id} minHeight="900px">
           <ContactSection />
-        </Suspense>
+        </LazySection>
       </main>
       <Footer />
     </>
