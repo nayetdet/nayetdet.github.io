@@ -6,7 +6,7 @@ export const ExperienceTrajectoryWaves = (): ReactElement => {
   const { isDarkTheme }: UseThemeReturn = useTheme();
 
   return (
-    <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden rounded-[2.5rem] lg:block">
+    <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[48%] overflow-hidden rounded-[4rem] lg:block">
       <LineWaves
         key={isDarkTheme ? 'dark-trajectory-waves' : 'light-trajectory-waves'}
         className="size-full"
