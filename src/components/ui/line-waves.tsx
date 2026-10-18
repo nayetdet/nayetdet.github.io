@@ -13,6 +13,7 @@ interface LineWavesProps {
   opacity?: number;
   baseIntensity?: number;
   speed?: number;
+  intro?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -45,6 +46,7 @@ export const LineWaves = ({
   opacity = 1,
   baseIntensity = 0.34,
   speed = 0.22,
+  intro = false,
   className,
   style,
 }: LineWavesProps): ReactElement => {
@@ -65,6 +67,7 @@ export const LineWaves = ({
     let height: number = 0;
     let frame: number = 0;
     let startedAt: number | undefined;
+    const introStartedAt: number = performance.now();
     let isVisible: boolean = true;
     let isDocumentVisible: boolean = !document.hidden;
     let lastDrawAt: number | undefined;
@@ -94,6 +97,10 @@ export const LineWaves = ({
       const elapsed: number = prefersReducedMotion
         ? 0
         : ((time - (startedAt ?? time)) / 1000) * speed;
+      const introOpacity: number =
+        !intro || prefersReducedMotion
+          ? 1
+          : Math.min(1, Math.max(0, (time - introStartedAt) / 900));
       const spacing: number = height / (lineCount - 1);
 
       context.clearRect(0, 0, width, height);
@@ -111,7 +118,9 @@ export const LineWaves = ({
           -Math.pow(center - Math.sin(elapsed * 0.55) * 0.16, 2) * 11,
         );
         const intensity: number =
-          (baseIntensity + shimmer * (1 - baseIntensity)) * opacity;
+          (baseIntensity + shimmer * (1 - baseIntensity)) *
+          opacity *
+          introOpacity;
 
         context.beginPath();
         context.strokeStyle = hexToRgba(
@@ -205,6 +214,7 @@ export const LineWaves = ({
     baseIntensity,
     color,
     highlightColor,
+    intro,
     lineCount,
     lineWidth,
     opacity,
