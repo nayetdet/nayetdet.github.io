@@ -45,8 +45,12 @@ export const ProjectCardInfo = ({
             <ExternalLink className="size-[0.9em]" aria-hidden="true" />
           </a>
         </TooltipTrigger>
-        <TooltipContent side="top" sideOffset={8}>
-          {websiteAriaLabel}
+        <TooltipContent
+          side="top"
+          sideOffset={8}
+          className="max-w-64 break-all"
+        >
+          {siteUrl.replace(/^https?:\/\//, '')}
         </TooltipContent>
       </Tooltip>
     </h3>
