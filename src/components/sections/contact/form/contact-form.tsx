@@ -5,11 +5,38 @@ import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { usePortfolio } from '@/hooks/use-portfolio';
+import type { About } from '@/types/portfolio/about/about';
 
 export const ContactForm = (): ReactElement => {
   const { t } = useTranslation();
-  const handleSubmit = (event: SubmitEvent<HTMLFormElement>): void =>
+  const about: About = usePortfolio('about');
+
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>): void => {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    form
+      .querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]')
+      .forEach((field) => {
+        field.value = field.value.trim();
+      });
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const formData = new FormData(form);
+    const senderName =
+      `${formData.get('firstName')} ${formData.get('lastName')}`.trim();
+    const body = `${t('contact.name')}: ${senderName}\n${t('contact.email')}: ${formData.get('email')}\n\n${t('contact.message')}:\n${formData.get('message')}`;
+
+    window.open(
+      `mailto:${about.contact.email}?subject=${encodeURIComponent(t('contact.emailSubject', { name: senderName }))}&body=${encodeURIComponent(body)}`,
+      '_blank',
+      'noopener,noreferrer',
+    );
+  };
 
   return (
     <div className="lg:col-span-2">
