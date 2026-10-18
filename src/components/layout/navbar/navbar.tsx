@@ -8,7 +8,7 @@ import { NavbarMenu } from '@/components/layout/navbar/navbar-menu';
 import { NavbarMenuToggle } from '@/components/layout/navbar/navbar-menu-toggle';
 import { Sheet } from '@/components/ui/sheet';
 import GlassSurface from '@/components/ui/glass-surface';
-import { sections, type Section, type SectionId } from '@/constants/sections';
+import { sections, type Section } from '@/constants/sections';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { useMobile } from '@/hooks/use-mobile';
 import { useTheme, type UseThemeReturn } from '@/hooks/use-theme';
@@ -20,7 +20,8 @@ export const Navbar = (): ReactElement => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isMobile: boolean = useMobile();
-  const activeSectionId: SectionId = useActiveSection();
+  const { sectionId: activeSectionId, targetId: activeTargetId } =
+    useActiveSection();
   const { isDarkTheme }: UseThemeReturn = useTheme();
 
   useEffect((): (() => void) | undefined => {
@@ -32,8 +33,8 @@ export const Navbar = (): ReactElement => {
     return (): void => cancelAnimationFrame(frameId);
   }, [isMobile]);
 
-  const navigateTo = useCallback((sectionId: Section['id']): void => {
-    scrollTo(sectionId);
+  const navigateTo = useCallback((targetId: string): void => {
+    scrollTo(targetId);
     setIsMenuOpen(false);
   }, []);
 
@@ -70,6 +71,7 @@ export const Navbar = (): ReactElement => {
               <NavbarItems
                 items={items}
                 activeSectionId={activeSectionId}
+                activeTargetId={activeTargetId}
                 onNavigate={navigateTo}
                 variant="desktop"
               />
@@ -99,6 +101,7 @@ export const Navbar = (): ReactElement => {
       <NavbarMenu
         items={items}
         activeSectionId={activeSectionId}
+        activeTargetId={activeTargetId}
         onNavigate={navigateTo}
         onClose={(): void => setIsMenuOpen(false)}
       />

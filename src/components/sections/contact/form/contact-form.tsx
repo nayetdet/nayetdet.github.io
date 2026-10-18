@@ -26,10 +26,9 @@ export const ContactForm = (): ReactElement => {
       return;
     }
 
-    const formData = new FormData(form);
     const senderName =
-      `${formData.get('firstName')} ${formData.get('lastName')}`.trim();
-    const body = `${t('contact.name')}: ${senderName}\n${t('contact.email')}: ${formData.get('email')}\n\n${t('contact.message')}:\n${formData.get('message')}`;
+      `${(form.elements.namedItem('firstName') as HTMLInputElement).value} ${(form.elements.namedItem('lastName') as HTMLInputElement).value}`.trim();
+    const body = `${t('contact.name')}: ${senderName}\n${t('contact.email')}: ${(form.elements.namedItem('email') as HTMLInputElement).value}\n\n${t('contact.message')}:\n${(form.elements.namedItem('message') as HTMLTextAreaElement).value}`;
 
     window.open(
       `mailto:${about.contact.email}?subject=${encodeURIComponent(t('contact.emailSubject', { name: senderName }))}&body=${encodeURIComponent(body)}`,

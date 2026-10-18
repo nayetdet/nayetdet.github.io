@@ -1,25 +1,41 @@
 import { useEffect, useState } from 'react';
-import { sections, type Section, type SectionId } from '@/constants/sections';
+import {
+  sections,
+  type Section,
+  type SectionId,
+  type SubsectionId,
+} from '@/constants/sections';
 
-const sectionList: Section[] = Object.values(sections);
+export interface UseActiveSectionReturn {
+  sectionId: SectionId;
+  targetId: SectionId | SubsectionId;
+}
 
-export const useActiveSection = (): SectionId => {
-  const [activeSectionId, setActiveSectionId] = useState<SectionId>(
-    sectionList[0]?.id ?? 'home',
-  );
+export const useActiveSection = (): UseActiveSectionReturn => {
+  const [activeSection, setActiveSection] = useState<UseActiveSectionReturn>({
+    sectionId: sections.home.id,
+    targetId: sections.home.id,
+  });
 
   useEffect((): (() => void) => {
     const updateActiveSection = (): void => {
-      setActiveSectionId(
-        sectionList.findLast(
-          ({ id }: Section): boolean =>
+      const offset: number = window.innerHeight * 0.35;
+      const section: Section =
+        Object.values<Section>(sections).findLast(
+          ({ id }) =>
             (document.getElementById(id)?.getBoundingClientRect().top ??
-              Infinity) <=
-            window.innerHeight * 0.35,
-        )?.id ??
-          sectionList[0]?.id ??
-          'home',
-      );
+              Infinity) <= offset,
+        ) ?? sections.home;
+
+      setActiveSection({
+        sectionId: section.id,
+        targetId:
+          Object.values(section.subsections ?? {}).findLast(
+            ({ id }) =>
+              (document.getElementById(id)?.getBoundingClientRect().top ??
+                Infinity) <= offset,
+          )?.id ?? section.id,
+      });
     };
 
     updateActiveSection();
@@ -32,7 +48,7 @@ export const useActiveSection = (): SectionId => {
     };
   }, []);
 
-  return activeSectionId;
+  return activeSection;
 };
 
 export default useActiveSection;

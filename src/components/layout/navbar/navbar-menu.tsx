@@ -11,7 +11,8 @@ import { SheetContent, SheetTitle } from '@/components/ui/sheet';
 interface NavbarMenuProps {
   items: readonly Section[];
   activeSectionId: Section['id'];
-  onNavigate: (sectionId: Section['id']) => void;
+  activeTargetId: string;
+  onNavigate: (targetId: string) => void;
   onClose: () => void;
 }
 
@@ -19,6 +20,7 @@ export const NavbarMenu = memo(
   ({
     items,
     activeSectionId,
+    activeTargetId,
     onNavigate,
     onClose,
   }: NavbarMenuProps): ReactElement => {
@@ -49,6 +51,7 @@ export const NavbarMenu = memo(
             <NavbarItems
               items={items}
               activeSectionId={activeSectionId}
+              activeTargetId={activeTargetId}
               onNavigate={onNavigate}
               variant="mobile"
             />

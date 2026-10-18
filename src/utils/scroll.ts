@@ -1,6 +1,4 @@
-import type { SectionId } from '@/constants/sections';
-
-export const scrollTo = (targetId: SectionId): void => {
+export const scrollTo = (targetId: string): void => {
   const target: HTMLElement | null = document.getElementById(targetId);
   if (!target) {
     return;

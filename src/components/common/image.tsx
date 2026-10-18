@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Dialog,
@@ -28,11 +28,8 @@ export const Image = ({
 }: ImageProps): ReactElement => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(false);
-  }, [src]);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const isLoaded = loadedSrc === src;
 
   const trigger = (
     <button
@@ -53,8 +50,8 @@ export const Image = ({
         loading="lazy"
         decoding="async"
         draggable={false}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)}
+        onLoad={() => setLoadedSrc(src)}
+        onError={() => setLoadedSrc(src)}
         className={cn(className, isLoaded ? 'opacity-100' : 'opacity-0')}
       />
     </button>

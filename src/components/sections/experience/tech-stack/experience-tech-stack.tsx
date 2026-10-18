@@ -4,13 +4,17 @@ import { usePortfolio } from '@/hooks/use-portfolio';
 import { TechStackCard } from '@/components/sections/experience/tech-stack/card/tech-stack-card';
 import type { TechStackCategory } from '@/types/portfolio/tech-stack/tech-stack-category';
 import type { TechStack } from '@/types/portfolio/tech-stack/tech-stack';
+import { sections } from '@/constants/sections';
 
 export const ExperienceTechStack = (): ReactElement => {
   const { t } = useTranslation();
   const techStack: TechStack = usePortfolio('tech-stack');
 
   return (
-    <div>
+    <div
+      id={sections.experience.subsections.techStack.id}
+      className="scroll-mt-24"
+    >
       <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-semibold tracking-[-0.055em] text-[#191919] dark:text-white">
         {t('techStack.title')}
       </h3>
