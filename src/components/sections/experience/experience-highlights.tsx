@@ -1,22 +1,22 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiServerLine, RiUploadCloudLine, RiWindowLine } from 'react-icons/ri';
+import { CloudUpload, PanelsTopLeft, Server } from 'lucide-react';
 
 export const ExperienceHighlights = (): ReactElement => {
   const { t } = useTranslation();
   const highlights = [
     {
-      icon: RiWindowLine,
+      icon: PanelsTopLeft,
       title: t('experience.highlights.platforms.title'),
       description: t('experience.highlights.platforms.description'),
     },
     {
-      icon: RiServerLine,
+      icon: Server,
       title: t('experience.highlights.systems.title'),
       description: t('experience.highlights.systems.description'),
     },
     {
-      icon: RiUploadCloudLine,
+      icon: CloudUpload,
       title: t('experience.highlights.data.title'),
       description: t('experience.highlights.data.description'),
     },

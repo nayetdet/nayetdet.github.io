@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BriefcaseBusiness } from 'lucide-react';
-import { RiMailLine } from 'react-icons/ri';
+import { BriefcaseBusiness, Mail } from 'lucide-react';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Image } from '@/components/common/image';
 import { buttonVariants } from '@/components/ui/button';
@@ -52,7 +51,7 @@ export const ContactProfile = (): ReactElement => {
           'h-auto rounded-full border-0 bg-white px-4 py-2.5 text-[0.9375rem] font-semibold text-[#191919] shadow-[0_2px_6px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 ring-inset hover:bg-gray-100 dark:bg-[#222222] dark:text-gray-300 dark:shadow-none dark:ring-0 dark:hover:bg-[#2a2a2a]',
         )}
       >
-        <RiMailLine className="size-4" aria-hidden="true" />
+        <Mail className="size-4" aria-hidden="true" />
         <span>{about.contact.email}</span>
       </a>
     </div>

@@ -4,8 +4,8 @@ import {
   House,
   Mail,
   UserRound,
+  type LucideIcon,
 } from 'lucide-react';
-import type { IconType } from 'react-icons';
 
 export type SubsectionId = 'tech-stack' | 'trajectory';
 export type SectionId =
@@ -17,7 +17,7 @@ export interface Subsection {
 
 export interface Section {
   id: SectionId;
-  icon: IconType;
+  icon: LucideIcon;
   subsections?: Record<string, Subsection>;
 }
 

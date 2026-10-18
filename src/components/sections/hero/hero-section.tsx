@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RiMailLine } from 'react-icons/ri';
+import { Mail } from 'lucide-react';
 import { SocialNetworks } from '@/components/common/social-networks';
 import Navbar from '@/components/layout/navbar/navbar';
 import {
@@ -37,7 +37,7 @@ export const HeroSection = (): ReactElement => {
               className="flex size-6 items-center justify-center text-[#191919] transition-opacity duration-300 hover:opacity-60 dark:text-white"
               aria-label={t('contact.email')}
             >
-              <RiMailLine className="size-6" aria-hidden="true" />
+              <Mail className="size-6" aria-hidden="true" />
             </a>
           </TooltipTrigger>
           <TooltipContent side="right" sideOffset={8}>

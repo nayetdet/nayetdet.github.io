@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowUp, Globe, MapPin } from 'lucide-react';
-import { RiMailLine } from 'react-icons/ri';
+import { ArrowUp, Globe, Mail, MapPin } from 'lucide-react';
 import { SocialNetworks } from '@/components/common/social-networks';
 import { Separator } from '@/components/ui/separator';
 import { sections } from '@/constants/sections';
@@ -56,7 +55,7 @@ export const Footer = (): ReactElement => {
             </h3>
             <div className="mb-3 sm:mb-4">
               <div className="flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
-                <RiMailLine
+                <Mail
                   className="size-3.5 text-gray-500 dark:text-gray-400"
                   aria-hidden="true"
                 />
