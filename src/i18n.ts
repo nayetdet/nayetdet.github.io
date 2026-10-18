@@ -4,7 +4,11 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   'en-US': {
     translation: {
-      page: { title: 'Portfolio' },
+      page: {
+        title: 'João Pedro Moreira — Full Stack Developer',
+        description:
+          'Full Stack Developer connecting interfaces, backend services, and infrastructure to build web applications.',
+      },
       brand: { goHome: 'Go to home page' },
       image: { expand: 'Expand image: {{alt}}' },
       navigation: {
@@ -104,7 +108,11 @@ const resources = {
   },
   'pt-BR': {
     translation: {
-      page: { title: 'Portfólio' },
+      page: {
+        title: 'João Pedro Moreira — Desenvolvedor Full Stack',
+        description:
+          'Desenvolvedor Full Stack que conecta interfaces, serviços backend e infraestrutura na construção de aplicações web.',
+      },
       brand: { goHome: 'Ir para a página inicial' },
       image: { expand: 'Expandir imagem: {{alt}}' },
       navigation: {

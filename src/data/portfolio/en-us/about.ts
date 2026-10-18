@@ -3,6 +3,7 @@ import type { About } from '@/types/portfolio/about/about';
 
 export const about: About = {
   ...commonAbout,
+  contact: { ...commonAbout.contact, location: 'Fortaleza, Ceará, Brazil' },
   identity: { ...commonAbout.identity, role: 'Full Stack Developer' },
   introduction: {
     tagline:
