@@ -3,6 +3,8 @@ import carekoBooks02 from '@/assets/projects/carekobooks/demo-02.jpg';
 import gameKube01 from '@/assets/projects/gamekube/demo-01.jpg';
 import gameKube02 from '@/assets/projects/gamekube/demo-02.jpg';
 import gameKube03 from '@/assets/projects/gamekube/demo-03.jpg';
+import gameKube04 from '@/assets/projects/gamekube/demo-04.jpg';
+import gameKube05 from '@/assets/projects/gamekube/demo-05.jpg';
 import gatekeeper01 from '@/assets/projects/gatekeeper/demo-01.jpg';
 import gatekeeper02 from '@/assets/projects/gatekeeper/demo-02.jpg';
 import homeLab01 from '@/assets/projects/homelab/demo-01.jpg';
@@ -20,7 +22,7 @@ import type { Project } from '@/types/portfolio/projects/project';
 export const commonProjects = [
   {
     name: 'GameKube',
-    images: [gameKube01, gameKube02, gameKube03],
+    images: [gameKube01, gameKube02, gameKube03, gameKube04, gameKube05],
     techStack: [
       techStacks.java,
       techStacks.springBoot,
