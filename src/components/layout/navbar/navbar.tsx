@@ -66,8 +66,8 @@ export const Navbar = (): ReactElement => {
               : '0 8px 28px rgb(0 0 0 / 0.12)',
           }}
         >
-          <div className="flex size-full items-center justify-center px-6 sm:px-10">
-            <div className="hidden items-center gap-6 md:flex">
+          <div className="flex size-full items-center justify-center px-6 md:px-6 lg:px-10">
+            <div className="hidden shrink-0 items-center gap-4 md:flex lg:gap-6">
               <NavbarItems
                 items={items}
                 activeSectionId={activeSectionId}

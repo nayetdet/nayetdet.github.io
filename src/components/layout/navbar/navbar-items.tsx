@@ -24,7 +24,9 @@ export const NavbarItems = memo(
     return (
       <ul
         className={
-          isMobile ? 'space-y-8 text-center' : 'flex items-center gap-6'
+          isMobile
+            ? 'space-y-8 text-center'
+            : 'flex w-max shrink-0 items-center gap-4 sm:gap-6'
         }
       >
         {items.map(({ id }: Section): ReactElement => {
@@ -53,7 +55,7 @@ export const NavbarItems = memo(
               className={
                 isMobile
                   ? 'flex flex-col items-center gap-2'
-                  : 'flex h-10 flex-col items-center justify-center gap-0'
+                  : 'flex h-10 shrink-0 flex-col items-center justify-center gap-0'
               }
             >
               <button
