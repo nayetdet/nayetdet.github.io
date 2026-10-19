@@ -65,7 +65,13 @@ export const Image = ({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       {isOpen && (
-        <DialogContent>
+        <DialogContent
+          onClick={(event): void => {
+            if (event.target === event.currentTarget) {
+              setIsOpen(false);
+            }
+          }}
+        >
           <DialogTitle>{alt}</DialogTitle>
           <img
             src={src}

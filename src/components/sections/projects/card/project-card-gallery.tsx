@@ -76,7 +76,9 @@ export const ProjectCardGallery = ({
               const target = event.target;
               if (
                 target instanceof Element &&
-                !target.closest('[data-project-gallery]')
+                !target.closest(
+                  '[data-project-gallery] img, [data-project-gallery] button',
+                )
               ) {
                 setOpenImage(null);
               }

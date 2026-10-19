@@ -29,7 +29,7 @@ const DialogContent = ({
     <DialogOverlay />
     <DialogPrimitive.Content
       className={cn(
-        'fixed inset-0 z-101 flex items-center justify-center p-4 outline-none sm:p-8',
+        'pointer-events-none fixed inset-0 z-101 flex items-center justify-center p-4 outline-none sm:p-8 *:pointer-events-auto',
         className,
       )}
       {...props}
