@@ -1,11 +1,24 @@
-import type { ReactElement } from 'react';
-import { Footer } from '@/components/layout/footer';
-import { AboutSection } from '@/components/sections/about/about-section';
-import { ContactSection } from '@/components/sections/contact/contact-section';
-import { ExperienceSection } from '@/components/sections/experience/experience-section';
+import { lazy, Suspense, type ReactElement } from 'react';
 import { HeroSection } from '@/components/sections/hero/hero-section';
-import { ProjectsSection } from '@/components/sections/projects/projects-section';
 import { useLocale } from '@/hooks/use-locale';
+
+const AboutSection = lazy(
+  () => import('@/components/sections/about/about-section'),
+);
+
+const ExperienceSection = lazy(
+  () => import('@/components/sections/experience/experience-section'),
+);
+
+const ProjectsSection = lazy(
+  () => import('@/components/sections/projects/projects-section'),
+);
+
+const ContactSection = lazy(
+  () => import('@/components/sections/contact/contact-section'),
+);
+
+const Footer = lazy(() => import('@/components/layout/footer'));
 
 export const App = (): ReactElement => {
   useLocale();
@@ -14,12 +27,22 @@ export const App = (): ReactElement => {
     <>
       <main>
         <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <AboutSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ExperienceSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={null}>
+          <ContactSection />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
   );
 };

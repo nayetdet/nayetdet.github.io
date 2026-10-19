@@ -1,7 +1,8 @@
 import { useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Check, ChevronDown, Languages } from 'lucide-react';
-import { BR, US } from 'country-flag-icons/react/3x2';
+import BR from 'country-flag-icons/react/3x2/BR';
+import US from 'country-flag-icons/react/3x2/US';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,

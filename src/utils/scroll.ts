@@ -1,13 +1,26 @@
 export const scrollTo = (targetId: string): void => {
-  const target: HTMLElement | null = document.getElementById(targetId);
-  if (!target) {
+  const scroll = (): HTMLElement | null => {
+    const target: HTMLElement | null = document.getElementById(targetId);
+
+    target?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'instant'
+        : 'smooth',
+    });
+
+    return target;
+  };
+
+  if (scroll()) {
     return;
   }
 
-  target.scrollIntoView({
-    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 'instant'
-      : 'smooth',
-    block: 'start',
+  const observer = new MutationObserver(() => {
+    if (scroll()) {
+      observer.disconnect();
+    }
   });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+  window.setTimeout(() => observer.disconnect(), 5000);
 };
