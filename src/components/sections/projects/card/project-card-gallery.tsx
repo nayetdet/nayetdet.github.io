@@ -110,10 +110,12 @@ export const ProjectCardGallery = ({
               {images.length > 1 && (
                 <>
                   <CarouselPrevious
+                    disableTooltip
                     aria-label={previousSlideLabel}
                     className="left-3 size-10 border-0 bg-black/50 text-white hover:bg-black/75 hover:text-white sm:-left-14"
                   />
                   <CarouselNext
+                    disableTooltip
                     aria-label={nextSlideLabel}
                     className="right-3 size-10 border-0 bg-black/50 text-white hover:bg-black/75 hover:text-white sm:-right-14"
                   />

@@ -15,6 +15,9 @@ type CarouselApi = UseEmblaCarouselType[1];
 type CarouselInstance = Exclude<CarouselApi, undefined>;
 type CarouselOptions = Parameters<typeof useEmblaCarousel>[0];
 type CarouselPlugin = Parameters<typeof useEmblaCarousel>[1];
+type CarouselNavigationProps = React.ComponentProps<typeof Button> & {
+  disableTooltip?: boolean;
+};
 
 type CarouselProps = {
   opts?: CarouselOptions;
@@ -169,12 +172,13 @@ export const CarouselItem = ({
 export const CarouselPrevious = ({
   className,
   'aria-label': ariaLabel,
+  disableTooltip = false,
   ...props
-}: React.ComponentProps<typeof Button>): React.ReactElement => {
+}: CarouselNavigationProps): React.ReactElement => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    <Tooltip>
+    <Tooltip open={disableTooltip ? false : undefined}>
       <TooltipTrigger asChild>
         <Button
           type="button"
@@ -206,12 +210,13 @@ export const CarouselPrevious = ({
 export const CarouselNext = ({
   className,
   'aria-label': ariaLabel,
+  disableTooltip = false,
   ...props
-}: React.ComponentProps<typeof Button>): React.ReactElement => {
+}: CarouselNavigationProps): React.ReactElement => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <Tooltip>
+    <Tooltip open={disableTooltip ? false : undefined}>
       <TooltipTrigger asChild>
         <Button
           type="button"
