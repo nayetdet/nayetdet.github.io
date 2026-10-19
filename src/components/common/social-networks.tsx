@@ -1,9 +1,7 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RiGithubFill, RiGitlabFill, RiLinkedinFill } from 'react-icons/ri';
-import { usePortfolio } from '@/hooks/use-portfolio';
 import { cn } from '@/lib/utils';
-import type { About } from '@/types/portfolio/about/about';
 
 type SocialNetworksVariant = 'icon' | 'pill';
 
@@ -20,20 +18,18 @@ export const SocialNetworks = ({
 }: SocialNetworksProps): ReactElement => {
   const { t } = useTranslation();
   const isPillVariant: boolean = variant === 'pill';
-  const about: About = usePortfolio('about');
-
   const socialNetworks = [
     {
       name: 'LinkedIn',
       label: t('social.linkedin'),
-      href: about.contact.linkedin,
+      href: 'https://www.linkedin.com/in/jpmoreiracampos',
       icon: RiLinkedinFill,
       pillClassName: 'bg-[#0a66c2] hover:opacity-90',
     },
     {
       name: 'GitHub',
       label: t('social.github'),
-      href: about.contact.github,
+      href: 'https://github.com/nayetdet',
       icon: RiGithubFill,
       pillClassName:
         'bg-[#191919] hover:opacity-80 dark:bg-white dark:text-[#191919]',
@@ -41,9 +37,9 @@ export const SocialNetworks = ({
     {
       name: 'GitLab',
       label: t('social.gitlab'),
-      href: about.contact.gitlab,
+      href: 'https://gitlab.com/nayetdet',
       icon: RiGitlabFill,
-      pillClassName: 'bg-[#fc6d26] hover:opacity-90',
+      pillClassName: 'bg-[#c94f24] hover:opacity-90',
     },
   ];
 

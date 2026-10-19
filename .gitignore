@@ -8,6 +8,7 @@ dist/
 dist-ssr/
 .vite/
 .cache/
+.lighthouseci/
 coverage/
 node_modules/.tmp/
 *.tsbuildinfo

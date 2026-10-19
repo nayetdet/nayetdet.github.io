@@ -1,4 +1,4 @@
-import experienceImage from '@/data/portfolio/common/trajectory-image';
+import experienceImage from '@/assets/experience/cover.jpg';
 import { techStacks } from '@/constants/tech-stacks';
 import type { Trajectory } from '@/types/portfolio/trajectory/trajectory';
 

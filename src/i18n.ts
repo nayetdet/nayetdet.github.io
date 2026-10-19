@@ -31,7 +31,13 @@ const resources = {
       },
       social: { linkedin: 'LinkedIn', github: 'GitHub', gitlab: 'GitLab' },
       theme: { toggle: 'Theme' },
-      hero: { greeting: "Hi, I'm", scrollToAbout: 'About' },
+      hero: {
+        greeting: "Hi, I'm",
+        role: 'Full Stack Developer',
+        tagline:
+          'I build web applications across the frontend and backend, including APIs, integrations, and deployment infrastructure.',
+        scrollToAbout: 'About',
+      },
       about: {
         title: 'About',
         education: 'Education',
@@ -135,7 +141,13 @@ const resources = {
       },
       social: { linkedin: 'LinkedIn', github: 'GitHub', gitlab: 'GitLab' },
       theme: { toggle: 'Tema' },
-      hero: { greeting: 'Olá, eu sou', scrollToAbout: 'Sobre' },
+      hero: {
+        greeting: 'Olá, eu sou',
+        role: 'Desenvolvedor Full Stack',
+        tagline:
+          'Desenvolvo aplicações web do frontend ao backend, incluindo APIs, integrações e infraestrutura de deploy.',
+        scrollToAbout: 'Sobre',
+      },
       about: {
         title: 'Sobre',
         education: 'Formação',
