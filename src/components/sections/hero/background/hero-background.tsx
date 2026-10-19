@@ -10,9 +10,15 @@ export const HeroBackground = ({
 }: HeroBackgroundProps): ReactElement => {
   const [shouldAnimate, setShouldAnimate] = useState<boolean>(false);
 
-  useEffect((): (() => void) => {
-    const timeout = window.setTimeout(() => setShouldAnimate(true), 500);
-    return (): void => window.clearTimeout(timeout);
+  useEffect((): void => {
+    if (document.readyState === 'complete') {
+      setShouldAnimate(true);
+      return;
+    }
+
+    window.addEventListener('load', (): void => setShouldAnimate(true), {
+      once: true,
+    });
   }, []);
 
   return (
