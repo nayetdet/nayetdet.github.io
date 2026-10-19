@@ -34,7 +34,7 @@ const items: Trajectory['items'] = [
     ],
   },
   {
-    name: 'Movias Soluções',
+    name: 'IEPRO – Institute for Studies, Research and Projects at the State University of Ceará (UECE)',
     position: 'Backend Developer',
     startDate: '2025-10',
     endDate: '2026-03',
@@ -48,7 +48,7 @@ const items: Trajectory['items'] = [
     ],
   },
   {
-    name: 'Laboratório de Visão Computacional e Inteligência Artificial (LabVICIA)',
+    name: 'Computer Vision and Artificial Intelligence Laboratory (LabVICIA)',
     position: 'Full Stack Developer',
     startDate: '2025-04',
     endDate: '2025-09',

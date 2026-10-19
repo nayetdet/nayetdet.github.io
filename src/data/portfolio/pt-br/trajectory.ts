@@ -34,7 +34,7 @@ const items: Trajectory['items'] = [
     ],
   },
   {
-    name: 'Movias Soluções',
+    name: 'IEPRO – Instituto de Estudos, Pesquisas e Projetos da UECE',
     position: 'Desenvolvedor Backend',
     startDate: '2025-10',
     endDate: '2026-03',
