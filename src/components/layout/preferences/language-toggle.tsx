@@ -23,7 +23,7 @@ export const LanguageToggle = (): ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen} modal={false}>
       <Tooltip>
         <TooltipTrigger asChild>
           <DropdownMenuTrigger asChild>
