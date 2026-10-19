@@ -12,7 +12,6 @@ import { NavbarItems } from '@/components/layout/navbar/navbar-items';
 import { LanguageToggle } from '@/components/layout/preferences/language-toggle';
 import { ThemeToggle } from '@/components/layout/preferences/theme-toggle';
 import { NavbarMenuToggle } from '@/components/layout/navbar/navbar-menu-toggle';
-import GlassSurface from '@/components/ui/glass-surface';
 import { sections, type Section } from '@/constants/sections';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { useMobile } from '@/hooks/use-mobile';
@@ -54,16 +53,8 @@ export const Navbar = (): ReactElement => {
         className="fixed top-4 left-1/2 z-50 w-[calc(100%-3rem)] -translate-x-1/2 transform md:w-max"
         aria-label={t('navigation.title')}
       >
-        <GlassSurface
-          width="inherit"
-          height={56}
-          borderRadius={999}
-          borderWidth={0.09}
-          backgroundOpacity={isDarkTheme ? 0.22 : 0.5}
-          blur={14}
-          saturation={1.05}
-          showRim={false}
-          className="min-w-full"
+        <div
+          className="relative flex h-14 w-[inherit] items-center justify-center overflow-hidden rounded-full p-2 ring-1 ring-[#191919]/10 transition-opacity duration-260 ease-out dark:ring-white/10"
           style={{
             colorScheme: isDarkTheme ? 'dark' : 'light',
             background: isDarkTheme
@@ -106,7 +97,7 @@ export const Navbar = (): ReactElement => {
               </div>
             </div>
           </div>
-        </GlassSurface>
+        </div>
       </nav>
       {isMobile && (
         <Suspense fallback={null}>

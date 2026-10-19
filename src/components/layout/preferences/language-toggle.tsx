@@ -57,7 +57,7 @@ export const LanguageToggle = (): ReactElement => {
       <DropdownMenuContent
         align="end"
         forceMount
-        className="transition-[opacity,transform,visibility] duration-200 ease-out data-[state=closed]:pointer-events-none data-[state=closed]:invisible data-[state=closed]:-translate-y-1 data-[state=closed]:scale-95 data-[state=closed]:opacity-0 data-[state=open]:visible data-[state=open]:translate-y-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 motion-reduce:transition-none"
+        className="transition-[opacity,transform,visibility] duration-200 ease-out data-[state=closed]:pointer-events-none data-[state=closed]:invisible data-[state=closed]:-translate-y-1 data-[state=closed]:scale-95 data-[state=open]:visible data-[state=open]:translate-y-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 motion-reduce:transition-none"
       >
         <DropdownMenuItem onSelect={(): void => setLanguage('en-US')}>
           <US aria-hidden="true" className="mr-2 h-4 w-6 rounded-[2px]" />

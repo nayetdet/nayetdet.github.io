@@ -1,11 +1,7 @@
-import { z } from 'zod';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { immer } from 'zustand/middleware/immer';
 
 type Theme = 'light' | 'dark';
-
-const themeSchema: z.ZodType<Theme> = z.enum(['light', 'dark']);
 
 export interface ThemeStore {
   theme: Theme;
@@ -17,7 +13,7 @@ export interface ThemeStore {
 
 export const useThemeStore = create<ThemeStore>()(
   persist(
-    immer((set): ThemeStore => {
+    (set): ThemeStore => {
       const applyTheme = (theme: Theme): void => {
         document.documentElement.classList.remove('light', 'dark');
         document.documentElement.classList.add(theme);
@@ -29,22 +25,30 @@ export const useThemeStore = create<ThemeStore>()(
         isLightTheme: false,
         setTheme: (theme: Theme): void => {
           applyTheme(theme);
-          set((state: ThemeStore): void => {
-            state.theme = theme;
-            state.isDarkTheme = theme === 'dark';
-            state.isLightTheme = theme === 'light';
+          set({
+            theme,
+            isDarkTheme: theme === 'dark',
+            isLightTheme: theme === 'light',
           });
         },
         toggleTheme: (): void => {
-          set((state: ThemeStore): void => {
-            state.theme = state.theme === 'dark' ? 'light' : 'dark';
-            state.isDarkTheme = state.theme === 'dark';
-            state.isLightTheme = state.theme === 'light';
-            applyTheme(state.theme);
-          });
+          set(
+            (
+              state: ThemeStore,
+            ): Pick<ThemeStore, 'theme' | 'isDarkTheme' | 'isLightTheme'> => {
+              const theme: Theme = state.theme === 'dark' ? 'light' : 'dark';
+              applyTheme(theme);
+
+              return {
+                theme,
+                isDarkTheme: theme === 'dark',
+                isLightTheme: theme === 'light',
+              };
+            },
+          );
         },
       };
-    }),
+    },
     {
       name: 'portfolio-theme',
       storage: createJSONStorage((): Storage => localStorage),
@@ -54,14 +58,7 @@ export const useThemeStore = create<ThemeStore>()(
       onRehydrateStorage:
         (): ((state: ThemeStore | undefined, error?: unknown) => void) =>
         (state: ThemeStore | undefined, error?: unknown): void => {
-          const storedTheme: ReturnType<typeof themeSchema.safeParse> =
-            themeSchema.safeParse(state?.theme);
-          if (error || !storedTheme.success) {
-            state?.setTheme('dark');
-            return;
-          }
-
-          state?.setTheme(storedTheme.data);
+          state?.setTheme(error || state?.theme !== 'light' ? 'dark' : 'light');
         },
     },
   ),
