@@ -13,7 +13,7 @@ export const HeroContent = (): ReactElement => {
       </p>
       <h1 className="relative z-10 text-[#191919] [text-shadow:0_1px_14px_rgb(255_255_255/0.9)] dark:text-white dark:[text-shadow:0_2px_18px_rgb(0_0_0/0.95)]">
         <span className="block text-[clamp(2.5rem,4.8vw,5.25rem)] leading-[0.94] font-semibold tracking-[-0.06em]">
-          {t('hero.greeting')}
+          {t('hero.greeting')}{' '}
         </span>
         <span className="mt-[clamp(0.25rem,0.6vw,0.75rem)] block text-[clamp(5rem,11.5vw,12rem)] leading-[0.84] font-semibold tracking-[-0.085em]">
           João Pedro!
