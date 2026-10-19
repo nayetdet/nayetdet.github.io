@@ -53,7 +53,7 @@ export const Navbar = (): ReactElement => {
         aria-label={t('navigation.title')}
       >
         <div
-          className="relative flex h-14 w-[inherit] items-center justify-center overflow-hidden rounded-full p-2 ring-1 ring-[#191919]/10 transition-opacity duration-260 ease-out dark:ring-white/10"
+          className="relative flex h-14 w-full items-center justify-center overflow-hidden rounded-full p-2 ring-1 ring-[#191919]/10 transition-opacity duration-260 ease-out dark:ring-white/10"
           style={{
             colorScheme: isDarkTheme ? 'dark' : 'light',
             background: isDarkTheme
