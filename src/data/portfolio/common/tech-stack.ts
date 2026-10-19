@@ -1,4 +1,4 @@
-import { Database, PanelsTopLeft, Server, Settings2 } from 'lucide-react';
+import { CloudUpload, Database, PanelsTopLeft, Server } from 'lucide-react';
 import { techStacks } from '@/constants/tech-stacks';
 import type { TechStack } from '@/types/portfolio/tech-stack/tech-stack';
 
@@ -45,7 +45,7 @@ export const techStack: TechStack = {
       ],
     },
     {
-      icon: Settings2,
+      icon: CloudUpload,
       category: 'infrastructure',
       items: [
         techStacks.docker,

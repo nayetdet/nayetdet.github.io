@@ -1,4 +1,4 @@
-import { Layers3, PanelsTopLeft, Server, Settings2 } from 'lucide-react';
+import { CloudUpload, Layers3, PanelsTopLeft, Server } from 'lucide-react';
 import profileImage from '@/assets/about/cover.jpg';
 import type { About } from '@/types/portfolio/about/about';
 
@@ -19,7 +19,7 @@ export const commonAbout = {
     { name: 'Full Stack', icon: Layers3 },
     { name: 'Backend', icon: Server },
     { name: 'Frontend', icon: PanelsTopLeft },
-    { name: 'DevOps', icon: Settings2 },
+    { name: 'DevOps', icon: CloudUpload },
   ],
 } satisfies Pick<About, 'contact' | 'specialties'> & {
   identity: Omit<About['identity'], 'role'>;
