@@ -24,7 +24,7 @@ export const AboutSection = (): ReactElement => {
           <AboutProfile />
           <div className="flex-1">
             <div className="mb-[clamp(1.75rem,3vw,2.5rem)]">
-              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-gray-300">
+              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-neutral-400">
                 {about.identity.firstName}
               </h3>
               <h4 className="text-[clamp(3.5rem,6.5vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.065em] text-[#191919] dark:text-white">
