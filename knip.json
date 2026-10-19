@@ -1,5 +1,5 @@
 {
-  "entry": ["src/main.tsx"],
   "project": ["src/**/*.{ts,tsx,css}"],
-  "ignoreExportsUsedInFile": true
+  "ignoreExportsUsedInFile": true,
+  "ignoreDependencies": ["@fontsource-variable/geist", "lint-staged"]
 }
