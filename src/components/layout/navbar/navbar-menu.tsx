@@ -9,8 +9,8 @@ import type { Section } from '@/constants/sections';
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet';
 
 interface NavbarMenuProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  isOpen: boolean;
+  onOpenChange: (isOpen: boolean) => void;
   items: readonly Section[];
   activeSectionId: Section['id'];
   activeTargetId: string;
@@ -20,7 +20,7 @@ interface NavbarMenuProps {
 export const NavbarMenu = memo(
   ({
     items,
-    open,
+    isOpen,
     onOpenChange,
     activeSectionId,
     activeTargetId,
@@ -29,7 +29,7 @@ export const NavbarMenu = memo(
     const { t } = useTranslation();
 
     return (
-      <Sheet open={open} onOpenChange={onOpenChange}>
+      <Sheet open={isOpen} onOpenChange={onOpenChange}>
         <SheetContent
           side="top"
           showCloseButton={false}

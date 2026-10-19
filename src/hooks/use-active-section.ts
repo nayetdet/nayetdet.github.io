@@ -7,43 +7,42 @@ import {
 } from '@/constants/sections';
 
 export interface UseActiveSectionReturn {
-  sectionId: SectionId;
-  targetId: SectionId | SubsectionId;
+  activeSectionId: SectionId;
+  activeTargetId: SectionId | SubsectionId;
 }
-
-const sectionList: Section[] = Object.values(sections);
-
-const getActiveSection = (): UseActiveSectionReturn => {
-  const offset: number = window.innerHeight * 0.35;
-  const isAboveOffset = ({ id }: { id: string }): boolean =>
-    (document.getElementById(id)?.getBoundingClientRect().top ?? Infinity) <=
-    offset;
-  const section: Section = sectionList.findLast(isAboveOffset) ?? sections.home;
-
-  return {
-    sectionId: section.id,
-    targetId:
-      Object.values(section.subsections ?? {}).findLast(isAboveOffset)?.id ??
-      section.id,
-  };
-};
 
 export const useActiveSection = (): UseActiveSectionReturn => {
   const frameId = useRef<number>(0);
   const [activeSection, setActiveSection] = useState<UseActiveSectionReturn>({
-    sectionId: sections.home.id,
-    targetId: sections.home.id,
+    activeSectionId: sections.home.id,
+    activeTargetId: sections.home.id,
   });
 
   useEffect((): (() => void) => {
-    const updateActiveSection = (): void =>
+    const updateActiveSection = (): void => {
+      const section: Section =
+        (Object.values(sections) as Section[]).findLast(
+          ({ id }) =>
+            (document.getElementById(id)?.getBoundingClientRect().top ??
+              Infinity) <=
+            window.innerHeight * 0.35,
+        ) ?? (sections.home as Section);
+
       setActiveSection((current: UseActiveSectionReturn) => {
-        const next: UseActiveSectionReturn = getActiveSection();
-        return current.sectionId === next.sectionId &&
-          current.targetId === next.targetId
+        const activeTargetId =
+          Object.values(section.subsections ?? {}).findLast(
+            ({ id }) =>
+              (document.getElementById(id)?.getBoundingClientRect().top ??
+                Infinity) <=
+              window.innerHeight * 0.35,
+          )?.id ?? section.id;
+
+        return current.activeSectionId === section.id &&
+          current.activeTargetId === activeTargetId
           ? current
-          : next;
+          : { activeSectionId: section.id, activeTargetId };
       });
+    };
 
     const handleViewportChange = (): void => {
       if (frameId.current === 0) {

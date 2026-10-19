@@ -14,7 +14,6 @@ interface ImageProps {
   alt: string;
   className: string;
   buttonClassName?: string;
-  onClick?: () => void;
   onExpand?: () => void;
 }
 
@@ -23,20 +22,21 @@ export const Image = ({
   alt,
   className,
   buttonClassName = '',
-  onClick,
   onExpand,
 }: ImageProps): ReactElement => {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
-  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
-  const isLoaded = loadedSrc === src;
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const trigger = (
     <button
       type="button"
       aria-label={t('image.expand', { alt })}
-      className={`group/image relative block overflow-hidden ${buttonClassName}`}
-      onClick={onExpand ?? onClick}
+      className={cn(
+        'group/image relative block overflow-hidden',
+        buttonClassName,
+      )}
+      onClick={onExpand}
     >
       {!isLoaded && (
         <Skeleton
@@ -50,14 +50,14 @@ export const Image = ({
         loading="lazy"
         decoding="async"
         draggable={false}
-        onLoad={() => setLoadedSrc(src)}
-        onError={() => setLoadedSrc(src)}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
         className={cn(className, isLoaded ? 'opacity-100' : 'opacity-0')}
       />
     </button>
   );
 
-  if (onExpand !== undefined) {
+  if (onExpand) {
     return trigger;
   }
 
@@ -65,20 +65,9 @@ export const Image = ({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       {isOpen && (
-        <DialogContent
-          onClick={(event): void => {
-            const target = event.target;
-            if (
-              target instanceof Element &&
-              !target.closest('[data-expanded-image]')
-            ) {
-              setIsOpen(false);
-            }
-          }}
-        >
+        <DialogContent>
           <DialogTitle>{alt}</DialogTitle>
           <img
-            data-expanded-image
             src={src}
             alt={alt}
             draggable={false}

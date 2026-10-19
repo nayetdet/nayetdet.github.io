@@ -59,6 +59,10 @@
   --ring: oklch(0.708 0 0);
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -106,6 +110,7 @@ html::view-transition-old(root),
 html::view-transition-new(root) {
   animation-duration: 500ms;
   animation-timing-function: ease-in-out;
+  mix-blend-mode: normal;
 }
 
 html::view-transition-old(root) {

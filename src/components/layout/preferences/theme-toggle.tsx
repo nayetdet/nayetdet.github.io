@@ -35,9 +35,10 @@ export const ThemeToggle = (): ReactElement => {
       const transition = document.startViewTransition(toggleTheme);
       setIsTransitioning(true);
       void transition.finished.finally(() => setIsTransitioning(false));
-    } else {
-      toggleTheme();
+      return;
     }
+
+    toggleTheme();
   };
 
   return (

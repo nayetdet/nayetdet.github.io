@@ -29,8 +29,7 @@ export const Navbar = (): ReactElement => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isMobile: boolean = useMobile();
-  const { sectionId: activeSectionId, targetId: activeTargetId } =
-    useActiveSection();
+  const { activeSectionId, activeTargetId } = useActiveSection();
   const { isDarkTheme }: UseThemeReturn = useTheme();
 
   useEffect((): (() => void) | undefined => {
@@ -102,7 +101,7 @@ export const Navbar = (): ReactElement => {
       {isMobile && (
         <Suspense fallback={null}>
           <NavbarMenu
-            open={isMenuOpen}
+            isOpen={isMenuOpen}
             onOpenChange={setIsMenuOpen}
             items={items}
             activeSectionId={activeSectionId}
