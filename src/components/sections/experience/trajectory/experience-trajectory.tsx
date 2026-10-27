@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ExperienceTrajectoryTimeline } from '@/components/sections/experience/trajectory/experience-trajectory-timeline';
 import { ExperienceTrajectoryWaves } from '@/components/sections/experience/trajectory/experience-trajectory-waves';
 import { sections } from '@/constants/sections';
+import { SubsectionTitle } from '@/components/common/subsection-title';
 
 export const ExperienceTrajectory = (): ReactElement => {
   const { t } = useTranslation();
@@ -12,10 +13,8 @@ export const ExperienceTrajectory = (): ReactElement => {
       id={sections.experience.subsections.trajectory.id}
       className="relative mt-[clamp(5.5rem,10vw,8rem)] scroll-mt-24"
     >
-      <div className="relative z-10 lg:w-1/2">
-        <h3 className="text-[clamp(2.5rem,4.5vw,5rem)] leading-[0.96] font-semibold tracking-[-0.055em] text-[#191919] dark:text-white">
-          {t('experience.trajectory')}
-        </h3>
+      <div className="relative z-10">
+        <SubsectionTitle>{t('experience.trajectory')}</SubsectionTitle>
       </div>
       <div className="pt-[clamp(1.5rem,3vw,2.5rem)]">
         <div className="relative">

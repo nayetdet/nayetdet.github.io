@@ -6,6 +6,7 @@ import ProjectCard from '@/components/sections/projects/card/project-card';
 import { usePortfolio } from '@/hooks/use-portfolio';
 import type { Project } from '@/types/portfolio/projects/project';
 import type { Projects } from '@/types/portfolio/projects/projects';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const INITIAL_PROJECT_COUNT = 2;
 
@@ -14,6 +15,9 @@ export const ProjectsSection = (): ReactElement => {
   const { items }: Projects = usePortfolio('projects');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const scrollY: React.RefObject<number> = useRef<number>(0);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  useScrollReveal(projectsRef, '[data-project-card]', { scale: 0.97, y: 32 });
 
   return (
     <section
@@ -24,7 +28,10 @@ export const ProjectsSection = (): ReactElement => {
         <SectionTitle description={t('projects.description')}>
           {t('projects.title')}
         </SectionTitle>
-        <div className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] md:grid-cols-2">
+        <div
+          ref={projectsRef}
+          className="grid grid-cols-1 gap-[clamp(2rem,4vw,4rem)] md:grid-cols-2"
+        >
           {items.slice(0, INITIAL_PROJECT_COUNT).map((project: Project) => (
             <ProjectCard
               key={project.name}

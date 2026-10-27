@@ -1,4 +1,5 @@
 import { useState, type ReactElement } from 'react';
+import gsap from 'gsap';
 import { useTranslation } from 'react-i18next';
 import {
   Dialog,
@@ -50,7 +51,24 @@ export const Image = ({
         loading="lazy"
         decoding="async"
         draggable={false}
-        onLoad={() => setIsLoaded(true)}
+        onLoad={({ currentTarget }): void => {
+          setIsLoaded(true);
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+          }
+
+          gsap.fromTo(
+            currentTarget,
+            { autoAlpha: 0, scale: 1.04 },
+            {
+              autoAlpha: 1,
+              duration: 0.5,
+              ease: 'power2.out',
+              scale: 1,
+              clearProps: 'opacity,transform,visibility',
+            },
+          );
+        }}
         onError={() => setIsLoaded(true)}
         className={cn(className, isLoaded ? 'opacity-100' : 'opacity-0')}
       />

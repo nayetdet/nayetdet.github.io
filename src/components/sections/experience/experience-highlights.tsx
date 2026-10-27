@@ -1,9 +1,12 @@
-import type { ReactElement } from 'react';
+import { useRef, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CloudUpload, PanelsTopLeft, Server } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 export const ExperienceHighlights = (): ReactElement => {
   const { t } = useTranslation();
+  const highlightsRef = useRef<HTMLDivElement>(null);
+  useScrollReveal(highlightsRef, '[data-highlight]');
   const highlights = [
     {
       icon: PanelsTopLeft,
@@ -23,9 +26,13 @@ export const ExperienceHighlights = (): ReactElement => {
   ];
 
   return (
-    <div className="grid gap-[clamp(1.25rem,2vw,1.75rem)] sm:grid-cols-3 md:grid-cols-1">
+    <div
+      ref={highlightsRef}
+      className="grid gap-[clamp(1.25rem,2vw,1.75rem)] sm:grid-cols-3 md:grid-cols-1"
+    >
       {highlights.map(({ icon: Icon, title, description }) => (
         <article
+          data-highlight
           key={title}
           className="flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-300 ring-inset hover:-translate-y-1 hover:shadow-[0_16px_36px_rgb(25_25_25/0.12)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
         >
