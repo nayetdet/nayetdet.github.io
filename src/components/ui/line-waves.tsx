@@ -57,7 +57,7 @@ export const LineWaves = ({
   useEffect((): (() => void) | undefined => {
     const canvas: HTMLCanvasElement | null = canvasRef.current;
     const context: CanvasRenderingContext2D | null = canvas
-      ? canvas.getContext('2d')
+      ? canvas.getContext('2d', { desynchronized: true })
       : null;
     const container: HTMLElement | null = canvas?.parentElement ?? null;
 
@@ -73,6 +73,7 @@ export const LineWaves = ({
     let isVisible: boolean = true;
     let isDocumentVisible: boolean = !document.hidden;
     let lastDrawAt: number | undefined;
+    let sharedWave: Float64Array = new Float64Array();
     const prefersReducedMotion: boolean = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
@@ -86,6 +87,7 @@ export const LineWaves = ({
 
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
+      sharedWave = new Float64Array(Math.ceil((width + 80) / 5));
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -104,6 +106,11 @@ export const LineWaves = ({
           ? 1
           : Math.min(1, Math.max(0, (time - introStartedAt) / 900));
       const spacing: number = height / (lineCount - 1);
+
+      for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
+        const horizontal: number = x / Math.max(width, 1);
+        sharedWave[point] = Math.sin(horizontal * 3.2 + elapsed * 0.7) * 13;
+      }
 
       context.clearRect(0, 0, width, height);
       context.lineWidth = lineWidth;
@@ -130,12 +137,12 @@ export const LineWaves = ({
           intensity,
         );
 
-        for (let x = -40; x <= width + 40; x += 5) {
+        for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
           const horizontal: number = x / Math.max(width, 1);
           const wave: number =
             Math.sin(horizontal * 8.4 + elapsed * 2.2 + index * 0.23) * 18 +
             Math.sin(horizontal * 17 - elapsed * 1.5 + index * 0.1) * 6 +
-            Math.sin(horizontal * 3.2 + elapsed * 0.7) * 13;
+            (sharedWave[point] ?? 0);
           const y: number =
             index * spacing + wave + (horizontal - 0.5) * height * -0.16;
 
