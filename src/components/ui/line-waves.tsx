@@ -14,6 +14,7 @@ interface LineWavesProps {
   baseIntensity?: number;
   speed?: number;
   intro?: boolean;
+  onReady?: (isReady: boolean) => void;
   className?: string;
   style?: CSSProperties;
 }
@@ -47,6 +48,7 @@ export const LineWaves = ({
   baseIntensity = 0.34,
   speed = 0.22,
   intro = false,
+  onReady,
   className,
   style,
 }: LineWavesProps): ReactElement => {
@@ -168,6 +170,8 @@ export const LineWaves = ({
       draw(performance.now());
       lastDrawAt = performance.now();
 
+      onReady?.(true);
+
       if (canAnimate()) {
         frame = window.requestAnimationFrame(animate);
       }
@@ -218,6 +222,7 @@ export const LineWaves = ({
     lineCount,
     lineWidth,
     opacity,
+    onReady,
     speed,
   ]);
 

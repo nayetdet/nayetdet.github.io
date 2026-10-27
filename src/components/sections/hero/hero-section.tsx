@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type ReactElement } from 'react';
+import { useLayoutEffect, useRef, useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail } from 'lucide-react';
 import gsap from 'gsap';
@@ -17,10 +17,16 @@ import { HeroScrollIndicator } from '@/components/sections/hero/introduction/her
 export const HeroSection = (): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme } = useTheme();
+  const [isBackgroundReady, setIsBackgroundReady] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect((): (() => void) | undefined => {
+    if (!isBackgroundReady) {
+      return undefined;
+    }
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set('[data-hero-rise]', { autoAlpha: 1 });
       return undefined;
     }
 
@@ -36,7 +42,7 @@ export const HeroSection = (): ReactElement => {
     }, sectionRef);
 
     return (): void => animation.revert();
-  }, []);
+  }, [isBackgroundReady]);
 
   return (
     <section
@@ -44,10 +50,15 @@ export const HeroSection = (): ReactElement => {
       id={sections.home.id}
       className="relative box-border h-dvh overflow-hidden border-b border-[#191919] bg-white dark:border-b-0 dark:bg-black"
     >
-      <HeroBackground isDarkTheme={isDarkTheme} />
+      <HeroBackground
+        isDarkTheme={isDarkTheme}
+        onReady={setIsBackgroundReady}
+      />
       <div
         data-hero-rise
-        className="pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3"
+        className={`pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3 ${
+          isBackgroundReady ? '' : 'invisible opacity-0'
+        }`}
       >
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
         <Tooltip>
@@ -65,7 +76,11 @@ export const HeroSection = (): ReactElement => {
           </TooltipContent>
         </Tooltip>
       </div>
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
+      <div
+        className={`relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24 ${
+          isBackgroundReady ? '' : 'invisible opacity-0'
+        }`}
+      >
         <HeroContent />
         <HeroScrollIndicator />
       </div>
