@@ -7,7 +7,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import Navbar from '@/components/layout/navbar/navbar';
 import { useTheme, type UseThemeReturn } from '@/hooks/use-theme';
 import { sections } from '@/constants/sections';
 import { HeroBackground } from '@/components/sections/hero/background/hero-background';
@@ -23,7 +22,6 @@ export const HeroSection = (): ReactElement => {
       className="relative box-border h-dvh overflow-hidden border-b border-[#191919] bg-white dark:border-b-0 dark:bg-black"
     >
       <HeroBackground isDarkTheme={isDarkTheme} />
-      <Navbar />
       <div className="pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3">
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
         <Tooltip>
