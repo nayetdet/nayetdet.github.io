@@ -25,26 +25,14 @@ export const HeroSection = (): ReactElement => {
     }
 
     const animation = gsap.context(() => {
-      gsap
-        .timeline()
-        .from('[data-hero-background]', {
-          autoAlpha: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          clearProps: 'opacity,visibility',
-        })
-        .from(
-          '[data-hero-rise]',
-          {
-            autoAlpha: 0,
-            duration: 0.7,
-            ease: 'power3.out',
-            stagger: 0.1,
-            y: 64,
-            clearProps: 'opacity,transform,visibility',
-          },
-          0.15,
-        );
+      gsap.from('[data-hero-rise]', {
+        autoAlpha: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        stagger: 0.1,
+        y: 64,
+        clearProps: 'opacity,transform,visibility',
+      });
     }, sectionRef);
 
     return (): void => animation.revert();

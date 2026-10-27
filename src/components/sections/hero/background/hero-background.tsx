@@ -9,7 +9,7 @@ export const HeroBackground = ({
   isDarkTheme,
 }: HeroBackgroundProps): ReactElement => {
   return (
-    <div data-hero-background className="absolute inset-0 z-0 overflow-hidden">
+    <div className="absolute inset-0 z-0 overflow-hidden">
       <LineWaves
         key={isDarkTheme ? 'dark-waves' : 'light-waves'}
         className="pointer-events-none absolute inset-0 size-full"
