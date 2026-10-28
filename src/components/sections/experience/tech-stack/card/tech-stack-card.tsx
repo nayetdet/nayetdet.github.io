@@ -17,7 +17,10 @@ export const TechStackCard = ({ stack }: TechStackCardProps): ReactElement => {
       data-tech-stack-card
       className="group relative overflow-hidden rounded-2xl border-0 bg-white p-[clamp(1.5rem,2.5vw,2.25rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
     >
-      <div className="pointer-events-none absolute right-0 bottom-0 -mr-10 -mb-10 size-40 origin-bottom-right text-black opacity-[0.11] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-3 group-hover:rotate-[-5deg] motion-reduce:transform-none motion-reduce:transition-none dark:text-[#999999] dark:opacity-[0.14]">
+      <div className="pointer-events-none absolute top-0 left-0 -mt-8 -ml-8 size-32 origin-top-left text-black opacity-[0.08] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-2 group-hover:rotate-[5deg] motion-reduce:transform-none motion-reduce:transition-none dark:text-[#999999] dark:opacity-[0.11]">
+        <CategoryIcon className="size-full" aria-hidden="true" />
+      </div>
+      <div className="pointer-events-none absolute right-0 bottom-0 -mr-10 -mb-10 size-40 origin-bottom-right text-black opacity-[0.08] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-3 group-hover:rotate-[-5deg] motion-reduce:transform-none motion-reduce:transition-none dark:text-[#999999] dark:opacity-[0.11]">
         <CategoryIcon className="size-full" aria-hidden="true" />
       </div>
       <div className="relative z-10">
