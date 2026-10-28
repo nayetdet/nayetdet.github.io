@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BriefcaseBusiness } from 'lucide-react';
 
 export const HeroContent = (): ReactElement => {
   const { t } = useTranslation();
@@ -9,9 +8,8 @@ export const HeroContent = (): ReactElement => {
     <div className="relative flex max-w-328 flex-col items-center text-center">
       <p
         data-hero-rise
-        className="mb-[clamp(1.5rem,2.5vw,2.25rem)] inline-flex items-center gap-2.5 text-[clamp(0.9375rem,1.15vw,1.125rem)]/[1.4] font-medium tracking-[-0.01em] text-[#5f5f5f] [text-shadow:0_1px_12px_rgb(255_255_255/0.95)] dark:text-gray-300 dark:[text-shadow:0_2px_16px_rgb(0_0_0/0.95)]"
+        className="mb-[clamp(1.5rem,2.5vw,2.25rem)] text-[clamp(0.9375rem,1.15vw,1.125rem)]/[1.4] font-medium tracking-[-0.01em] text-[#5f5f5f] [text-shadow:0_1px_12px_rgb(255_255_255/0.95)] dark:text-gray-300 dark:[text-shadow:0_2px_16px_rgb(0_0_0/0.95)]"
       >
-        <BriefcaseBusiness className="size-5.5" aria-hidden="true" />
         {t('hero.role')}
       </p>
       <h1 className="relative z-10 text-[#191919] [text-shadow:0_1px_14px_rgb(255_255_255/0.9)] dark:text-white dark:[text-shadow:0_2px_18px_rgb(0_0_0/0.95)]">
