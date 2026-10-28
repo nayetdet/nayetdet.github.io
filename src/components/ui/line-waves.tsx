@@ -56,14 +56,23 @@ export const LineWaves = ({
 
   useEffect((): (() => void) | undefined => {
     const canvas: HTMLCanvasElement | null = canvasRef.current;
-    const context: CanvasRenderingContext2D | null = canvas
-      ? canvas.getContext('2d', { desynchronized: true })
-      : null;
     const container: HTMLElement | null = canvas?.parentElement ?? null;
 
-    if (!canvas || !context || !container) {
+    if (!canvas || !container) {
       return undefined;
     }
+
+    const context: CanvasRenderingContext2D | null = canvas.getContext('2d', {
+      desynchronized: true,
+    });
+
+    if (!context) {
+      return undefined;
+    }
+
+    const prefersReducedMotion: boolean = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
 
     let width: number = 0;
     let height: number = 0;
@@ -73,10 +82,10 @@ export const LineWaves = ({
     let isVisible: boolean = true;
     let isDocumentVisible: boolean = !document.hidden;
     let lastDrawAt: number | undefined;
+    let hasCanvasSize: boolean = false;
     let sharedWave: Float64Array = new Float64Array();
-    const prefersReducedMotion: boolean = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
+    let xPositions: Float64Array = new Float64Array();
+    let horizontalPositions: Float64Array = new Float64Array();
 
     const resize = (): void => {
       const bounds: DOMRect = container.getBoundingClientRect();
@@ -87,10 +96,32 @@ export const LineWaves = ({
 
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
-      sharedWave = new Float64Array(Math.floor((width + 80) / 5) + 1);
-      canvas.width = Math.round(width * pixelRatio);
-      canvas.height = Math.round(height * pixelRatio);
+
+      const canvasWidth: number = Math.round(width * pixelRatio);
+      const canvasHeight: number = Math.round(height * pixelRatio);
+      if (
+        hasCanvasSize &&
+        canvas.width === canvasWidth &&
+        canvas.height === canvasHeight
+      ) {
+        return;
+      }
+
+      const pointCount: number = Math.floor((width + 80) / 5) + 1;
+      sharedWave = new Float64Array(pointCount);
+      xPositions = new Float64Array(pointCount);
+      horizontalPositions = new Float64Array(pointCount);
+
+      for (let point = 0; point < pointCount; point += 1) {
+        const x: number = point * 5 - 40;
+        xPositions[point] = x;
+        horizontalPositions[point] = x / width;
+      }
+
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      hasCanvasSize = true;
     };
 
     const draw = (time: number): void => {
@@ -107,8 +138,8 @@ export const LineWaves = ({
           : Math.min(1, Math.max(0, (time - introStartedAt) / 900));
       const spacing: number = height / (lineCount - 1);
 
-      for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
-        const horizontal: number = x / width;
+      for (let point = 0; point < sharedWave.length; point += 1) {
+        const horizontal: number = horizontalPositions[point]!;
         sharedWave[point] = Math.sin(horizontal * 3.2 + elapsed * 0.7) * 13;
       }
 
@@ -137,8 +168,9 @@ export const LineWaves = ({
           intensity,
         );
 
-        for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
-          const horizontal: number = x / width;
+        for (let point = 0; point < sharedWave.length; point += 1) {
+          const x: number = xPositions[point]!;
+          const horizontal: number = horizontalPositions[point]!;
           const wave: number =
             Math.sin(horizontal * 8.4 + elapsed * 2.2 + index * 0.23) * 18 +
             Math.sin(horizontal * 17 - elapsed * 1.5 + index * 0.1) * 6 +
