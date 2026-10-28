@@ -36,7 +36,11 @@ export const ProjectsPreview = ({
 
   return (
     <div
-      style={isExpanded ? { height: `${contentHeight}px` } : undefined}
+      style={
+        isExpanded
+          ? { height: `${contentHeight}px` }
+          : { transitionDuration: '1150ms' }
+      }
       className="relative h-28 overflow-hidden transition-[height] duration-500 ease-out motion-reduce:transition-none sm:h-32"
     >
       <div
