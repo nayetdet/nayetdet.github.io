@@ -28,9 +28,7 @@ export const AboutSection = (): ReactElement => {
           ref={contentRef}
           className="flex flex-col items-start gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch"
         >
-          <div data-about-reveal>
-            <AboutProfile />
-          </div>
+          <AboutProfile />
           <div className="flex-1">
             <div data-about-reveal className="mb-[clamp(1.75rem,3vw,2.5rem)]">
               <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-neutral-400">
@@ -40,9 +38,7 @@ export const AboutSection = (): ReactElement => {
                 {about.identity.lastName}
               </h4>
             </div>
-            <div data-about-reveal>
-              <AboutProfileSpecialties />
-            </div>
+            <AboutProfileSpecialties />
             <p
               data-about-reveal
               className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300"

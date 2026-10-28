@@ -71,14 +71,17 @@ export const Timeline = ({
       }
 
       gsap.set(line, { scaleY: 0, transformOrigin: 'top' });
-      gsap.to(line, {
-        ease: 'none',
-        scaleY: 1,
-        scrollTrigger: {
-          trigger: root,
-          start: 'top 78%',
-          end: 'bottom 78%',
-          scrub: 0.35,
+      ScrollTrigger.create({
+        trigger: root,
+        start: 'top 78%',
+        end: 'bottom 78%',
+        onUpdate: ({ progress }) => {
+          gsap.set(line, {
+            scaleY: Math.max(
+              Number(gsap.getProperty(line, 'scaleY')),
+              progress,
+            ),
+          });
         },
       });
     }, root);

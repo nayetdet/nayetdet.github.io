@@ -2,7 +2,6 @@ import { useLayoutEffect, type RefObject } from 'react';
 import gsap from 'gsap';
 
 interface ScrollRevealOptions {
-  duration?: number;
   scale?: number;
   stagger?: number;
   y?: number;
@@ -11,12 +10,7 @@ interface ScrollRevealOptions {
 export const useScrollReveal = (
   scope: RefObject<HTMLElement | null>,
   selector: string,
-  {
-    duration = 0.85,
-    scale = 1,
-    stagger = 0.075,
-    y = 14,
-  }: ScrollRevealOptions = {},
+  { scale = 1, stagger = 0.075, y = 14 }: ScrollRevealOptions = {},
 ): void => {
   useLayoutEffect((): (() => void) | undefined => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -39,7 +33,7 @@ export const useScrollReveal = (
 
         gsap.to(elements, {
           autoAlpha: 1,
-          duration,
+          duration: 0.85,
           ease: 'power3.out',
           stagger,
           y: 0,
@@ -59,7 +53,7 @@ export const useScrollReveal = (
       gsap.killTweensOf(elements);
       gsap.set(elements, { clearProps: 'transform,opacity,visibility' });
     };
-  }, [duration, scale, scope, selector, stagger, y]);
+  }, [scale, scope, selector, stagger, y]);
 };
 
 export default useScrollReveal;

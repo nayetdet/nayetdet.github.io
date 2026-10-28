@@ -87,7 +87,7 @@ export const LineWaves = ({
 
       width = Math.max(1, bounds.width);
       height = Math.max(1, bounds.height);
-      sharedWave = new Float64Array(Math.ceil((width + 80) / 5));
+      sharedWave = new Float64Array(Math.floor((width + 80) / 5) + 1);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
@@ -108,7 +108,7 @@ export const LineWaves = ({
       const spacing: number = height / (lineCount - 1);
 
       for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
-        const horizontal: number = x / Math.max(width, 1);
+        const horizontal: number = x / width;
         sharedWave[point] = Math.sin(horizontal * 3.2 + elapsed * 0.7) * 13;
       }
 
@@ -138,11 +138,11 @@ export const LineWaves = ({
         );
 
         for (let point = 0, x = -40; x <= width + 40; x += 5, point += 1) {
-          const horizontal: number = x / Math.max(width, 1);
+          const horizontal: number = x / width;
           const wave: number =
             Math.sin(horizontal * 8.4 + elapsed * 2.2 + index * 0.23) * 18 +
             Math.sin(horizontal * 17 - elapsed * 1.5 + index * 0.1) * 6 +
-            (sharedWave[point] ?? 0);
+            sharedWave[point]!;
           const y: number =
             index * spacing + wave + (horizontal - 0.5) * height * -0.16;
 

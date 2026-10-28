@@ -9,7 +9,10 @@ export const AboutProfileSpecialties = (): ReactElement => {
   const about: About = usePortfolio('about');
 
   return (
-    <div className="mb-[clamp(2.5rem,4vw,4rem)] flex flex-wrap gap-2.5">
+    <div
+      data-about-reveal
+      className="mb-[clamp(2.5rem,4vw,4rem)] flex flex-wrap gap-2.5"
+    >
       {about.specialties.map((specialty: Specialty): ReactElement => {
         const Icon: LucideIcon | undefined = specialty.icon;
 
