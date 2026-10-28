@@ -3,13 +3,9 @@ import gsap from 'gsap';
 
 interface LoadingProps {
   isVisible: boolean;
-  onExitStart: (isVisible: boolean) => void;
 }
 
-export const Loading = ({
-  isVisible,
-  onExitStart,
-}: LoadingProps): ReactElement => {
+export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
   const loaderRef = useRef<HTMLOutputElement>(null);
 
   useLayoutEffect((): (() => void) | undefined => {
@@ -19,10 +15,6 @@ export const Loading = ({
     }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      if (!isVisible) {
-        onExitStart(true);
-      }
-
       gsap.set(
         loader,
         isVisible
@@ -74,8 +66,6 @@ export const Loading = ({
           '<',
         );
     } else {
-      onExitStart(true);
-
       timeline
         .to('[data-loading-content]', {
           autoAlpha: 0,
@@ -99,7 +89,7 @@ export const Loading = ({
     return (): void => {
       timeline.kill();
     };
-  }, [isVisible, onExitStart]);
+  }, [isVisible]);
 
   return (
     <output

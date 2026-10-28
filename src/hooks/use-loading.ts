@@ -4,7 +4,7 @@ interface UseLoadingReturn {
   isLoading: boolean;
   isHeroVisible: boolean;
   markHeroReady: (isReady: boolean) => void;
-  revealHero: (isVisible: boolean) => void;
+  markHeroIntroComplete: (isComplete: boolean) => void;
 }
 
 export const useLoading = (
@@ -12,7 +12,7 @@ export const useLoading = (
 ): UseLoadingReturn => {
   const [areSectionsReady, setAreSectionsReady] = useState(false);
   const [isHeroReady, setIsHeroReady] = useState(false);
-  const [isHeroVisible, setIsHeroVisible] = useState(false);
+  const [isHeroIntroComplete, setIsHeroIntroComplete] = useState(false);
 
   useEffect((): (() => void) | undefined => {
     const container = document.querySelector('#smooth-content');
@@ -44,10 +44,10 @@ export const useLoading = (
   }, [sections]);
 
   return {
-    isLoading: !areSectionsReady || !isHeroReady,
-    isHeroVisible,
+    isLoading: !isHeroIntroComplete,
+    isHeroVisible: areSectionsReady && isHeroReady,
     markHeroReady: setIsHeroReady,
-    revealHero: setIsHeroVisible,
+    markHeroIntroComplete: setIsHeroIntroComplete,
   };
 };
 

@@ -17,11 +17,13 @@ import { HeroScrollIndicator } from '@/components/sections/hero/introduction/her
 interface HeroSectionProps {
   isVisible: boolean;
   onBackgroundReady: (isReady: boolean) => void;
+  onIntroComplete: (isComplete: boolean) => void;
 }
 
 export const HeroSection = ({
   isVisible,
   onBackgroundReady,
+  onIntroComplete,
 }: HeroSectionProps): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme } = useTheme();
@@ -34,6 +36,7 @@ export const HeroSection = ({
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       gsap.set('[data-hero-rise]', { autoAlpha: 1 });
+      onIntroComplete(true);
       return undefined;
     }
 
@@ -46,11 +49,12 @@ export const HeroSection = ({
         stagger: 0.06,
         y: 18,
         clearProps: 'opacity,transform,visibility',
+        onComplete: () => onIntroComplete(true),
       });
     }, sectionRef);
 
     return (): void => animation.revert();
-  }, [isVisible]);
+  }, [isVisible, onIntroComplete]);
 
   return (
     <section
