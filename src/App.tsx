@@ -1,53 +1,44 @@
 import { lazy, Suspense, type ReactElement } from 'react';
 import { HeroSection } from '@/components/sections/hero/hero-section';
+import { Loading } from '@/components/layout/loading';
 import { useLocale } from '@/hooks/use-locale';
 import { useScrollSmoother } from '@/hooks/use-scroll-smoother';
+import { useLoading } from '@/hooks/use-loading';
 import Navbar from '@/components/layout/navbar/navbar';
 
-const AboutSection = lazy(
-  () => import('@/components/sections/about/about-section'),
-);
-
-const ExperienceSection = lazy(
-  () => import('@/components/sections/experience/experience-section'),
-);
-
-const ProjectsSection = lazy(
-  () => import('@/components/sections/projects/projects-section'),
-);
-
-const ContactSection = lazy(
-  () => import('@/components/sections/contact/contact-section'),
-);
-
-const Footer = lazy(() => import('@/components/layout/footer'));
+const content = {
+  sections: [
+    lazy(() => import('@/components/sections/about/about-section')),
+    lazy(() => import('@/components/sections/experience/experience-section')),
+    lazy(() => import('@/components/sections/projects/projects-section')),
+    lazy(() => import('@/components/sections/contact/contact-section')),
+  ],
+  footer: lazy(() => import('@/components/layout/footer')),
+};
 
 export const App = (): ReactElement => {
   useLocale();
   useScrollSmoother();
-
+  const loading = useLoading(content.sections);
   return (
     <>
+      <Loading isVisible={loading.isLoading} onExitStart={loading.revealHero} />
       <Navbar />
       <div id="smooth-wrapper">
         <div id="smooth-content">
+          <HeroSection
+            isVisible={loading.isHeroVisible}
+            onBackgroundReady={loading.markHeroReady}
+          />
           <main>
-            <HeroSection />
-            <Suspense fallback={null}>
-              <AboutSection />
-            </Suspense>
-            <Suspense fallback={null}>
-              <ExperienceSection />
-            </Suspense>
-            <Suspense fallback={null}>
-              <ProjectsSection />
-            </Suspense>
-            <Suspense fallback={null}>
-              <ContactSection />
-            </Suspense>
+            {content.sections.map((Section, index) => (
+              <Suspense key={index} fallback={null}>
+                <Section />
+              </Suspense>
+            ))}
           </main>
           <Suspense fallback={null}>
-            <Footer />
+            <content.footer />
           </Suspense>
         </div>
       </div>

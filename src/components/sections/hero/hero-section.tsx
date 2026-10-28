@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type ReactElement } from 'react';
+import { useLayoutEffect, useRef, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail } from 'lucide-react';
 import gsap from 'gsap';
@@ -14,14 +14,21 @@ import { HeroBackground } from '@/components/sections/hero/background/hero-backg
 import { HeroContent } from '@/components/sections/hero/introduction/hero-content';
 import { HeroScrollIndicator } from '@/components/sections/hero/introduction/hero-scroll-indicator';
 
-export const HeroSection = (): ReactElement => {
+interface HeroSectionProps {
+  isVisible: boolean;
+  onBackgroundReady: (isReady: boolean) => void;
+}
+
+export const HeroSection = ({
+  isVisible,
+  onBackgroundReady,
+}: HeroSectionProps): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme } = useTheme();
-  const [isBackgroundReady, setIsBackgroundReady] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useLayoutEffect((): (() => void) | undefined => {
-    if (!isBackgroundReady) {
+    if (!isVisible) {
       return undefined;
     }
 
@@ -33,6 +40,7 @@ export const HeroSection = (): ReactElement => {
     const animation = gsap.context(() => {
       gsap.from('[data-hero-rise]', {
         autoAlpha: 0,
+        delay: 0.45,
         duration: 1,
         ease: 'power3.out',
         stagger: 0.09,
@@ -42,7 +50,7 @@ export const HeroSection = (): ReactElement => {
     }, sectionRef);
 
     return (): void => animation.revert();
-  }, [isBackgroundReady]);
+  }, [isVisible]);
 
   return (
     <section
@@ -52,12 +60,13 @@ export const HeroSection = (): ReactElement => {
     >
       <HeroBackground
         isDarkTheme={isDarkTheme}
-        onReady={setIsBackgroundReady}
+        isIntroActive={isVisible}
+        onReady={onBackgroundReady}
       />
       <div
         data-hero-rise
         className={`pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3 ${
-          isBackgroundReady ? '' : 'invisible opacity-0'
+          isVisible ? '' : 'invisible opacity-0'
         }`}
       >
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
@@ -78,7 +87,7 @@ export const HeroSection = (): ReactElement => {
       </div>
       <div
         className={`relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24 ${
-          isBackgroundReady ? '' : 'invisible opacity-0'
+          isVisible ? '' : 'invisible opacity-0'
         }`}
       >
         <HeroContent />

@@ -3,11 +3,13 @@ import { LineWaves } from '@/components/ui/line-waves';
 
 interface HeroBackgroundProps {
   isDarkTheme: boolean;
+  isIntroActive: boolean;
   onReady: (isReady: boolean) => void;
 }
 
 export const HeroBackground = ({
   isDarkTheme,
+  isIntroActive,
   onReady,
 }: HeroBackgroundProps): ReactElement => {
   return (
@@ -24,6 +26,7 @@ export const HeroBackground = ({
         speed={0.16}
         onReady={onReady}
         intro
+        isIntroActive={isIntroActive}
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,transparent_0%,transparent_42%,rgba(0,0,0,0.32)_100%)] dark:bg-[radial-gradient(ellipse_at_50%_45%,rgba(0,0,0,0.34)_0%,rgba(0,0,0,0.16)_48%,rgba(0,0,0,0.58)_100%)]" />
     </div>

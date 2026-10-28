@@ -14,6 +14,7 @@ interface LineWavesProps {
   baseIntensity?: number;
   speed?: number;
   intro?: boolean;
+  isIntroActive?: boolean;
   onReady?: (isReady: boolean) => void;
   className?: string;
   style?: CSSProperties;
@@ -48,6 +49,7 @@ export const LineWaves = ({
   baseIntensity = 0.34,
   speed = 0.22,
   intro = false,
+  isIntroActive = true,
   onReady,
   className,
   style,
@@ -135,7 +137,9 @@ export const LineWaves = ({
       const introOpacity: number =
         !intro || prefersReducedMotion
           ? 1
-          : Math.min(1, Math.max(0, (time - introStartedAt) / 900));
+          : isIntroActive
+            ? Math.min(1, Math.max(0, (time - introStartedAt) / 900))
+            : 0;
       const spacing: number = height / (lineCount - 1);
 
       for (let point = 0; point < sharedWave.length; point += 1) {
@@ -258,6 +262,7 @@ export const LineWaves = ({
     color,
     highlightColor,
     intro,
+    isIntroActive,
     lineCount,
     lineWidth,
     opacity,
