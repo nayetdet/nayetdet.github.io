@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, type ReactElement } from 'react';
+import { useEffect, useLayoutEffect, useRef, type ReactElement } from 'react';
 import gsap from 'gsap';
 
 interface LoadingProps {
@@ -7,6 +7,18 @@ interface LoadingProps {
 
 export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
   const loaderRef = useRef<HTMLOutputElement>(null);
+
+  useEffect((): (() => void) | undefined => {
+    if (!isVisible) {
+      return undefined;
+    }
+
+    document.documentElement.style.overflow = 'hidden';
+
+    return (): void => {
+      document.documentElement.style.overflow = '';
+    };
+  }, [isVisible]);
 
   useLayoutEffect((): (() => void) | undefined => {
     const loader = loaderRef.current;
