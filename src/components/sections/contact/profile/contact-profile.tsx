@@ -16,7 +16,7 @@ export const ContactProfile = (): ReactElement => {
     <div>
       <div className="mb-[clamp(2.5rem,4vw,4rem)]">
         <div className="flex items-center gap-4">
-          <div className="relative size-20 shrink-0 overflow-hidden rounded-full shadow-[0_6px_16px_rgb(25_25_25/0.12)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none sm:size-24 dark:shadow-none dark:ring-0">
+          <div className="relative size-20 shrink-0 overflow-hidden rounded-full shadow-[0_6px_16px_rgb(25_25_25/0.12)] ring-1 ring-[#191919]/15 transition-all duration-200 ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none sm:size-24 dark:shadow-none dark:ring-0">
             <Image
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               src={about.identity.image}
