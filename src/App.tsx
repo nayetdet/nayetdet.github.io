@@ -22,15 +22,14 @@ export const App = (): ReactElement => {
   const loading = useLoading(content.sections);
   return (
     <>
-      <Loading isVisible={loading.isLoading} />
+      <Loading
+        isVisible={loading.isLoading}
+        onAnimationComplete={loading.markAnimationComplete}
+      />
       <Navbar />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <HeroSection
-            isVisible={loading.isHeroVisible}
-            onBackgroundReady={loading.markHeroReady}
-            onIntroComplete={loading.markHeroIntroComplete}
-          />
+          <HeroSection />
           <main>
             {content.sections.map((Section, index) => (
               <Suspense key={index} fallback={null}>

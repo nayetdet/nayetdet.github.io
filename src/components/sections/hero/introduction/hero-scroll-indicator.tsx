@@ -16,7 +16,6 @@ export const HeroScrollIndicator = (): ReactElement => {
     <Tooltip>
       <TooltipTrigger asChild>
         <button
-          data-hero-rise
           type="button"
           onClick={(): void => scrollTo(sections.about.id)}
           className="group pointer-events-auto absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"

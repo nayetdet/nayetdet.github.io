@@ -1,11 +1,17 @@
 import { useEffect, useLayoutEffect, useRef, type ReactElement } from 'react';
 import gsap from 'gsap';
+import { usePortfolio } from '@/hooks/use-portfolio';
 
 interface LoadingProps {
   isVisible: boolean;
+  onAnimationComplete: () => void;
 }
 
-export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
+export const Loading = ({
+  isVisible,
+  onAnimationComplete,
+}: LoadingProps): ReactElement => {
+  const about = usePortfolio('about');
   const loaderRef = useRef<HTMLOutputElement>(null);
 
   useEffect((): (() => void) | undefined => {
@@ -33,6 +39,10 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
           ? { autoAlpha: 1, clipPath: 'circle(150% at 50% 50%)' }
           : { autoAlpha: 0 },
       );
+
+      if (isVisible) {
+        onAnimationComplete();
+      }
 
       return undefined;
     }
@@ -66,7 +76,8 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
             strokeDashoffset: 0,
           },
           '-=0.45',
-        );
+        )
+        .call(onAnimationComplete);
     } else {
       timeline
         .to('[data-loading-content]', {
@@ -91,7 +102,7 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
     return (): void => {
       timeline.kill();
     };
-  }, [isVisible]);
+  }, [isVisible, onAnimationComplete]);
 
   return (
     <output
@@ -107,7 +118,7 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
           data-loading-name
           className="inline-block pr-[0.12em] text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
         >
-          João Pedro
+          {about.identity.firstName}
         </span>
         <svg
           className="mt-5 h-5 w-full overflow-visible text-[#1d4ed8]/70 dark:text-[#858585]"

@@ -1,7 +1,6 @@
-import { useLayoutEffect, useRef, type ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail } from 'lucide-react';
-import gsap from 'gsap';
 import { SocialNetworks } from '@/components/common/social-networks';
 import {
   Tooltip,
@@ -14,64 +13,17 @@ import { HeroBackground } from '@/components/sections/hero/background/hero-backg
 import { HeroContent } from '@/components/sections/hero/introduction/hero-content';
 import { HeroScrollIndicator } from '@/components/sections/hero/introduction/hero-scroll-indicator';
 
-interface HeroSectionProps {
-  isVisible: boolean;
-  onBackgroundReady: (isReady: boolean) => void;
-  onIntroComplete: (isComplete: boolean) => void;
-}
-
-export const HeroSection = ({
-  isVisible,
-  onBackgroundReady,
-  onIntroComplete,
-}: HeroSectionProps): ReactElement => {
+export const HeroSection = (): ReactElement => {
   const { t } = useTranslation();
   const { isDarkTheme } = useTheme();
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect((): (() => void) | undefined => {
-    if (!isVisible) {
-      return undefined;
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set('[data-hero-rise]', { autoAlpha: 1 });
-      onIntroComplete(true);
-      return undefined;
-    }
-
-    const animation = gsap.context(() => {
-      gsap.from('[data-hero-rise]', {
-        autoAlpha: 0,
-        delay: 0.1,
-        duration: 0.65,
-        ease: 'power3.out',
-        stagger: 0.06,
-        clearProps: 'opacity,visibility',
-        onComplete: () => onIntroComplete(true),
-      });
-    }, sectionRef);
-
-    return (): void => animation.revert();
-  }, [isVisible, onIntroComplete]);
 
   return (
     <section
-      ref={sectionRef}
       id={sections.home.id}
       className="relative box-border h-dvh overflow-hidden border-b border-[#191919] bg-white dark:border-b-0 dark:bg-black"
     >
-      <HeroBackground
-        isDarkTheme={isDarkTheme}
-        isIntroActive={isVisible}
-        onReady={onBackgroundReady}
-      />
-      <div
-        data-hero-rise
-        className={`pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3 ${
-          isVisible ? '' : 'invisible opacity-0'
-        }`}
-      >
+      <HeroBackground isDarkTheme={isDarkTheme} />
+      <div className="pointer-events-auto absolute bottom-8 left-8 z-20 flex flex-col gap-3">
         <SocialNetworks className="flex-col gap-3" iconClassName="size-6" />
         <Tooltip>
           <TooltipTrigger asChild>
@@ -88,11 +40,7 @@ export const HeroSection = ({
           </TooltipContent>
         </Tooltip>
       </div>
-      <div
-        className={`relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24 ${
-          isVisible ? '' : 'invisible opacity-0'
-        }`}
-      >
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-24 sm:px-12 md:px-24">
         <HeroContent />
         <HeroScrollIndicator />
       </div>

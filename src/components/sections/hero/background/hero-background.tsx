@@ -3,14 +3,10 @@ import { LineWaves } from '@/components/ui/line-waves';
 
 interface HeroBackgroundProps {
   isDarkTheme: boolean;
-  isIntroActive: boolean;
-  onReady: (isReady: boolean) => void;
 }
 
 export const HeroBackground = ({
   isDarkTheme,
-  isIntroActive,
-  onReady,
 }: HeroBackgroundProps): ReactElement => {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
@@ -24,9 +20,6 @@ export const HeroBackground = ({
         opacity={isDarkTheme ? 0.8 : 0.75}
         baseIntensity={isDarkTheme ? 0.82 : 0.34}
         speed={0.16}
-        onReady={onReady}
-        intro
-        isIntroActive={isIntroActive}
       />
       {isDarkTheme ? (
         <div
