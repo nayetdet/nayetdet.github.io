@@ -40,10 +40,10 @@ export const HeroSection = ({
     const animation = gsap.context(() => {
       gsap.from('[data-hero-rise]', {
         autoAlpha: 0,
-        delay: 0.45,
-        duration: 1,
+        delay: 0.1,
+        duration: 0.65,
         ease: 'power3.out',
-        stagger: 0.09,
+        stagger: 0.06,
         y: 18,
         clearProps: 'opacity,transform,visibility',
       });

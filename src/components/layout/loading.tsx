@@ -88,7 +88,7 @@ export const Loading = ({
           loader,
           {
             clipPath: 'circle(0% at 50% 50%)',
-            duration: 0.75,
+            duration: 1.1,
             ease: 'power4.inOut',
           },
           '<0.1',
@@ -118,9 +118,10 @@ export const Loading = ({
           João Pedro
         </span>
         <svg
-          className="mt-5 h-5 w-48 overflow-visible text-[#1d4ed8]/70 dark:text-[#858585]"
+          className="mt-5 h-5 w-full overflow-visible text-[#1d4ed8]/70 dark:text-[#858585]"
           viewBox="0 0 240 20"
           fill="none"
+          preserveAspectRatio="none"
           aria-hidden="true"
         >
           <path
