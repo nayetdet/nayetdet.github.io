@@ -16,6 +16,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
     <Timeline
       className="md:col-start-1"
       extendLastLine
+      animateItems={false}
       items={trajectory.items.map(
         (experience: TrajectoryItem): TimelineItem => {
           const endDate: string = experience.endDate

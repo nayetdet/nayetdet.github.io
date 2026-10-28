@@ -26,6 +26,7 @@ interface TimelineProps {
   lineClassName?: string;
   connectionClassName?: string;
   extendLastLine?: boolean;
+  animateItems?: boolean;
 }
 
 export const Timeline = ({
@@ -36,6 +37,7 @@ export const Timeline = ({
   lineClassName = 'bg-[#191919] dark:bg-white',
   connectionClassName = '-bottom-10',
   extendLastLine = false,
+  animateItems = true,
 }: TimelineProps): ReactElement => {
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -55,16 +57,18 @@ export const Timeline = ({
         '[data-timeline-item]',
       );
 
-      gsap.set(entries, { autoAlpha: 0, x: -12 });
-      gsap.to(entries, {
-        autoAlpha: 1,
-        duration: 0.8,
-        ease: 'power3.out',
-        stagger: 0.12,
-        x: 0,
-        clearProps: 'opacity,transform,visibility',
-        scrollTrigger: { trigger: root, start: 'top 90%', once: true },
-      });
+      if (animateItems) {
+        gsap.set(entries, { autoAlpha: 0, x: -12 });
+        gsap.to(entries, {
+          autoAlpha: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.12,
+          x: 0,
+          clearProps: 'opacity,transform,visibility',
+          scrollTrigger: { trigger: root, start: 'top 90%', once: true },
+        });
+      }
 
       if (!line) {
         return;
@@ -87,7 +91,7 @@ export const Timeline = ({
     }, root);
 
     return (): void => context.revert();
-  }, []);
+  }, [animateItems]);
 
   return (
     <div ref={timelineRef} className={cn('relative', className)}>
