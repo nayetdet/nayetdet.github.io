@@ -27,7 +27,7 @@ export const useLoading = (
         document.querySelector('#smooth-content > footer')
       ) {
         observer.disconnect();
-        setAreSectionsReady(true);
+        void document.fonts.ready.then(() => setAreSectionsReady(true));
       }
     };
 

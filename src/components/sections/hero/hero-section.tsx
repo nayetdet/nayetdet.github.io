@@ -47,8 +47,7 @@ export const HeroSection = ({
         duration: 0.65,
         ease: 'power3.out',
         stagger: 0.06,
-        y: 18,
-        clearProps: 'opacity,transform,visibility',
+        clearProps: 'opacity,visibility',
         onComplete: () => onIntroComplete(true),
       });
     }, sectionRef);
