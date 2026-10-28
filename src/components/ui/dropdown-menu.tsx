@@ -6,11 +6,19 @@ export const DropdownMenu = DropdownMenuPrimitive.Root;
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 export const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
+type DropdownMenuContentProps = ComponentProps<
+  typeof DropdownMenuPrimitive.Content
+> & {
+  onOpenAutoFocus?: ComponentProps<
+    typeof DropdownMenuPrimitive.Content
+  >['onCloseAutoFocus'];
+};
+
 export const DropdownMenuContent = ({
   className,
   sideOffset = 10,
   ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Content>): ReactElement => (
+}: DropdownMenuContentProps): ReactElement => (
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuPrimitive.Content
       sideOffset={sideOffset}

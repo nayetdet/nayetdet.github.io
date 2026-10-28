@@ -57,6 +57,16 @@ export const LanguageToggle = (): ReactElement => {
       <DropdownMenuContent
         align="end"
         forceMount
+        onOpenAutoFocus={(event): void => {
+          event.preventDefault();
+          const content: HTMLElement = event.currentTarget as HTMLElement;
+          requestAnimationFrame(() => {
+            content
+              .querySelector<HTMLElement>('[role="menuitem"]')
+              ?.focus({ preventScroll: true });
+          });
+        }}
+        onCloseAutoFocus={(event): void => event.preventDefault()}
         className="transition-[opacity,transform,visibility] duration-200 ease-out data-[state=closed]:pointer-events-none data-[state=closed]:invisible data-[state=closed]:-translate-y-1 data-[state=closed]:scale-95 data-[state=open]:visible data-[state=open]:translate-y-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 motion-reduce:transition-none"
       >
         <DropdownMenuItem onSelect={(): void => setLanguage('en-US')}>
