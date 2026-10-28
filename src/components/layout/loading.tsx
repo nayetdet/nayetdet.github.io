@@ -55,16 +55,13 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
           },
           '-=0.45',
         )
-        .to(
-          '[data-loading-name]',
-          { duration: 1.4, ease: 'sine.inOut', repeat: -1, y: -4, yoyo: true },
-          '-=0.55',
-        )
-        .to(
-          '[data-loading-wave]',
-          { duration: 1.8, ease: 'sine.inOut', repeat: -1, x: 10, yoyo: true },
-          '<',
-        );
+        .to('[data-loading-wave]', {
+          duration: 1.8,
+          ease: 'sine.inOut',
+          repeat: -1,
+          x: 10,
+          yoyo: true,
+        });
     } else {
       timeline
         .to('[data-loading-content]', {
