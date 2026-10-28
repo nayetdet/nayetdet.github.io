@@ -37,7 +37,7 @@ export const ProjectsPreview = ({
   return (
     <div
       style={isExpanded ? { height: `${contentHeight}px` } : undefined}
-      className="relative h-28 overflow-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none sm:h-32"
+      className="relative h-28 overflow-hidden transition-[height] duration-500 ease-out motion-reduce:transition-none sm:h-32"
     >
       <div
         ref={contentRef}
@@ -48,7 +48,7 @@ export const ProjectsPreview = ({
       </div>
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-0 transition-opacity duration-300 motion-reduce:transition-none ${
+        className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out motion-reduce:transition-none ${
           isExpanded ? 'opacity-0' : 'opacity-100'
         }`}
       >

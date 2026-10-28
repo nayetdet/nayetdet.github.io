@@ -45,7 +45,7 @@ export const ProjectCardGallery = ({
               alt={`${title} ${index + 1}`}
               onExpand={() => setOpenImage(index)}
               buttonClassName={`size-full ${images.length > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}`}
-              className="size-full object-cover transition-transform duration-300 group-hover/image:scale-[1.03] motion-reduce:transition-none"
+              className="size-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-[1.02] motion-reduce:transition-none"
             />
           </CarouselItem>
         ))}
@@ -54,11 +54,11 @@ export const ProjectCardGallery = ({
         <>
           <CarouselPrevious
             aria-label={previousSlideLabel}
-            className="left-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-300 ease-out group-hover/gallery:opacity-100 hover:scale-105 hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
+            className="left-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-500 ease-out group-hover/gallery:opacity-100 hover:scale-[1.03] hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
           <CarouselNext
             aria-label={nextSlideLabel}
-            className="right-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-300 ease-out group-hover/gallery:opacity-100 hover:scale-105 hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
+            className="right-3 size-8 rounded-full border-0 bg-black/45 p-0 text-white opacity-0 shadow-md backdrop-blur-sm transition-[opacity,background-color,transform] duration-500 ease-out group-hover/gallery:opacity-100 hover:scale-[1.03] hover:bg-black/70 hover:text-white focus-visible:opacity-100 motion-reduce:transition-none"
           />
         </>
       )}

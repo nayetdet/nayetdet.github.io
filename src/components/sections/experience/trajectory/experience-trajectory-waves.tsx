@@ -16,7 +16,7 @@ export const ExperienceTrajectoryWaves = (): ReactElement => {
       return undefined;
     }
 
-    gsap.set(canvas, { autoAlpha: 0, filter: 'blur(8px)', x: 32 });
+    gsap.set(canvas, { autoAlpha: 0, filter: 'blur(4px)', x: 12 });
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) {
@@ -25,8 +25,8 @@ export const ExperienceTrajectoryWaves = (): ReactElement => {
 
         gsap.to(canvas, {
           autoAlpha: 1,
-          duration: 0.8,
-          ease: 'power2.out',
+          duration: 1.1,
+          ease: 'power3.out',
           filter: 'blur(0px)',
           x: 0,
           clearProps: 'filter,opacity,transform,visibility',

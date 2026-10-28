@@ -34,7 +34,7 @@ export const ExperienceHighlights = (): ReactElement => {
         <article
           data-highlight
           key={title}
-          className="flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-300 ring-inset hover:-translate-y-1 hover:shadow-[0_16px_36px_rgb(25_25_25/0.12)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
+          className="flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
         >
           <Icon
             aria-hidden="true"

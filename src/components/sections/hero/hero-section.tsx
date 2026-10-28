@@ -33,10 +33,10 @@ export const HeroSection = (): ReactElement => {
     const animation = gsap.context(() => {
       gsap.from('[data-hero-rise]', {
         autoAlpha: 0,
-        duration: 0.7,
+        duration: 1,
         ease: 'power3.out',
-        stagger: 0.1,
-        y: 64,
+        stagger: 0.09,
+        y: 18,
         clearProps: 'opacity,transform,visibility',
       });
     }, sectionRef);

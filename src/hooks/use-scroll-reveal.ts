@@ -2,6 +2,7 @@ import { useLayoutEffect, type RefObject } from 'react';
 import gsap from 'gsap';
 
 interface ScrollRevealOptions {
+  duration?: number;
   scale?: number;
   stagger?: number;
   y?: number;
@@ -10,53 +11,55 @@ interface ScrollRevealOptions {
 export const useScrollReveal = (
   scope: RefObject<HTMLElement | null>,
   selector: string,
-  { scale = 1, stagger = 0.1, y = 24 }: ScrollRevealOptions = {},
+  {
+    duration = 0.85,
+    scale = 1,
+    stagger = 0.075,
+    y = 14,
+  }: ScrollRevealOptions = {},
 ): void => {
   useLayoutEffect((): (() => void) | undefined => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return undefined;
     }
 
+    const root = scope.current;
     const elements = Array.from(
-      scope.current?.querySelectorAll<HTMLElement>(selector) ?? [],
+      root?.querySelectorAll<HTMLElement>(selector) ?? [],
     );
-    if (!elements.length) {
+    if (!root || !elements.length) {
       return undefined;
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
+        if (!entries[0]?.isIntersecting) {
+          return;
+        }
 
-          gsap.to(entry.target, {
-            autoAlpha: 1,
-            delay: elements.indexOf(entry.target as HTMLElement) * stagger,
-            duration: 0.5,
-            ease: 'power3.out',
-            y: 0,
-            scale: 1,
-            clearProps: 'opacity,transform,visibility',
-          });
-          observer.unobserve(entry.target);
+        gsap.to(elements, {
+          autoAlpha: 1,
+          duration,
+          ease: 'power3.out',
+          stagger,
+          y: 0,
+          scale: 1,
+          clearProps: 'opacity,transform,visibility',
         });
+        observer.disconnect();
       },
-      { rootMargin: '0px 0px 10%' },
+      { rootMargin: '0px 0px -12%' },
     );
 
-    elements.forEach((target): void => {
-      gsap.set(target, { autoAlpha: 0, scale, y });
-      observer.observe(target);
-    });
+    gsap.set(elements, { autoAlpha: 0, scale, y });
+    observer.observe(root);
 
     return (): void => {
       observer.disconnect();
       gsap.killTweensOf(elements);
       gsap.set(elements, { clearProps: 'transform,opacity,visibility' });
     };
-  }, [scale, scope, selector, stagger, y]);
+  }, [duration, scale, scope, selector, stagger, y]);
 };
 
 export default useScrollReveal;

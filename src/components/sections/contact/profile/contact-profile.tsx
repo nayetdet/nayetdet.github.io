@@ -21,7 +21,7 @@ export const ContactProfile = (): ReactElement => {
               alt={`${about.identity.firstName} ${about.identity.lastName}`}
               src={about.identity.image}
               buttonClassName="absolute inset-0 size-full cursor-zoom-in"
-              className="size-full object-cover object-top transition-transform duration-300 group-hover/image:scale-105 motion-reduce:transition-none"
+              className="size-full object-cover object-top transition-transform duration-700 ease-out group-hover/image:scale-[1.025] motion-reduce:transition-none"
             />
           </div>
           <div className="flex w-fit flex-col items-start">

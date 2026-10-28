@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import { useRef, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SectionTitle } from '@/components/common/section-title';
 import { usePortfolio } from '@/hooks/use-portfolio';
@@ -8,10 +8,14 @@ import { EducationTimeline } from '@/components/sections/about/education/educati
 import { AboutProfile } from '@/components/sections/about/profile/about-profile';
 import { AboutProfileSpecialties } from '@/components/sections/about/profile/about-profile-specialties';
 import type { About } from '@/types/portfolio/about/about';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 export const AboutSection = (): ReactElement => {
   const { t } = useTranslation();
   const about: About = usePortfolio('about');
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useScrollReveal(contentRef, '[data-about-reveal]', { y: 18 });
 
   return (
     <section
@@ -20,10 +24,15 @@ export const AboutSection = (): ReactElement => {
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <SectionTitle>{t('about.title')}</SectionTitle>
-        <div className="flex flex-col items-start gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch">
-          <AboutProfile />
+        <div
+          ref={contentRef}
+          className="flex flex-col items-start gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch"
+        >
+          <div data-about-reveal>
+            <AboutProfile />
+          </div>
           <div className="flex-1">
-            <div className="mb-[clamp(1.75rem,3vw,2.5rem)]">
+            <div data-about-reveal className="mb-[clamp(1.75rem,3vw,2.5rem)]">
               <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-neutral-400">
                 {about.identity.firstName}
               </h3>
@@ -31,12 +40,20 @@ export const AboutSection = (): ReactElement => {
                 {about.identity.lastName}
               </h4>
             </div>
-            <AboutProfileSpecialties />
-            <p className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+            <div data-about-reveal>
+              <AboutProfileSpecialties />
+            </div>
+            <p
+              data-about-reveal
+              className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300"
+            >
               {about.introduction.biography}
             </p>
             <EducationTimeline />
-            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+            <div
+              data-about-reveal
+              className="flex flex-wrap justify-center gap-3 lg:justify-start"
+            >
               <CvButton />
               <ProjectsButton />
             </div>

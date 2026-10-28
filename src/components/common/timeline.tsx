@@ -55,10 +55,10 @@ export const Timeline = ({
         '[data-timeline-item]',
       );
 
-      gsap.set(entries, { autoAlpha: 0, x: -18 });
+      gsap.set(entries, { autoAlpha: 0, x: -12 });
       gsap.to(entries, {
         autoAlpha: 1,
-        duration: 0.5,
+        duration: 0.8,
         ease: 'power3.out',
         stagger: 0.12,
         x: 0,
@@ -71,14 +71,14 @@ export const Timeline = ({
       }
 
       gsap.set(line, { scaleY: 0, transformOrigin: 'top' });
-      let progress = 0;
-      ScrollTrigger.create({
-        trigger: root,
-        start: 'top 78%',
-        end: 'bottom 78%',
-        onUpdate: ({ progress: currentProgress }) => {
-          progress = Math.max(progress, currentProgress);
-          gsap.set(line, { scaleY: progress });
+      gsap.to(line, {
+        ease: 'none',
+        scaleY: 1,
+        scrollTrigger: {
+          trigger: root,
+          start: 'top 78%',
+          end: 'bottom 78%',
+          scrub: 0.35,
         },
       });
     }, root);
