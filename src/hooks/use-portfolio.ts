@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, useDeferredValue } from 'react';
 import { useLanguage } from '@/hooks/use-language';
 import type { About } from '@/types/portfolio/about/about';
 import type { Projects } from '@/types/portfolio/projects/projects';
@@ -53,7 +53,7 @@ export function usePortfolio(section: 'projects'): Projects;
 export function usePortfolio(
   section: 'about' | 'tech-stack' | 'trajectory' | 'projects',
 ): About | TechStack | Trajectory | Projects {
-  const language = useLanguage().language;
+  const language = useDeferredValue(useLanguage().language);
   const sectionDataPromise = (portfolioPromises.get(`${section}:${language}`) ??
     portfolioLoaders[section][language]()) as Promise<
     About | TechStack | Trajectory | Projects
