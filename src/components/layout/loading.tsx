@@ -54,14 +54,7 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
             strokeDashoffset: 0,
           },
           '-=0.45',
-        )
-        .to('[data-loading-wave]', {
-          duration: 1.8,
-          ease: 'sine.inOut',
-          repeat: -1,
-          x: 10,
-          yoyo: true,
-        });
+        );
     } else {
       timeline
         .to('[data-loading-content]', {
@@ -100,7 +93,7 @@ export const Loading = ({ isVisible }: LoadingProps): ReactElement => {
       <span data-loading-content className="inline-flex flex-col items-center">
         <span
           data-loading-name
-          className="inline-block text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.055em]"
+          className="inline-block pr-[0.12em] text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
         >
           João Pedro
         </span>
