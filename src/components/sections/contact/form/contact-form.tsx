@@ -18,7 +18,7 @@ export const ContactForm = (): ReactElement => {
     const form = event.currentTarget;
     form
       .querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]')
-      .forEach((field) => {
+      .forEach((field: HTMLInputElement | HTMLTextAreaElement): void => {
         field.value = field.value.trim();
       });
 

@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactElement } from 'react';
+import { useRef, useState, type MouseEvent, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SectionTitle } from '@/components/common/section-title';
 import { ProjectsPreview } from '@/components/sections/projects/projects-preview';
@@ -63,7 +63,7 @@ export const ProjectsSection = (): ReactElement => {
             {!isExpanded && (
               <button
                 type="button"
-                onClick={(event) => {
+                onClick={(event: MouseEvent<HTMLButtonElement>): void => {
                   showMoreScrollPosition.current =
                     ScrollSmoother.get()?.offset(
                       event.currentTarget,
@@ -83,7 +83,7 @@ export const ProjectsSection = (): ReactElement => {
           <div className="mt-[clamp(1.5rem,3vw,2.75rem)] flex justify-center">
             <button
               type="button"
-              onClick={() => {
+              onClick={(): void => {
                 const smoother = ScrollSmoother.get();
 
                 if (smoother) {

@@ -4,8 +4,7 @@ import type { About } from '@/types/portfolio/about/about';
 import type { Projects } from '@/types/portfolio/projects/projects';
 import type { TechStack } from '@/types/portfolio/tech-stack/tech-stack';
 import type { Trajectory } from '@/types/portfolio/trajectory/trajectory';
-
-const portfolioPromises = new Map<string, Promise<unknown>>();
+import type { Language } from '@/stores/language-store';
 
 const portfolioLoaders = {
   about: {
@@ -46,21 +45,28 @@ const portfolioLoaders = {
   },
 };
 
+const portfolioPromises = new Map<
+  string,
+  ReturnType<(typeof portfolioLoaders)[keyof typeof portfolioLoaders][Language]>
+>();
+
 export function usePortfolio(section: 'about'): About;
 export function usePortfolio(section: 'tech-stack'): TechStack;
 export function usePortfolio(section: 'trajectory'): Trajectory;
 export function usePortfolio(section: 'projects'): Projects;
 export function usePortfolio(
-  section: 'about' | 'tech-stack' | 'trajectory' | 'projects',
+  section: keyof typeof portfolioLoaders,
 ): About | TechStack | Trajectory | Projects {
-  const language = useDeferredValue(useLanguage().language);
-  const sectionDataPromise = (portfolioPromises.get(`${section}:${language}`) ??
-    portfolioLoaders[section][language]()) as Promise<
-    About | TechStack | Trajectory | Projects
-  >;
+  const language: Language = useDeferredValue(useLanguage().language);
+  const cacheKey = `${section}:${language}`;
+  const sectionDataPromise: ReturnType<
+    (typeof portfolioLoaders)[keyof typeof portfolioLoaders][Language]
+  > = portfolioPromises.get(cacheKey) ?? portfolioLoaders[section][language]();
 
-  portfolioPromises.set(`${section}:${language}`, sectionDataPromise);
-  return use(sectionDataPromise);
+  portfolioPromises.set(cacheKey, sectionDataPromise);
+  return use(
+    sectionDataPromise as Promise<About | TechStack | Trajectory | Projects>,
+  );
 }
 
 export default usePortfolio;

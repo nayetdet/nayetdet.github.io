@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, type ElementType } from 'react';
 
-interface UseLoadingReturn {
+export interface UseLoadingReturn {
   isLoading: boolean;
   markAnimationComplete: () => void;
 }
@@ -12,7 +12,7 @@ export const useLoading = (
   const [isAnimationComplete, setIsAnimationComplete] =
     useState<boolean>(false);
 
-  useEffect(() => {
+  useEffect((): (() => void) => {
     const markPageReady = (observer: MutationObserver): void => {
       if (
         document.querySelectorAll('#smooth-content main > section').length ===

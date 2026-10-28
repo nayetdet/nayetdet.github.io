@@ -19,8 +19,8 @@ export const useScrollSmoother = (): void => {
       });
     };
 
-    const useIdleCallback = 'requestIdleCallback' in window;
-    const scheduled = useIdleCallback
+    const useIdleCallback: boolean = 'requestIdleCallback' in window;
+    const scheduled: number = useIdleCallback
       ? window.requestIdleCallback(createSmoother, { timeout: 1000 })
       : window.setTimeout(createSmoother, 250);
 

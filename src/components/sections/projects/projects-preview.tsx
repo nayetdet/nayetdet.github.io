@@ -19,7 +19,7 @@ export const ProjectsPreview = ({
   const contentRef: React.RefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): (() => void) | undefined => {
     const content: HTMLDivElement | null = contentRef.current;
     if (content === null) {
       return;
@@ -31,7 +31,8 @@ export const ProjectsPreview = ({
 
     observer.observe(content);
     setContentHeight(content.scrollHeight);
-    return () => observer.disconnect();
+
+    return (): void => observer.disconnect();
   }, []);
 
   return (

@@ -64,7 +64,7 @@ export const ProjectCardGallery = ({
       )}
       <Dialog
         open={openImage !== null}
-        onOpenChange={(open) => {
+        onOpenChange={(open: boolean): void => {
           if (!open) {
             setOpenImage(null);
           }

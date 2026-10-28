@@ -63,11 +63,11 @@ export const Carousel = ({
     { ...opts, axis: orientation === 'horizontal' ? 'x' : 'y' },
     plugins,
   );
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-  const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const [canScrollPrev, setCanScrollPrev] = React.useState<boolean>(false);
+  const [canScrollNext, setCanScrollNext] = React.useState<boolean>(false);
 
   const onSelect = React.useCallback(
-    (selectedApi: CarouselApi) => {
+    (selectedApi: CarouselApi): void => {
       if (selectedApi === undefined) {
         return;
       }
@@ -79,8 +79,12 @@ export const Carousel = ({
     [onSlideChange],
   );
 
-  const scrollPrev = React.useCallback(() => api?.scrollPrev(), [api]);
-  const scrollNext = React.useCallback(() => api?.scrollNext(), [api]);
+  const scrollPrev = React.useCallback((): void => {
+    api?.scrollPrev();
+  }, [api]);
+  const scrollNext = React.useCallback((): void => {
+    api?.scrollNext();
+  }, [api]);
 
   React.useEffect(() => {
     if (api === undefined) {

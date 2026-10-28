@@ -21,12 +21,13 @@ export const useScrollReveal = (
     const elements = Array.from(
       root?.querySelectorAll<HTMLElement>(selector) ?? [],
     );
+
     if (!root || !elements.length) {
       return undefined;
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries: IntersectionObserverEntry[]): void => {
         if (!entries[0]?.isIntersecting) {
           return;
         }

@@ -1,13 +1,24 @@
 import { useRef, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CloudUpload, PanelsTopLeft, Server } from 'lucide-react';
+import {
+  CloudUpload,
+  PanelsTopLeft,
+  Server,
+  type LucideIcon,
+} from 'lucide-react';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+
+interface Highlight {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
 
 export const ExperienceHighlights = (): ReactElement => {
   const { t } = useTranslation();
   const highlightsRef = useRef<HTMLDivElement>(null);
   useScrollReveal(highlightsRef, '[data-highlight]');
-  const highlights = [
+  const highlights: Highlight[] = [
     {
       icon: PanelsTopLeft,
       title: t('experience.highlights.platforms.title'),

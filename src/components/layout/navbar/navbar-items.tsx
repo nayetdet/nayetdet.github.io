@@ -19,7 +19,7 @@ export const NavbarItems = memo(
     variant,
   }: NavbarItemsProps): ReactElement => {
     const { t } = useTranslation();
-    const isMobile = variant === 'mobile';
+    const isMobile: boolean = variant === 'mobile';
 
     return (
       <ul
@@ -30,7 +30,7 @@ export const NavbarItems = memo(
         }
       >
         {items.map(({ id }: Section): ReactElement => {
-          const label = t(`navigation.${id}`);
+          const label: string = t(`navigation.${id}`);
 
           return (
             <li

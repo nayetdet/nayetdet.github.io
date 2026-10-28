@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, type ReactElement } from 'react';
 import gsap from 'gsap';
 import { usePortfolio } from '@/hooks/use-portfolio';
+import type { About } from '@/types/portfolio/about/about';
 
 interface LoadingProps {
   isVisible: boolean;
@@ -11,7 +12,7 @@ export const Loading = ({
   isVisible,
   onAnimationComplete,
 }: LoadingProps): ReactElement => {
-  const about = usePortfolio('about');
+  const about: About = usePortfolio('about');
   const loaderRef = useRef<HTMLOutputElement>(null);
 
   useEffect((): (() => void) | undefined => {

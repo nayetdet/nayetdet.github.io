@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/hero/hero-section';
 import { Loading } from '@/components/layout/loading';
 import { useLocale } from '@/hooks/use-locale';
 import { useScrollSmoother } from '@/hooks/use-scroll-smoother';
-import { useLoading } from '@/hooks/use-loading';
+import { useLoading, type UseLoadingReturn } from '@/hooks/use-loading';
 import Navbar from '@/components/layout/navbar/navbar';
 
 const content = {
@@ -19,7 +19,7 @@ const content = {
 export const App = (): ReactElement => {
   useLocale();
   useScrollSmoother();
-  const loading = useLoading(content.sections);
+  const loading: UseLoadingReturn = useLoading(content.sections);
   return (
     <>
       <Loading
