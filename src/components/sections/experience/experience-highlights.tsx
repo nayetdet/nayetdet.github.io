@@ -34,11 +34,11 @@ export const ExperienceHighlights = (): ReactElement => {
         <article
           data-highlight
           key={title}
-          className="flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
+          className="group flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
         >
           <Icon
             aria-hidden="true"
-            className="mt-0.5 size-11 shrink-0 rounded-xl bg-gray-100 p-2.5 text-[#191919] dark:bg-[#252525] dark:text-white"
+            className="mt-0.5 size-7 shrink-0 text-[#191919] dark:text-white"
           />
           <div className="min-w-0">
             <h3 className="text-[clamp(1.25rem,1.5vw,1.5rem)] leading-[1.15] font-semibold tracking-[-0.03em] text-[#191919] dark:text-white">
