@@ -35,7 +35,7 @@ export const HeroBackground = ({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 48%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 52%, rgba(255, 255, 255, 0.2) 82%, transparent 100%)',
+              'radial-gradient(ellipse at 50% 48%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.5) 52%, rgba(255, 255, 255, 0.1) 82%, transparent 100%)',
           }}
         />
       )}
