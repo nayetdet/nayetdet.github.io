@@ -62,8 +62,8 @@ export const Loading = ({
           {
             autoAlpha: 1,
             clipPath: 'inset(0 0% 0 0)',
-            duration: 0.8,
-            ease: 'power4.out',
+            duration: 1.15,
+            ease: 'power3.out',
             x: 0,
           },
         )
@@ -72,30 +72,31 @@ export const Loading = ({
           { autoAlpha: 0, strokeDasharray: 240, strokeDashoffset: 240 },
           {
             autoAlpha: 0.85,
-            duration: 0.9,
-            ease: 'power2.out',
+            duration: 1.45,
+            ease: 'sine.inOut',
             strokeDashoffset: 0,
           },
-          '-=0.45',
+          '-=0.65',
         )
+        .to({}, { duration: 0.65 })
         .call(onAnimationComplete);
     } else {
       timeline
         .to('[data-loading-content]', {
           autoAlpha: 0,
-          duration: 0.3,
-          ease: 'power3.in',
-          scale: 0.94,
-          y: -20,
+          duration: 0.55,
+          ease: 'sine.inOut',
+          scale: 0.98,
+          y: -12,
         })
         .to(
           loader,
           {
             clipPath: 'circle(0% at 50% 50%)',
-            duration: 1.1,
-            ease: 'power4.inOut',
+            duration: 1.35,
+            ease: 'power3.inOut',
           },
-          '<0.1',
+          '<0.05',
         )
         .set(loader, { autoAlpha: 0 });
     }
