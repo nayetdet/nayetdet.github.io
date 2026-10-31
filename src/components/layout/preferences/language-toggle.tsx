@@ -1,6 +1,6 @@
 import { useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Check, ChevronDown, Languages } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
 import BR from 'country-flag-icons/react/3x2/BR';
 import US from 'country-flag-icons/react/3x2/US';
 import { Button } from '@/components/ui/button';
@@ -15,6 +15,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { LanguageIcon } from '@/components/icons/language-icon';
 import { useLanguage, type UseLanguageReturn } from '@/hooks/use-language';
 
 export const LanguageToggle = (): ReactElement => {
@@ -34,9 +35,10 @@ export const LanguageToggle = (): ReactElement => {
               aria-label={t('language.select')}
               className="group h-6 w-auto gap-0 rounded-none p-0 text-[#191919] hover:bg-transparent hover:text-[#191919] focus-visible:ring-0 dark:text-white dark:hover:text-white"
             >
-              <Languages
+              <LanguageIcon
                 aria-hidden="true"
-                className="size-6 transition-transform duration-300 ease-out group-hover:-rotate-6 group-aria-expanded:-rotate-6 motion-reduce:transition-none"
+                className="size-6"
+                isTilted={isOpen}
               />
               <ChevronDown
                 aria-hidden="true"

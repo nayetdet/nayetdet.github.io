@@ -49,7 +49,7 @@ export const Navbar = (): ReactElement => {
   return (
     <>
       <nav
-        className="fixed top-4 left-1/2 z-50 w-[calc(100%-3rem)] -translate-x-1/2 transform md:w-max"
+        className="fixed top-4 left-1/2 z-50 w-[calc(100%-3rem)] -translate-x-1/2 md:w-max"
         aria-label={t('navigation.title')}
       >
         <div

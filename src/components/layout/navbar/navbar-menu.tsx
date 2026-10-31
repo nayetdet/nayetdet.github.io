@@ -39,7 +39,7 @@ export const NavbarMenu = memo(
             <SheetTitle className="sr-only">
               {t('navigation.mobileMenu')}
             </SheetTitle>
-            <div className="absolute top-4 left-1/2 flex h-14 w-[calc(100%-3rem)] -translate-x-1/2 transform items-center justify-between rounded-full border border-[#191919]/20! bg-white/20 px-8 shadow-lg backdrop-blur-sm sm:px-12 dark:border-white/25! dark:bg-black/20">
+            <div className="absolute top-4 left-1/2 flex h-14 w-[calc(100%-3rem)] -translate-x-1/2 items-center justify-between rounded-full border border-[#191919]/20! bg-white/20 px-8 shadow-lg backdrop-blur-sm sm:px-12 dark:border-white/25! dark:bg-black/20">
               <Logo />
               <div className="flex items-center gap-2">
                 <LanguageToggle />
