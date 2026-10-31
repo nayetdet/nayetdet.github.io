@@ -62,8 +62,8 @@ export const Loading = ({
           {
             autoAlpha: 1,
             clipPath: 'inset(0 0% 0 0)',
-            duration: 1.15,
-            ease: 'power3.out',
+            duration: 1.55,
+            ease: 'sine.out',
             x: 0,
           },
         )
