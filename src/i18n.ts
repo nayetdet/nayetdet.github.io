@@ -105,7 +105,7 @@ const resources = {
       },
       footer: {
         navigation: 'Navigation',
-        contactNetworks: 'Contact & Networks',
+        contactNetworks: 'Contact',
         followMe: 'Follow me:',
         backToTop: 'Back to top',
         rights: 'All rights reserved.',
@@ -157,22 +157,22 @@ const resources = {
       experience: {
         title: 'Experiência',
         description:
-          'Atuo no desenvolvimento de produtos digitais de ponta a ponta: do front-end e das APIs à infraestrutura e à publicação.',
+          'Desenvolvo aplicações web de ponta a ponta, conectando interfaces, APIs, dados e infraestrutura para entregar produtos completos.',
         highlights: {
           platforms: {
             title: 'Frontend',
             description:
-              'Crio interfaces responsivas e acessíveis, alinhadas às necessidades de cada produto.',
+              'Crio experiências funcionais e responsivas alinhadas às necessidades de cada produto.',
           },
           systems: {
             title: 'Backend',
             description:
-              'Conecto sistemas, dados e regras de negócio por meio de APIs e serviços.',
+              'Desenvolvo APIs e serviços que conectam regras de negócio, dados e aplicações.',
           },
           data: {
             title: 'Infraestrutura e DevOps',
             description:
-              'Automatizo ambientes e publicações para levar aplicações à produção com confiança.',
+              'Estruturo ambientes e automatizo entregas para levar produtos à produção.',
           },
         },
         trajectory: 'Trajetória',
@@ -202,7 +202,7 @@ const resources = {
       contact: {
         title: 'Contato',
         description:
-          'Tem um projeto, uma ideia ou uma oportunidade em mente? Me chama para conversarmos.',
+          'Tem um projeto, uma ideia ou uma oportunidade em mente? Entre em contato e vamos conversar.',
         usefulLinks: 'Links úteis:',
         sendMessage: 'Envie uma mensagem',
         emailSubject: 'Contato pelo portfólio: {{name}}',
