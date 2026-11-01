@@ -48,7 +48,7 @@ export const AboutSection = (): ReactElement => {
             <EducationTimeline />
             <div
               data-about-reveal
-              className="flex flex-wrap justify-center gap-3 lg:justify-start"
+              className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap"
             >
               <CvButton />
               <ProjectsButton />
