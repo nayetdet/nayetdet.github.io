@@ -52,7 +52,7 @@ export const ExperienceTrajectoryWaves = (): ReactElement => {
         highlightColor={isDarkTheme ? '#858585' : '#000000'}
         lineCount={34}
         lineWidth={isDarkTheme ? 1.3 : 1.05}
-        opacity={isDarkTheme ? 0.19 : 0.07}
+        opacity={0.5}
         baseIntensity={1}
         shimmerIntensity={0}
         lineIntensityVariation={0.24}
