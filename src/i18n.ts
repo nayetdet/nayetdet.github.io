@@ -88,6 +88,7 @@ const resources = {
         frontend: 'Frontend',
         databases: 'Databases',
         infrastructure: 'Infrastructure and DevOps',
+        observability: 'Observability',
       },
       contact: {
         title: 'Contact',
@@ -198,6 +199,7 @@ const resources = {
         frontend: 'Frontend',
         databases: 'Bancos de dados',
         infrastructure: 'Infraestrutura e DevOps',
+        observability: 'Observabilidade',
       },
       contact: {
         title: 'Contato',

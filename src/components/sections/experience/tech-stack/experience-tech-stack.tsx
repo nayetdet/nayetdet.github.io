@@ -26,7 +26,7 @@ export const ExperienceTechStack = (): ReactElement => {
       </p>
       <div
         ref={cardsRef}
-        className="grid gap-[clamp(1.25rem,2vw,2rem)] md:grid-cols-2"
+        className="grid gap-[clamp(1.25rem,2vw,2rem)] md:auto-rows-fr md:grid-cols-2"
       >
         {techStack.categories.map((stack: TechStackCategory): ReactElement => (
           <TechStackCard key={stack.category} stack={stack} />
