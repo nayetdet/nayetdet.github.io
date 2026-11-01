@@ -20,14 +20,14 @@ export const ExperienceHighlights = (): ReactElement => {
   useScrollReveal(highlightsRef, '[data-highlight]');
   const highlights: Highlight[] = [
     {
-      icon: PanelsTopLeft,
-      title: t('experience.highlights.platforms.title'),
-      description: t('experience.highlights.platforms.description'),
-    },
-    {
       icon: Server,
       title: t('experience.highlights.systems.title'),
       description: t('experience.highlights.systems.description'),
+    },
+    {
+      icon: PanelsTopLeft,
+      title: t('experience.highlights.platforms.title'),
+      description: t('experience.highlights.platforms.description'),
     },
     {
       icon: CloudUpload,
