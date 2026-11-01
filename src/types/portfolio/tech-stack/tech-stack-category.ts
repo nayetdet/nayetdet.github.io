@@ -3,7 +3,12 @@ import type { TechStackItem } from './tech-stack-item';
 
 export interface TechStackCategory {
   category:
-    'backend' | 'frontend' | 'databases' | 'infrastructure' | 'observability';
+    | 'backend'
+    | 'frontend'
+    | 'databases'
+    | 'messaging'
+    | 'infrastructure'
+    | 'observability';
   icon: LucideIcon;
   items: TechStackItem[];
 }

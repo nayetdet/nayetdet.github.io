@@ -72,6 +72,7 @@ export const techStacks = {
   rabbitMq: { name: 'RabbitMQ', icon: SiRabbitmq },
   kafka: { name: 'Apache Kafka', icon: SiApachekafka },
   docker: { name: 'Docker', icon: SiDocker },
+  dockerSwarm: { name: 'Docker Swarm', icon: SiDocker },
   kubernetes: { name: 'Kubernetes', icon: SiKubernetes },
   helm: { name: 'Helm', icon: SiHelm },
   argocd: { name: 'Argo CD', icon: SiArgo },

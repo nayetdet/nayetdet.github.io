@@ -11,8 +11,8 @@ export const EducationTimeline = (): ReactElement => {
   const entries: Education[] = usePortfolio('about').education;
 
   return (
-    <div className="mb-[clamp(3rem,5vw,4.5rem)]">
-      <h5 className="mb-8 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+    <div className="mb-[clamp(3.5rem,5vw,5rem)]">
+      <h5 className="mb-9 text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
         {t('about.education')}
       </h5>
       <Timeline
@@ -26,7 +26,7 @@ export const EducationTimeline = (): ReactElement => {
             endDate: entry.endDate,
             content: (
               <div>
-                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#6b6b6b] dark:text-gray-400">
+                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1rem,1.05vw,1.125rem)]/[1.5] font-medium tracking-[-0.01em] text-[#6b6b6b] dark:text-gray-400">
                   <CalendarDays
                     aria-hidden="true"
                     className="size-4.5 justify-self-center text-[#6b6b6b] dark:text-gray-400"
@@ -36,14 +36,14 @@ export const EducationTimeline = (): ReactElement => {
                     {entry.endDate ? formatDate(entry.endDate) : endDate}
                   </span>
                 </time>
-                <h6 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.125rem,1.4vw,1.375rem)] leading-tight font-semibold tracking-[-0.02em] text-[#191919] dark:text-white">
+                <h6 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
                   <Building2
                     aria-hidden="true"
                     className="size-5 justify-self-center text-[#191919] dark:text-white"
                   />
                   <span>{entry.institution}</span>
                 </h6>
-                <p className="mt-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+                <p className="mt-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.0625rem,1.15vw,1.1875rem)]/[1.6] font-normal tracking-[-0.015em] text-[#525252] dark:text-gray-300">
                   <GraduationCap
                     aria-hidden="true"
                     className="size-5 justify-self-center text-[#525252] dark:text-gray-300"

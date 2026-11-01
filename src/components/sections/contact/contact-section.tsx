@@ -14,9 +14,9 @@ export const ContactSection = (): ReactElement => {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 bg-gray-50 pt-[clamp(6rem,12vh,10rem)] pb-[clamp(7rem,14vh,12rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 pt-[clamp(7rem,13vh,11rem)] pb-[clamp(8rem,15vh,13rem)] dark:bg-[#121212]"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12">
+      <div className="mx-auto max-w-7xl px-[clamp(1.5rem,5vw,4rem)]">
         <SectionTitle description={t('contact.description')}>
           {t('contact.title')}
         </SectionTitle>

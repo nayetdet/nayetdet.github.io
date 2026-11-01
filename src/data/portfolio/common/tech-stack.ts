@@ -2,6 +2,7 @@ import {
   Activity,
   CloudUpload,
   Database,
+  MessagesSquare,
   PanelsTopLeft,
   Server,
 } from 'lucide-react';
@@ -22,8 +23,6 @@ export const techStack: TechStack = {
         techStacks.flask,
         techStacks.nodeJs,
         techStacks.keycloak,
-        techStacks.rabbitMq,
-        techStacks.kafka,
       ],
     },
     {
@@ -51,10 +50,16 @@ export const techStack: TechStack = {
       ],
     },
     {
+      icon: MessagesSquare,
+      category: 'messaging',
+      items: [techStacks.rabbitMq, techStacks.kafka],
+    },
+    {
       icon: CloudUpload,
       category: 'infrastructure',
       items: [
         techStacks.docker,
+        techStacks.dockerSwarm,
         techStacks.kubernetes,
         techStacks.helm,
         techStacks.argocd,
@@ -62,8 +67,8 @@ export const techStack: TechStack = {
         techStacks.aws,
         techStacks.terraform,
         techStacks.ansible,
-        techStacks.githubActions,
         techStacks.git,
+        techStacks.githubActions,
         techStacks.linux,
         techStacks.bash,
       ],

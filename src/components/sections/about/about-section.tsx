@@ -20,13 +20,13 @@ export const AboutSection = (): ReactElement => {
   return (
     <section
       id="about"
-      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(7rem,13vh,11rem)] dark:bg-[#121212]"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12">
+      <div className="mx-auto max-w-7xl px-[clamp(1.5rem,5vw,4rem)]">
         <SectionTitle>{t('about.title')}</SectionTitle>
         <div
           ref={contentRef}
-          className="flex flex-col items-start gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch"
+          className="flex flex-col items-start gap-[clamp(3rem,5.5vw,5.5rem)] md:flex-row md:items-stretch"
         >
           <AboutProfile />
           <div className="flex-1">
@@ -41,7 +41,7 @@ export const AboutSection = (): ReactElement => {
             <AboutProfileSpecialties />
             <p
               data-about-reveal
-              className="mb-[clamp(3rem,5vw,4.5rem)] max-w-3xl text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300"
+              className="mb-[clamp(3.5rem,5vw,5rem)] max-w-3xl text-[clamp(1.125rem,1.35vw,1.375rem)]/[1.65] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300"
             >
               {about.introduction.biography}
             </p>

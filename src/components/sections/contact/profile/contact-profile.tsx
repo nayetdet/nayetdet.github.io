@@ -14,7 +14,7 @@ export const ContactProfile = (): ReactElement => {
 
   return (
     <div>
-      <div className="mb-[clamp(2.5rem,4vw,4rem)]">
+      <div className="mb-[clamp(3rem,4vw,4.5rem)]">
         <div className="flex items-center gap-4">
           <div className="relative size-20 shrink-0 overflow-hidden rounded-full shadow-[0_6px_16px_rgb(25_25_25/0.12)] ring-1 ring-[#191919]/15 transition-all duration-200 ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none sm:size-24 dark:shadow-none dark:ring-0">
             <Image
@@ -25,21 +25,21 @@ export const ContactProfile = (): ReactElement => {
             />
           </div>
           <div className="flex w-fit flex-col items-start">
-            <h3 className="text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
               {about.identity.firstName}
             </h3>
-            <p className="mt-2.5 inline-flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#6b6b6b] dark:text-gray-400">
+            <p className="mt-3 inline-flex items-center gap-2 text-[clamp(1rem,1.05vw,1.125rem)]/[1.5] font-medium tracking-[-0.01em] text-[#6b6b6b] dark:text-gray-400">
               <BriefcaseBusiness
                 className="size-4.5 shrink-0"
                 aria-hidden="true"
               />
-              {about.identity.role}
+              <span className="whitespace-nowrap">{about.identity.role}</span>
             </p>
           </div>
         </div>
       </div>
       <div className="mb-5">
-        <h4 className="mb-5 text-[clamp(1.375rem,1.8vw,1.75rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+        <h4 className="mb-6 text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
           {t('contact.usefulLinks')}
         </h4>
         <SocialNetworks variant="pill" className="flex-nowrap" />

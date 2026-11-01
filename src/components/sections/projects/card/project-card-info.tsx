@@ -30,8 +30,8 @@ export const ProjectCardInfo = ({
   siteUrl,
   websiteAriaLabel,
 }: ProjectCardInfoProps): ReactElement => (
-  <div className="flex flex-1 flex-col p-[clamp(1.5rem,2.5vw,2.5rem)]">
-    <h3 className="mb-5 text-[clamp(1.75rem,2.8vw,3rem)] leading-none font-semibold tracking-[-0.045em] text-[#191919] dark:text-white">
+  <div className="flex flex-1 flex-col p-[clamp(1.75rem,3vw,3rem)]">
+    <h3 className="mb-6 text-[clamp(1.875rem,2.8vw,3rem)] leading-[1.02] font-semibold tracking-tighter text-balance wrap-break-word text-[#191919] dark:text-white">
       <Tooltip>
         <TooltipTrigger asChild>
           <a
@@ -39,10 +39,13 @@ export const ProjectCardInfo = ({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={websiteAriaLabel}
-            className="inline-flex items-center gap-2 transition-colors hover:text-[#555555] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#191919] dark:hover:text-gray-300 dark:focus-visible:outline-white"
+            className="inline transition-colors hover:text-[#555555] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#191919] dark:hover:text-gray-300 dark:focus-visible:outline-white"
           >
             {title}
-            <ExternalLink className="size-[0.9em]" aria-hidden="true" />
+            <ExternalLink
+              className="relative top-[-0.08em] ml-[0.18em] inline size-[0.9em] align-middle"
+              aria-hidden="true"
+            />
           </a>
         </TooltipTrigger>
         <TooltipContent
@@ -54,10 +57,10 @@ export const ProjectCardInfo = ({
         </TooltipContent>
       </Tooltip>
     </h3>
-    <p className="text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+    <p className="text-[clamp(1.125rem,1.25vw,1.3125rem)]/[1.6] font-normal tracking-[-0.015em] text-[#525252] dark:text-gray-300">
       {description}
     </p>
-    <div className="mt-auto pt-6">
+    <div className="mt-auto pt-7">
       <Carousel
         opts={{ align: 'start', dragFree: true }}
         aria-label="Tecnologias do projeto"

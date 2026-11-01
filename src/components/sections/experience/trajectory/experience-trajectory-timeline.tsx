@@ -29,7 +29,7 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
             endDate: experience.endDate,
             content: (
               <article>
-                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#6b6b6b] dark:text-gray-400">
+                <time className="mb-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1rem,1.05vw,1.125rem)]/[1.5] font-medium tracking-[-0.01em] text-[#6b6b6b] dark:text-gray-400">
                   <CalendarDays
                     aria-hidden="true"
                     className="size-4.5 justify-self-center text-[#6b6b6b] dark:text-gray-400"
@@ -38,24 +38,24 @@ export const ExperienceTrajectoryTimeline = (): ReactElement => {
                     {formatDate(experience.startDate)} – {endDate}
                   </span>
                 </time>
-                <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+                <h4 className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
                   <BriefcaseBusiness
                     aria-hidden="true"
                     className="size-5 justify-self-center text-[#191919] dark:text-white"
                   />
                   <span>{experience.position}</span>
                 </h4>
-                <p className="mt-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+                <p className="mt-3 grid grid-cols-[1.5rem_minmax(0,1fr)] items-center gap-3 text-[clamp(1.0625rem,1.15vw,1.1875rem)]/[1.6] font-normal tracking-[-0.015em] text-[#525252] dark:text-gray-300">
                   <Building2
                     aria-hidden="true"
                     className="size-4.5 justify-self-center text-[#525252] dark:text-gray-300"
                   />
                   <span className="min-w-0">{experience.name}</span>
                 </p>
-                <p className="mt-5 max-w-xl text-[1.0625rem]/[1.6] font-normal tracking-[-0.01em] text-[#666666] dark:text-gray-400">
+                <p className="mt-5 max-w-xl text-[clamp(1.0625rem,1.15vw,1.1875rem)]/[1.6] font-normal tracking-[-0.015em] text-[#666666] dark:text-gray-400">
                   {experience.summary}
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2.5">
+                <div className="mt-7 flex flex-wrap gap-2.5">
                   {experience.techStack.map((technology): ReactElement => {
                     const Icon = technology.icon;
 

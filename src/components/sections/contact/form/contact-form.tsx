@@ -39,7 +39,7 @@ export const ContactForm = (): ReactElement => {
 
   return (
     <div>
-      <h3 className="mb-7 text-[clamp(1.375rem,2vw,1.875rem)] leading-[1.12] font-semibold tracking-[-0.035em] text-[#191919] dark:text-white">
+      <h3 className="mb-8 text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
         {t('contact.sendMessage')}
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -55,7 +55,7 @@ export const ContactForm = (): ReactElement => {
                 name="firstName"
                 placeholder={t('contact.firstName')}
                 required
-                className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
+                className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[clamp(1.125rem,1.2vw,1.25rem)]/[1.5] font-medium tracking-[-0.015em] text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
               />
             </Field>
             <Field className="gap-0">
@@ -68,7 +68,7 @@ export const ContactForm = (): ReactElement => {
                 name="lastName"
                 placeholder={t('contact.lastName')}
                 required
-                className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
+                className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[clamp(1.125rem,1.2vw,1.25rem)]/[1.5] font-medium tracking-[-0.015em] text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
               />
             </Field>
           </div>
@@ -82,7 +82,7 @@ export const ContactForm = (): ReactElement => {
               name="email"
               placeholder={t('contact.email')}
               required
-              className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
+              className="h-auto rounded-xl border-0 bg-white px-4 py-3.5 text-[clamp(1.125rem,1.2vw,1.25rem)]/[1.5] font-medium tracking-[-0.015em] text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
             />
           </Field>
           <Field className="gap-0">
@@ -95,7 +95,7 @@ export const ContactForm = (): ReactElement => {
               placeholder={t('contact.message')}
               rows={6}
               required
-              className="resize-none rounded-xl border-0 bg-white px-4 py-3.5 text-[1.0625rem] font-medium text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
+              className="resize-none rounded-xl border-0 bg-white px-4 py-3.5 text-[clamp(1.125rem,1.2vw,1.25rem)]/[1.5] font-medium tracking-[-0.015em] text-gray-900 placeholder-gray-500 shadow-[0_3px_10px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-shadow ring-inset focus-visible:ring-[#191919] dark:bg-[#1a1a1a] dark:text-white dark:placeholder-gray-400 dark:shadow-none dark:ring-0 dark:focus-visible:ring-white"
             />
           </Field>
         </FieldGroup>

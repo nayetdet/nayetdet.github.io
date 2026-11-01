@@ -65,6 +65,9 @@ export const Loading = ({
             duration: 1.55,
             ease: 'sine.out',
             x: 0,
+            onComplete: (): void => {
+              gsap.set('[data-loading-name]', { clearProps: 'clipPath' });
+            },
           },
         )
         .fromTo(
@@ -118,11 +121,11 @@ export const Loading = ({
       <span data-loading-content className="inline-flex">
         <span
           data-loading-name
-          className="relative inline-block pb-10 text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
+          className="relative inline-block pr-1 pb-10 text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
         >
           {about.identity.firstName}
           <svg
-            className="absolute top-[calc(100%-1.25rem)] left-0 h-5 w-full overflow-hidden text-[#1d4ed8]/70 dark:text-[#858585]"
+            className="absolute top-[calc(100%-1.25rem)] left-0 h-5 w-[calc(100%+0.12em)] overflow-hidden text-[#1d4ed8]/70 dark:text-[#858585]"
             viewBox="0 0 240 20"
             fill="none"
             preserveAspectRatio="none"

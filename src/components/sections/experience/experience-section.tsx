@@ -21,19 +21,19 @@ export const ExperienceSection = (): ReactElement => {
   return (
     <section
       id="experience"
-      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(7rem,13vh,11rem)] dark:bg-[#121212]"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12">
+      <div className="mx-auto max-w-7xl px-[clamp(1.5rem,5vw,4rem)]">
         <SectionTitle>{t('experience.title')}</SectionTitle>
         <div
           ref={introRef}
-          className="mb-[clamp(5rem,10vw,8rem)] flex flex-col gap-[clamp(2.5rem,5vw,5rem)] md:flex-row md:items-stretch"
+          className="mb-[clamp(5.5rem,10vw,9rem)] flex flex-col gap-[clamp(3rem,5.5vw,5.5rem)] md:flex-row md:items-stretch"
         >
           <div
             data-experience-reveal
             className="flex w-full flex-col gap-[clamp(2.5rem,4vw,4rem)] md:flex-1"
           >
-            <p className="w-full max-w-2xl text-left text-[clamp(1.0625rem,1.2vw,1.25rem)]/[1.65] font-normal tracking-[-0.015em] text-[#404040] dark:text-gray-300">
+            <p className="w-full max-w-2xl text-left text-[clamp(1.125rem,1.35vw,1.375rem)]/[1.65] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
               {t('experience.description')}
             </p>
             <ExperienceHighlights />

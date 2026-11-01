@@ -23,14 +23,14 @@ export const SectionTitle = ({
       ref={titleRef}
       className={
         description
-          ? 'mb-[clamp(3.5rem,5vw,4.5rem)]'
-          : 'mb-[clamp(3.5rem,6vw,5.5rem)]'
+          ? 'mb-[clamp(4rem,6vw,5.5rem)]'
+          : 'mb-[clamp(4rem,7vw,6.5rem)]'
       }
     >
-      <div className="flex items-end gap-[clamp(1.25rem,3vw,2.75rem)]">
+      <div className="flex items-end gap-[clamp(1.25rem,3vw,3rem)]">
         <h2
           data-section-title-reveal
-          className="text-[clamp(3.125rem,6.5vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.065em] whitespace-nowrap text-[#191919] dark:text-white"
+          className="text-[clamp(3.5rem,7vw,8.25rem)] leading-[0.9] font-semibold tracking-[-0.07em] whitespace-nowrap text-[#191919] dark:text-white"
         >
           {children}
         </h2>
@@ -42,7 +42,7 @@ export const SectionTitle = ({
       {description && (
         <p
           data-section-title-reveal
-          className="mt-[clamp(1.75rem,3vw,2.75rem)] max-w-2xl text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.6] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300"
+          className="mt-[clamp(2rem,3vw,3rem)] max-w-2xl text-[clamp(1.125rem,1.35vw,1.375rem)]/[1.65] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300"
         >
           {description}
         </p>

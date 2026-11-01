@@ -39,23 +39,23 @@ export const ExperienceHighlights = (): ReactElement => {
   return (
     <div
       ref={highlightsRef}
-      className="grid gap-[clamp(1.25rem,2vw,1.75rem)] sm:grid-cols-3 md:grid-cols-1"
+      className="grid gap-[clamp(1.5rem,2.5vw,2rem)] sm:grid-cols-3 md:grid-cols-1"
     >
       {highlights.map(({ icon: Icon, title, description }) => (
         <article
           data-highlight
           key={title}
-          className="group flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.25rem,2vw,1.75rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
+          className="group flex items-start gap-4 rounded-2xl border-0 bg-white p-[clamp(1.5rem,2.5vw,2rem)] shadow-[0_10px_30px_rgb(25_25_25/0.08)] ring-1 ring-[#191919]/15 transition-all duration-500 ease-out ring-inset hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgb(25_25_25/0.1)] motion-reduce:transform-none motion-reduce:transition-none dark:bg-[#1a1a1a] dark:shadow-none dark:ring-0"
         >
           <Icon
             aria-hidden="true"
             className="mt-0.5 size-7 shrink-0 text-[#191919] dark:text-white"
           />
           <div className="min-w-0">
-            <h3 className="text-[clamp(1.25rem,1.5vw,1.5rem)] leading-[1.15] font-semibold tracking-[-0.03em] text-[#191919] dark:text-white">
+            <h3 className="text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.1] font-semibold tracking-[-0.04em] text-[#191919] dark:text-white">
               {title}
             </h3>
-            <p className="mt-2.5 text-base/[1.6] font-normal tracking-[-0.01em] text-[#525252] dark:text-gray-300">
+            <p className="mt-3 text-[clamp(1.0625rem,1.15vw,1.1875rem)]/[1.6] font-normal tracking-[-0.015em] text-[#525252] dark:text-gray-300">
               {description}
             </p>
           </div>

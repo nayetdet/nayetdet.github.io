@@ -23,9 +23,9 @@ export const ProjectsSection = (): ReactElement => {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 bg-gray-50 py-[clamp(6rem,12vh,10rem)] dark:bg-[#121212]"
+      className="scroll-mt-24 bg-gray-50 py-[clamp(7rem,13vh,11rem)] dark:bg-[#121212]"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12">
+      <div className="mx-auto max-w-7xl px-[clamp(1.5rem,5vw,4rem)]">
         <SectionTitle description={t('projects.description')}>
           {t('projects.title')}
         </SectionTitle>
@@ -72,7 +72,7 @@ export const ProjectsSection = (): ReactElement => {
                     ) ?? window.scrollY;
                   setIsExpanded(true);
                 }}
-                className="absolute inset-x-0 bottom-4 mx-auto cursor-pointer text-[0.9375rem]/[1.25] font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-5 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+                className="absolute inset-x-0 bottom-4 mx-auto cursor-pointer text-base/tight font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] sm:bottom-5 dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
               >
                 {t('projects.showMore')}
               </button>
@@ -97,7 +97,7 @@ export const ProjectsSection = (): ReactElement => {
 
                 window.setTimeout(() => setIsExpanded(false), 350);
               }}
-              className="cursor-pointer text-[0.9375rem]/[1.25] font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
+              className="cursor-pointer text-base/tight font-semibold tracking-[-0.005em] text-[#404040] underline decoration-[#a3a3a3] underline-offset-4 transition-colors hover:text-[#191919] dark:text-gray-300 dark:decoration-[#525252] dark:hover:text-white"
             >
               {t('projects.showLess')}
             </button>
