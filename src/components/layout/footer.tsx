@@ -68,7 +68,7 @@ export const Footer = (): ReactElement => {
                 </a>
               </div>
             </div>
-            <div className="mb-4 flex items-center gap-3">
+            <div className="mb-4 flex items-center gap-2">
               <Globe
                 className="size-3.5 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
@@ -76,7 +76,11 @@ export const Footer = (): ReactElement => {
               <p className="text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">
                 {t('footer.followMe')}
               </p>
-              <SocialNetworks iconClassName="text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white" />
+              <SocialNetworks
+                className="-ml-1 gap-0"
+                iconClassName="size-4 text-gray-500 transition-colors duration-300 hover:text-[#191919] dark:text-gray-400 dark:hover:text-white"
+                tooltipSide="bottom"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2 text-[0.9375rem]/[1.45] font-medium tracking-[-0.005em] text-[#525252] dark:text-gray-300">

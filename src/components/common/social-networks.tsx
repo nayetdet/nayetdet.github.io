@@ -9,17 +9,20 @@ import {
 import { cn } from '@/lib/utils';
 
 type SocialNetworksVariant = 'icon' | 'pill';
+type TooltipSide = 'top' | 'right' | 'bottom' | 'left';
 
 interface SocialNetworksProps {
   variant?: SocialNetworksVariant;
   className?: string;
   iconClassName?: string;
+  tooltipSide?: TooltipSide;
 }
 
 export const SocialNetworks = ({
   variant = 'icon',
   className,
   iconClassName,
+  tooltipSide = 'right',
 }: SocialNetworksProps): ReactElement => {
   const { t } = useTranslation();
   const isPillVariant: boolean = variant === 'pill';
@@ -86,7 +89,7 @@ export const SocialNetworks = ({
           ) : (
             <Tooltip key={label}>
               <TooltipTrigger asChild>{link}</TooltipTrigger>
-              <TooltipContent side="right" sideOffset={8}>
+              <TooltipContent side={tooltipSide} sideOffset={8}>
                 {label}
               </TooltipContent>
             </Tooltip>
