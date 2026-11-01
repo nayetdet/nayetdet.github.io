@@ -45,6 +45,7 @@ export const techStack: TechStack = {
       items: [
         techStacks.postgresql,
         techStacks.mysql,
+        techStacks.sqlite,
         techStacks.mongodb,
         techStacks.redis,
       ],
