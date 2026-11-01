@@ -12,6 +12,10 @@ interface LineWavesProps {
   lineWidth?: number;
   opacity?: number;
   baseIntensity?: number;
+  shimmerIntensity?: number;
+  lineIntensityVariation?: number;
+  waveAmplitudeVariation?: number;
+  edgeFade?: number;
   speed?: number;
   intro?: boolean;
   isIntroActive?: boolean;
@@ -47,6 +51,10 @@ export const LineWaves = ({
   lineWidth = 1,
   opacity = 1,
   baseIntensity = 0.34,
+  shimmerIntensity = 1,
+  lineIntensityVariation = 0,
+  waveAmplitudeVariation = 0,
+  edgeFade = 0,
   speed = 0.22,
   intro = false,
   isIntroActive = true,
@@ -161,14 +169,24 @@ export const LineWaves = ({
         const shimmer: number = Math.exp(
           -Math.pow(center - Math.sin(elapsed * 0.55) * 0.16, 2) * 11,
         );
+        const shimmerOpacity: number = shimmer * shimmerIntensity;
+        const lineIntensity: number =
+          1 -
+          Math.min(Math.max(lineIntensityVariation, 0), 1) *
+            ((Math.sin(index * 2.17) + 1) / 2);
+        const waveAmplitude: number =
+          1 +
+          Math.min(Math.max(waveAmplitudeVariation, 0), 1) *
+            Math.sin(index * 1.31);
         const intensity: number =
-          (baseIntensity + shimmer * (1 - baseIntensity)) *
+          (baseIntensity + shimmerOpacity * (1 - baseIntensity)) *
+          lineIntensity *
           opacity *
           introOpacity;
 
         context.beginPath();
         context.strokeStyle = hexToRgba(
-          shimmer > 0.38 ? highlightColor : color,
+          shimmerOpacity > 0.38 ? highlightColor : color,
           intensity,
         );
 
@@ -176,8 +194,12 @@ export const LineWaves = ({
           const x: number = xPositions[point]!;
           const horizontal: number = horizontalPositions[point]!;
           const wave: number =
-            Math.sin(horizontal * 8.4 + elapsed * 2.2 + index * 0.23) * 18 +
-            Math.sin(horizontal * 17 - elapsed * 1.5 + index * 0.1) * 6 +
+            Math.sin(horizontal * 8.4 + elapsed * 2.2 + index * 0.23) *
+              18 *
+              waveAmplitude +
+            Math.sin(horizontal * 17 - elapsed * 1.5 + index * 0.1) *
+              6 *
+              waveAmplitude +
             sharedWave[point]!;
           const y: number =
             index * spacing + wave + (horizontal - 0.5) * height * -0.16;
@@ -190,6 +212,30 @@ export const LineWaves = ({
         }
 
         context.stroke();
+      }
+
+      if (edgeFade > 0) {
+        const fadeSize: number = Math.min(Math.max(edgeFade, 0), 0.5);
+        const edgeGradient: CanvasGradient = context.createLinearGradient(
+          0,
+          0,
+          width,
+          0,
+        );
+        edgeGradient.addColorStop(0, 'rgb(0 0 0 / 0)');
+        edgeGradient.addColorStop(fadeSize * 0.4, 'rgb(0 0 0 / 0.12)');
+        edgeGradient.addColorStop(fadeSize * 0.75, 'rgb(0 0 0 / 0.7)');
+        edgeGradient.addColorStop(fadeSize, 'rgb(0 0 0 / 1)');
+        edgeGradient.addColorStop(1 - fadeSize, 'rgb(0 0 0 / 1)');
+        edgeGradient.addColorStop(1 - fadeSize * 0.75, 'rgb(0 0 0 / 0.7)');
+        edgeGradient.addColorStop(1 - fadeSize * 0.4, 'rgb(0 0 0 / 0.12)');
+        edgeGradient.addColorStop(1, 'rgb(0 0 0 / 0)');
+
+        context.save();
+        context.globalCompositeOperation = 'destination-in';
+        context.fillStyle = edgeGradient;
+        context.fillRect(0, 0, width, height);
+        context.restore();
       }
     };
 

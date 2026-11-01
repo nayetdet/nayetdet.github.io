@@ -19,7 +19,7 @@ export const ExperienceTrajectory = (): ReactElement => {
       <div className="pt-[clamp(1.5rem,3vw,2.5rem)]">
         <div className="relative">
           <ExperienceTrajectoryWaves />
-          <div className="relative z-10 lg:w-1/2">
+          <div className="relative z-10 lg:w-[calc(50%-clamp(1.25rem,2.5vw,2.5rem))]">
             <p className="mb-[clamp(2.5rem,4vw,4rem)] max-w-2xl text-[clamp(1.125rem,1.4vw,1.375rem)]/[1.6] font-normal tracking-[-0.02em] text-[#404040] dark:text-gray-300">
               {t('experience.trajectoryDescription')}
             </p>
