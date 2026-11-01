@@ -31,10 +31,10 @@ export const AboutSection = (): ReactElement => {
           <AboutProfile />
           <div className="flex-1">
             <div data-about-reveal className="mb-[clamp(1.75rem,3vw,2.5rem)]">
-              <h3 className="text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] font-semibold tracking-[-0.055em] text-[#4d4d4d] dark:text-neutral-400">
+              <h3 className="text-[clamp(2.25rem,11vw,3rem)] leading-[0.9] font-semibold tracking-[-0.055em] text-[#4d4d4d] md:text-[clamp(2.5rem,5.5vw,4rem)] md:leading-[0.95] dark:text-neutral-400">
                 {about.identity.firstName}
               </h3>
-              <h4 className="text-[clamp(3.5rem,6.5vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.065em] text-[#191919] dark:text-white">
+              <h4 className="text-[clamp(4.125rem,21vw,6rem)] leading-[0.84] font-semibold tracking-[-0.075em] text-[#191919] md:text-[clamp(4.5rem,9vw,7.5rem)] md:leading-[0.92] md:tracking-[-0.065em] dark:text-white">
                 {about.identity.lastName}
               </h4>
             </div>
