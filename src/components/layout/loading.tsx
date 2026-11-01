@@ -115,28 +115,28 @@ export const Loading = ({
         isVisible ? '' : 'pointer-events-none'
       }`}
     >
-      <span data-loading-content className="inline-flex flex-col items-center">
+      <span data-loading-content className="inline-flex">
         <span
           data-loading-name
-          className="inline-block pr-[0.12em] text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
+          className="relative inline-block pb-10 text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] font-semibold tracking-[-0.045em]"
         >
           {about.identity.firstName}
+          <svg
+            className="absolute top-[calc(100%-1.25rem)] left-0 h-5 w-full overflow-hidden text-[#1d4ed8]/70 dark:text-[#858585]"
+            viewBox="0 0 240 20"
+            fill="none"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              data-loading-wave
+              d="M0 10C20 10 20 4 40 4S60 16 80 16s20-12 40-12 20 12 40 12 20-12 40-12 20 6 40 6"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+            />
+          </svg>
         </span>
-        <svg
-          className="mt-5 h-5 w-full overflow-visible text-[#1d4ed8]/70 dark:text-[#858585]"
-          viewBox="0 0 240 20"
-          fill="none"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            data-loading-wave
-            d="M0 10C20 10 20 4 40 4S60 16 80 16s20-12 40-12 20 12 40 12 20-12 40-12 20 6 40 6"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-          />
-        </svg>
       </span>
     </output>
   );
