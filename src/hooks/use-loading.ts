@@ -20,7 +20,10 @@ export const useLoading = (
         document.querySelector('#smooth-content > footer')
       ) {
         observer.disconnect();
-        void document.fonts.ready.then(() => setIsPageReady(true));
+        void document.fonts
+          .load(getComputedStyle(document.body).font)
+          .then(() => document.fonts.ready)
+          .then(() => setIsPageReady(true));
       }
     };
 
